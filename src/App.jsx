@@ -98,7 +98,19 @@ function App() {
 
   const preContent = path === "/" ? <HomeCarousel /> : null;
 
-  return <Layout preContent={preContent}>{content}</Layout>;
+  const renderedPreContent = preContent ? (
+    <div key={`hero-${path}`} className="route-stage route-stage-hero">
+      {preContent}
+    </div>
+  ) : null;
+
+  const renderedContent = (
+    <div key={path} className="route-stage route-stage-page">
+      {content}
+    </div>
+  );
+
+  return <Layout preContent={renderedPreContent}>{renderedContent}</Layout>;
 }
 
 export default App;

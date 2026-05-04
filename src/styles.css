@@ -23,6 +23,10 @@ body,
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--body-font);
   color: var(--text-strong);
@@ -37,6 +41,25 @@ a {
   color: var(--blue);
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
+  transition:
+    color 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    opacity 220ms ease;
+}
+
+button,
+input,
+textarea,
+select {
+  transition:
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    opacity 220ms ease;
 }
 
 .app-shell {
@@ -69,10 +92,22 @@ a {
   text-decoration: none;
 }
 
+.brand-link:hover,
+.brand-link:focus-visible {
+  transform: translateY(-1px);
+}
+
 .brand-link img {
   width: clamp(190px, 30vw, 320px);
   height: auto;
   display: block;
+  transition: transform 260ms ease, filter 260ms ease;
+}
+
+.brand-link:hover img,
+.brand-link:focus-visible img {
+  transform: scale(1.02);
+  filter: drop-shadow(0 8px 18px rgba(0, 23, 129, 0.14));
 }
 
 .lang-control {
@@ -164,7 +199,11 @@ a {
   padding: 0.35rem 0.45rem;
   border-bottom: 2px solid transparent;
   display: inline-block;
-  transition: color 180ms ease, border-color 180ms ease;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
 }
 
 .nav-list > li.active > a,
@@ -172,6 +211,8 @@ a {
 .nav-list > li > a:focus-visible {
   color: var(--red);
   border-bottom-color: var(--red);
+  background: rgba(169, 14, 17, 0.05);
+  transform: translateY(-1px);
 }
 
 .sub-nav {
@@ -198,6 +239,11 @@ a {
   text-decoration: none;
   padding: 0.35rem 0.45rem;
   border-left: 2px solid transparent;
+  transition:
+    color 180ms ease,
+    border-left-color 180ms ease,
+    background-color 180ms ease,
+    padding-left 180ms ease;
 }
 
 .sub-nav li.active > a,
@@ -206,6 +252,7 @@ a {
   color: var(--red);
   border-left-color: var(--red);
   background: #fff7f7;
+  padding-left: 0.65rem;
 }
 
 .home-carousel-wrap {
@@ -238,13 +285,15 @@ a {
   min-width: var(--carousel-width);
   height: 100%;
   opacity: 0;
-  transition: opacity 520ms ease;
+  transform: scale(1.018);
+  transition: opacity 520ms ease, transform 4600ms ease;
   background-size: cover;
   background-position: center;
 }
 
 .carousel-slide.active {
   opacity: 1;
+  transform: scale(1);
 }
 
 .carousel-slide.courses {
@@ -334,6 +383,19 @@ a {
   animation: rise 360ms ease;
 }
 
+.route-stage {
+  animation: page-enter 480ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: 50% 0%;
+}
+
+.route-stage-hero {
+  animation-duration: 560ms;
+}
+
+.route-stage-page {
+  min-height: 100%;
+}
+
 .page-content-overlap {
   margin-top: -4.15rem;
   position: relative;
@@ -349,6 +411,13 @@ a {
   background: linear-gradient(120deg, rgba(0, 23, 129, 0.09), rgba(255, 255, 255, 0.95));
   border: 1px solid #d9deee;
   padding: clamp(1rem, 2vw, 1.6rem);
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.home-intro:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(0, 23, 129, 0.08);
+  border-color: #c6d0ef;
 }
 
 .home-intro h1 {
@@ -374,6 +443,28 @@ a {
   padding: 1rem;
   display: grid;
   gap: 0.6rem;
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease,
+    border-color 240ms ease,
+    background-color 240ms ease;
+  animation: tile-rise 540ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.home-service-card:nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.home-service-card:nth-child(3) {
+  animation-delay: 140ms;
+}
+
+.home-service-card:hover,
+.home-service-card:focus-within {
+  transform: translateY(-6px);
+  border-color: rgba(169, 14, 17, 0.28);
+  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, #fff8f8 100%);
 }
 
 .home-service-card h3 {
@@ -397,6 +488,7 @@ a {
 .home-service-card a:hover,
 .home-service-card a:focus-visible {
   border-bottom-color: var(--red);
+  transform: translateX(3px);
 }
 
 .home-clients p {
@@ -418,6 +510,19 @@ a {
   padding: 0.6rem 0.7rem;
   font-weight: 600;
   color: #525252;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+  animation: tile-rise 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.home-clients-list li:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 23, 129, 0.22);
+  background: #ffffff;
+  box-shadow: 0 12px 22px rgba(0, 23, 129, 0.08);
 }
 
 .home-contact-cta {
@@ -428,6 +533,13 @@ a {
   border: 1px solid #d8d8d8;
   background: linear-gradient(92deg, #ffffff 0%, #fff3f3 100%);
   padding: 1.2rem;
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.home-contact-cta:hover {
+  transform: translateY(-3px);
+  border-color: rgba(169, 14, 17, 0.26);
+  box-shadow: 0 18px 30px rgba(169, 14, 17, 0.08);
 }
 
 .home-contact-cta h2 {
@@ -456,6 +568,7 @@ a {
   text-decoration: none;
   font-weight: 700;
   border: 1px solid transparent;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
 }
 
 .home-primary-cta {
@@ -466,6 +579,8 @@ a {
 .home-primary-cta:hover,
 .home-primary-cta:focus-visible {
   background: #8f0d10;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 24px rgba(169, 14, 17, 0.22);
 }
 
 .home-whatsapp-cta {
@@ -476,12 +591,36 @@ a {
 .home-whatsapp-cta:hover,
 .home-whatsapp-cta:focus-visible {
   background: #157d42;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 24px rgba(26, 158, 83, 0.22);
 }
 
 @keyframes rise {
   from {
     opacity: 0;
     transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.992);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes tile-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -586,6 +725,7 @@ h4 {
 .lead-form textarea:focus {
   outline: 1px solid var(--red);
   border-color: var(--red);
+  box-shadow: 0 0 0 4px rgba(169, 14, 17, 0.08);
 }
 
 .lead-form button {
@@ -602,6 +742,8 @@ h4 {
 .lead-form button:hover,
 .lead-form button:focus-visible {
   background: #8f0d10;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 22px rgba(169, 14, 17, 0.18);
 }
 
 .lead-form button:disabled {
@@ -634,6 +776,14 @@ h4 {
   gap: 1.1rem;
 }
 
+.footer section {
+  transition: transform 220ms ease;
+}
+
+.footer section:hover {
+  transform: translateY(-2px);
+}
+
 .footer h4 {
   margin: 0 0 0.6rem;
 }
@@ -663,6 +813,21 @@ h4 {
   margin: 0;
   font-size: 0.92rem;
   color: #6d6d6d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @media (max-width: 900px) {
