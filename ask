@@ -1,0 +1,5 @@
+#new Vamos desenvolver o planejamento de migração de um site feito em wordpress para um novo site feito em react.
+
+Esse site é referente a uma escola de idiomas. Devemos manter o suporte a todas as paginas pré existentes, vamos criar uma pasta e ir adicionando arquivos referentes a cada pagina.
+
+Além disso, vamos iniciar um resumo do projeto para ser usado em prompts de IA posteriores

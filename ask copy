@@ -1,0 +1,43 @@
+# Proposta
+
+Vamos desenvolver e planejar a migração de um site anteriormente feito em wordpress para um novo modelo confeccionado em react.
+
+A proposta é desenvolver um site de uma escola de idiomas. Devemos manter o suporte a todas as paginas pré existentes que já foram mapeadas dentro de `legacy_content` (Todas as páginas possuem o prefixo `pages_` e seus links, onde os underscores indicam a presença de barras. Ex: `pages_servicos_cursos-de-idiomas-in-company.md` é referênte ao link `servicos/cursos-de-idiomas-in-company` e o conteúdo do arquivo é o mesmo da pagina)
+
+O conteúdo dos sites é descrito nos arquivos com prefixo `parts_` dentro de `legacy_content`. Suas ordens são:
+
+- legacy_content\parts_header.md (Descreve o header do site. Parte superior ao menu de navegação)
+- legacy_content\parts_nav.md (Descreve a estrutura de navegação do site)
+- legacy_content\parts_footer.md (Descreve o footer do site. Parte inferior ao conteúdo de todas as páginas)
+
+Como é um site de idiomas, devemos contar com suporte a diversos idiomas (dos Estados Unidos, Inglaterra, Espanha, França, Italia, Alemanha)
+
+Os formularios devem ser preparados para integração com o google sheets, onde aparecerão em uma espécie de excel.
+
+# Tecnologias
+
+O site deve ser desenvolvido sobre a tecnologia react, e após compilação deve estar disponivel para deploy via vercel.
+
+# Identidade visual
+
+## Cores
+
+Principal: Branco #ffffff
+
+Secundaria: #A90E11
+
+Terciaria: #001781
+
+## Tipografia
+
+Fonte: 'ExoBlackItalic', Arial, sans-serif
+
+Cor: #8f8f8f
+
+## Conteúdo
+
+Toda referência ao nome da escola (English Way Express) durante o conteúdo, adicionaremos a imagem (logo-span-englishwayexpress.png) como icone.
+
+## Estilo
+
+Quando necessitarmos ressaltar um titulo, adicionaremos duas linhas inferiores grifando o conteúdo, onde a linha superior será um pouco menor que a inferior e as duas terão a cor #A90E11 (secundaria)
