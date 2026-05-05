@@ -102,10 +102,30 @@ function Layout({ children, preContent }) {
         {children}
       </main>
 
+      <a
+        className="whatsapp-fab"
+        href={`https://wa.me/5511999584492?text=${t("home.whatsappMessage")}`}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="WhatsApp"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            fill="currentColor"
+            d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.27.86 5.82 2.41a8.22 8.22 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.18 8.18 0 0 1-1.26-4.36c.01-4.54 3.7-8.24 8.25-8.24zm-2.84 4.46c-.18 0-.46.07-.7.34-.24.27-.91.89-.91 2.17s.93 2.52 1.06 2.69c.13.18 1.82 2.78 4.41 3.79.62.27 1.1.43 1.47.55.62.2 1.18.17 1.63.1.5-.07 1.53-.62 1.75-1.23.22-.6.22-1.12.15-1.23-.06-.1-.24-.16-.5-.29-.27-.13-1.58-.78-1.82-.87-.25-.09-.43-.13-.61.13-.18.26-.7.87-.85 1.05-.16.18-.31.2-.58.07-.27-.13-1.13-.42-2.15-1.33-.8-.71-1.34-1.58-1.49-1.85-.16-.26-.02-.4.12-.53.12-.12.27-.31.4-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.61-1.47-.83-2.01-.22-.53-.44-.46-.61-.47-.16-.01-.34-.01-.52-.01z"
+          />
+        </svg>
+      </a>
+
       <footer className="footer">
         <div className="container footer-grid">
           <section>
-            <h4>Mapa do Site</h4>
+            <h4>{t("footerSiteMap")}</h4>
             <ul>
               {legacyContent.sitemapLinks.map((link) => (
                 <li key={`sitemap-${link.url}`}>
@@ -122,7 +142,7 @@ function Layout({ children, preContent }) {
           </section>
 
           <section>
-            <h4>Servicos</h4>
+            <h4>{t("footerServices")}</h4>
             <ul>
               {legacyContent.serviceLinks.map((link) => (
                 <li key={`service-${link.url}`}>
@@ -151,8 +171,7 @@ function Layout({ children, preContent }) {
             </ul>
           </section>
           <p>
-            Copyright © 2013 - {new Date().getFullYear()} English Way Express. Todos os
-            Direitos Reservados.
+            Copyright © 2013 - {new Date().getFullYear()} English Way Express. {t("footerCopyright")}.
           </p>
         </div>
       </footer>

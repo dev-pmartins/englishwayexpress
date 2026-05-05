@@ -22,5 +22,61 @@
   "formSuccess": "Nachricht erfolgreich gesendet.",
   "formError": "Senden momentan nicht moeglich. Bitte spaeter erneut versuchen.",
   "formMissingWebhook": "Google-Sheets-Webhook nicht konfiguriert. Setzen Sie VITE_GOOGLE_SHEETS_WEBHOOK_URL.",
-  "footerLinks": "Nutzliche Links"
+  "footerLinks": "Nutzliche Links",
+  "footerSiteMap": "Sitemap",
+  "footerServices": "Leistungen",
+  "footerCopyright": "Alle Rechte vorbehalten",
+  "home": {
+    "introTitle": "Sprachliche Exzellenz fuer berufliches und unternehmerisches Wachstum",
+    "introText": "English Way Express entwickelt massgeschneiderte Sprachloesungen fuer Unternehmen und Fachkraefte, die in realen Szenarien praezise, sicher und leistungsstark kommunizieren muessen.",
+    "overviewTitle": "Sprachberatung mit Fokus auf reale Anwendung",
+    "overviewText1": "Seit ueber 13 Jahren bietet English Way Express massgeschneiderte Kurse, Coaching, Beratung, Uebersetzung, Dolmetschen und Vorbereitung fuer Unternehmensumfelder, in denen Sprache konkrete Ergebnisse erzielen muss.",
+    "overviewText2": "Unsere Arbeit verbindet kommunikative Methodik, schnelle Kontexterfassung und branchenspezifische Anpassung, um sowohl interne Routinen als auch Situationen mit hoher Exposition zu unterstuetzen.",
+    "servicesTitle": "Hauptleistungen",
+    "serviceLearnMore": "Leistung entdecken",
+    "workflowTitle": "So funktioniert es",
+    "scenariosTitle": "Loesungen fuer reale Geschaeftsszenarien",
+    "scenariosText": "Statt Standardpakete anzubieten, strukturiert English Way Express die Sprachunterstuetzung entsprechend der Situation, in der Kommunikation leisten muss.",
+    "clientsTitle": "Hauptkunden",
+    "clientsText": "Wir haben langfristige Partnerschaften mit grossen Unternehmen aus verschiedenen Wirtschaftssektoren aufgebaut.",
+    "clientsCarouselLabel": "Kundenkarussell",
+    "clientVisitSite": "Website besuchen",
+    "faqTitle": "Haeufig gestellte Fragen",
+    "faqText": "Einige haeufige Fragen fuer diejenigen, die Sprachkurse, Beratung oder personalisierte Sprachunterstuetzung in Betracht ziehen.",
+    "contactTitle": "Kontakt aufnehmen",
+    "contactText": "Sprechen Sie mit unserem Team, um den idealen Plan fuer Ihr Unternehmen oder Ihre individuelle Entwicklung zu gestalten.",
+    "contactFormLink": "Zum Kontaktformular",
+    "contactWhatsapp": "Per WhatsApp chatten",
+    "whatsappMessage": "Hallo%2C+ich+moechte+mehr+Informationen+ueber+die+Leistungen+von+English+Way+Express.",
+    "trustHighlights": [
+      { "value": "13+ Jahre", "title": "Markterfahrung", "description": "Arbeit mit Unternehmen, Fachkraeften und massgeschneiderten Projekten in verschiedenen Sektoren." },
+      { "value": "2 Profile", "title": "Unternehmen und Einzelpersonen", "description": "Loesungen, die sowohl fuer Teams als auch fuer Fachkraefte mit spezifischen Zielen entwickelt werden." },
+      { "value": "Agile Reaktion", "title": "Schnelle Umsetzung", "description": "Diagnose und Ausfuehrung mit Fokus auf den realen Nutzungskontext, ohne generische Formulierungen." }
+    ],
+    "highlightedServices": [
+      { "title": "Sprachkurse In-Company und Residenz", "description": "Massgeschneiderte Programme fuer Teams und Fachkraefte mit Fokus auf Sprachkompetenz im Arbeitsalltag.", "path": "/servicos/cursos-de-idiomas-in-company" },
+      { "title": "Coaching", "description": "Individuelles und Kleingruppensprachcoaching mit klaren Zielen und messbaren Fortschritten.", "path": "/servicos/coaching" },
+      { "title": "Beratung", "description": "Praktische Unterstuetzung fuer Meetings, Veranstaltungen, Materialien und strategische Prozesse in verschiedenen Geschaeftsbereichen.", "path": "/servicos/consultoria" }
+    ],
+    "workflowSteps": [
+      { "title": "Bedarfsanalyse", "description": "Wir kartieren Kontext, Sprachniveau, Ziele und operative Einschraenkungen, bevor wir eine Loesung vorschlagen." },
+      { "title": "Massgeschneiderter Plan", "description": "Wir strukturieren das ideale Format fuer Unterricht, Coaching, Beratung, Uebersetzung oder Unternehmensschulung." },
+      { "title": "Begleitung und Fortschritt", "description": "Wir passen den Prozess basierend auf dem praktischen Sprachgebrauch und den im Verlauf entstehenden Anforderungen an." }
+    ],
+    "businessScenarios": [
+      "Internationale Meetings, Praesentationen und Verhandlungen",
+      "Auswahlverfahren und Vorstellungsgespraeche in anderen Sprachen",
+      "Unternehmensschulungen und Teamentwicklung",
+      "Veranstaltungen, Workshops, Messen und Video- oder Telefonkonferenzen",
+      "Uebersetzung und Dolmetschen fuer Materialien und Live-Interaktionen",
+      "Vorbereitung auf internationale Pruefungen und Zertifizierungen"
+    ],
+    "faqItems": [
+      { "question": "Betreut English Way Express sowohl Unternehmen als auch Privatpersonen?", "answer": "Ja. Unsere Arbeit umfasst sowohl Unternehmensprojekte fuer Teams und Fuehrungskraefte als auch individuelles Coaching fuer Fachkraefte mit spezifischen Zielen." },
+      { "question": "Sind die Loesungen massgeschneidert oder gibt es vorgefertigte Pakete?", "answer": "Die Arbeit beginnt mit einer Erstbewertung, um Kontext, Niveau, Ziel und Dringlichkeit zu verstehen. Davon ausgehend wird das am besten geeignete Format fuer jeden Fall festgelegt." },
+      { "question": "Welche Leistungen sind verfuegbar?", "answer": "Das Unternehmen bietet In-Company- und Residenzsprachkurse, Coaching, Beratung, Uebersetzung, Dolmetschen und Vorbereitung auf internationale Pruefungen und Zertifizierungen." },
+      { "question": "Arbeitet die Schule nur mit Englisch?", "answer": "Der aktuelle Fokus umfasst Englisch und Spanisch, mit einer sich ausdehnenden Struktur fuer andere Sprachen von unternehmerischem und beruflichem Interesse." },
+      { "question": "Wie beginne ich ein Gespraech ueber ein Projekt?", "answer": "Nehmen Sie einfach ueber das Formular oder WhatsApp Kontakt auf. Von dort bewertet das Team den Bedarf und schlaegt den besten Weg zur Umsetzung vor." }
+    ]
+  }
 }

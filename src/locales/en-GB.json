@@ -22,5 +22,61 @@
   "formSuccess": "Message sent successfully.",
   "formError": "Could not send right now. Please try again shortly.",
   "formMissingWebhook": "Google Sheets webhook is not configured. Set VITE_GOOGLE_SHEETS_WEBHOOK_URL.",
-  "footerLinks": "Useful links"
+  "footerLinks": "Useful links",
+  "footerSiteMap": "Site Map",
+  "footerServices": "Services",
+  "footerCopyright": "All Rights Reserved",
+  "home": {
+    "introTitle": "Excellence in languages for professional and corporate growth",
+    "introText": "English Way Express develops bespoke language solutions for companies and professionals who need to communicate with precision, confidence, and performance in real-world scenarios.",
+    "overviewTitle": "Language consultancy focused on real-world application",
+    "overviewText1": "For over 13 years, English Way Express has provided tailored courses, coaching, consultancy, translation, interpretation, and preparation for corporate contexts where language needs to deliver concrete results.",
+    "overviewText2": "Our work combines communicative methodology, rapid context reading, and sector-specific customisation to support everything from internal routines to high-exposure situations.",
+    "servicesTitle": "Main services",
+    "serviceLearnMore": "Learn about this service",
+    "workflowTitle": "How it works",
+    "scenariosTitle": "Solutions for real business scenarios",
+    "scenariosText": "Rather than offering standardised packages, English Way Express structures language support according to the situation in which communication needs to perform.",
+    "clientsTitle": "Featured clients",
+    "clientsText": "We have built long-term partnerships with large companies across different sectors of the economy.",
+    "clientsCarouselLabel": "Client carousel",
+    "clientVisitSite": "visit website",
+    "faqTitle": "Frequently asked questions",
+    "faqText": "Some common questions for those evaluating language courses, consultancy, or personalised language support.",
+    "contactTitle": "Get in touch",
+    "contactText": "Talk to our team to design the ideal plan for your company or for your individual development.",
+    "contactFormLink": "Go to contact form",
+    "contactWhatsapp": "Chat on WhatsApp",
+    "whatsappMessage": "Hello%2C+I+would+like+more+information+about+English+Way+Express+services.",
+    "trustHighlights": [
+      { "value": "13+ years", "title": "Market experience", "description": "Working with companies, professionals, and bespoke projects across different sectors." },
+      { "value": "2 profiles", "title": "Corporate and individual", "description": "Solutions designed for both teams and professionals with specific goals." },
+      { "value": "Agile response", "title": "Fast implementation", "description": "Diagnosis and execution focused on real usage context, without generic formulations." }
+    ],
+    "highlightedServices": [
+      { "title": "In-Company & Residence Language Courses", "description": "Tailored programmes for teams and professionals focused on fluency applied to everyday work.", "path": "/servicos/cursos-de-idiomas-in-company" },
+      { "title": "Coaching", "description": "Individual and small group language coaching with clear objectives and measurable progress.", "path": "/servicos/coaching" },
+      { "title": "Consultancy", "description": "Practical support for meetings, events, materials, and strategic processes across multiple business sectors.", "path": "/servicos/consultoria" }
+    ],
+    "workflowSteps": [
+      { "title": "Needs assessment", "description": "We map context, language level, objectives, and operational constraints before proposing a solution." },
+      { "title": "Tailored plan", "description": "We structure the ideal format for classes, coaching, consultancy, translation, or corporate training." },
+      { "title": "Follow-up and progress", "description": "We adjust the process based on practical language use and demands that arise throughout the journey." }
+    ],
+    "businessScenarios": [
+      "International meetings, presentations, and negotiations",
+      "Selection processes and interviews in other languages",
+      "Corporate training and team development",
+      "Events, workshops, trade fairs, and video or telephone conferences",
+      "Translation and interpretation for materials and live interactions",
+      "Preparation for international exams and certifications"
+    ],
+    "faqItems": [
+      { "question": "Does English Way Express serve both companies and individuals?", "answer": "Yes. Our work includes both corporate projects for teams and leaders, as well as individual coaching for professionals with specific goals." },
+      { "question": "Are the solutions tailored or are there ready-made packages?", "answer": "The work starts with an initial assessment to understand context, level, objective, and urgency. From there, the most appropriate format is defined for each case." },
+      { "question": "What services are available?", "answer": "The company works with in-company and residence language courses, coaching, consultancy, translation, interpretation, and preparation for international exams and certifications." },
+      { "question": "Does the school only work with English?", "answer": "The current focus includes English and Spanish, with an expanding structure for other languages of corporate and professional interest." },
+      { "question": "How do I start a conversation about a project?", "answer": "Simply get in touch through the form or WhatsApp. From there, the team evaluates the need and proposes the best path for implementation." }
+    ]
+  }
 }

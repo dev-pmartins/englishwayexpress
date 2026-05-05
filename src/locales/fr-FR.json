@@ -22,5 +22,61 @@
   "formSuccess": "Message envoye avec succes.",
   "formError": "Envoi impossible pour le moment. Reessayez dans quelques instants.",
   "formMissingWebhook": "Webhook Google Sheets non configure. Definissez VITE_GOOGLE_SHEETS_WEBHOOK_URL.",
-  "footerLinks": "Liens utiles"
+  "footerLinks": "Liens utiles",
+  "footerSiteMap": "Plan du site",
+  "footerServices": "Services",
+  "footerCopyright": "Tous droits reserves",
+  "home": {
+    "introTitle": "Excellence en langues pour la croissance professionnelle et corporative",
+    "introText": "English Way Express developpe des solutions linguistiques sur mesure pour les entreprises et les professionnels qui ont besoin de communiquer avec precision, assurance et performance dans des scenarios reels.",
+    "overviewTitle": "Conseil linguistique axe sur l application reelle",
+    "overviewText1": "Depuis plus de 13 ans, English Way Express propose des cours personnalises, du coaching, du conseil, de la traduction, de l interpretation et de la preparation pour les contextes corporatifs ou la langue doit produire des resultats concrets.",
+    "overviewText2": "Notre travail combine la methodologie communicative, la lecture rapide du contexte et la personnalisation sectorielle pour soutenir aussi bien les routines internes que les situations a forte exposition.",
+    "servicesTitle": "Services principaux",
+    "serviceLearnMore": "Decouvrir le service",
+    "workflowTitle": "Comment ca fonctionne",
+    "scenariosTitle": "Solutions pour les scenarios reels d entreprise",
+    "scenariosText": "Plutot que de proposer des forfaits standardises, English Way Express structure le soutien linguistique en fonction de la situation dans laquelle la communication doit performer.",
+    "clientsTitle": "Principaux clients",
+    "clientsText": "Nous avons etabli des partenariats durables avec de grandes entreprises dans differents secteurs de l economie.",
+    "clientsCarouselLabel": "Carrousel de clients",
+    "clientVisitSite": "visiter le site",
+    "faqTitle": "Questions frequentes",
+    "faqText": "Quelques questions courantes pour ceux qui evaluent des cours de langues, un conseil ou un soutien linguistique personnalise.",
+    "contactTitle": "Contactez-nous",
+    "contactText": "Parlez a notre equipe pour concevoir le plan ideal pour votre entreprise ou votre evolution individuelle.",
+    "contactFormLink": "Aller au formulaire de contact",
+    "contactWhatsapp": "Discuter sur WhatsApp",
+    "whatsappMessage": "Bonjour%2C+je+souhaite+obtenir+plus+d+informations+sur+les+services+d+English+Way+Express.",
+    "trustHighlights": [
+      { "value": "13+ ans", "title": "Experience du marche", "description": "Travail avec des entreprises, des professionnels et des projets sur mesure dans differents secteurs." },
+      { "value": "2 profils", "title": "Corporatif et individuel", "description": "Solutions concues aussi bien pour des equipes que pour des professionnels ayant des objectifs specifiques." },
+      { "value": "Reponse agile", "title": "Mise en oeuvre rapide", "description": "Diagnostic et execution axes sur le contexte d utilisation reel, sans formulations generiques." }
+    ],
+    "highlightedServices": [
+      { "title": "Cours de langues In Company et en residence", "description": "Programmes personnalises pour les equipes et les professionnels axes sur la fluidite appliquee au travail quotidien.", "path": "/servicos/cursos-de-idiomas-in-company" },
+      { "title": "Coaching", "description": "Accompagnement linguistique individuel et en petits groupes, avec des objectifs clairs et une evolution mesurable.", "path": "/servicos/coaching" },
+      { "title": "Conseil", "description": "Soutien pratique pour les reunions, evenements, materiaux et processus strategiques dans de multiples segments d activite.", "path": "/servicos/consultoria" }
+    ],
+    "workflowSteps": [
+      { "title": "Diagnostic des besoins", "description": "Nous cartographions le contexte, le niveau linguistique, les objectifs et les contraintes operationnelles avant de proposer une solution." },
+      { "title": "Plan personnalise", "description": "Nous structurons le format ideal pour les cours, le coaching, le conseil, la traduction ou la formation corporative." },
+      { "title": "Suivi et evolution", "description": "Nous ajustons le processus en fonction de l utilisation pratique de la langue et des demandes qui surgissent tout au long du parcours." }
+    ],
+    "businessScenarios": [
+      "Reunions, presentations et negociations internationales",
+      "Processus de selection et entretiens dans d autres langues",
+      "Formation corporative et developpement d equipes",
+      "Evenements, ateliers, salons et videoconferences ou teleconferences",
+      "Traduction et interpretation pour materiaux et interactions en direct",
+      "Preparation aux examens et certifications internationaux"
+    ],
+    "faqItems": [
+      { "question": "English Way Express sert-elle les entreprises et les particuliers ?", "answer": "Oui. Notre travail inclut aussi bien des projets corporatifs pour les equipes et les dirigeants que l accompagnement individuel de professionnels ayant des objectifs specifiques." },
+      { "question": "Les solutions sont-elles personnalisees ou existe-t-il des forfaits prets a l emploi ?", "answer": "Le travail commence par une evaluation initiale pour comprendre le contexte, le niveau, l objectif et l urgence. A partir de la, le format le plus adapte est defini pour chaque cas." },
+      { "question": "Quels services sont disponibles ?", "answer": "L entreprise travaille avec des cours de langues in company et en residence, du coaching, du conseil, de la traduction, de l interpretation et de la preparation aux examens et certifications internationaux." },
+      { "question": "L ecole travaille-t-elle uniquement avec l anglais ?", "answer": "Le focus actuel inclut l anglais et l espagnol, avec une structure en expansion pour d autres langues d interet corporatif et professionnel." },
+      { "question": "Comment demarrer une conversation sur un projet ?", "answer": "Il vous suffit de nous contacter via le formulaire ou WhatsApp. A partir de la, l equipe evalue le besoin et propose le meilleur chemin pour la mise en oeuvre." }
+    ]
+  }
 }
