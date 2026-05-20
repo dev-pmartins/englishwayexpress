@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import slideCursos from "../../slide_1_cursos_de_idiomas.webp";
+import slideConsultoria from "../../slide_2_consultoria.webp";
+import slideCoaching from "../../slide_3_coaching.webp";
+
+const SERVICE_IMAGES = {
+  "/servicos/cursos-de-idiomas-in-company": { src: slideCursos, alt: "Cursos de Idiomas In Company" },
+  "/servicos/consultoria":                  { src: slideConsultoria, alt: "Consultoria" },
+  "/servicos/coaching":                     { src: slideCoaching, alt: "Coaching" },
+};
 
 const LOGO_DEV_PUBLIC_KEY = 'pk_E4z3_AiLTsKx66PE8t6Sng';
 
@@ -76,68 +85,30 @@ function HomePageSections() {
   const workflowSteps = t("home.workflowSteps", { returnObjects: true });
   const businessScenarios = t("home.businessScenarios", { returnObjects: true });
   const faqItems = t("home.faqItems", { returnObjects: true });
+  const serviceBlogCards = t("home.serviceBlogCards", { returnObjects: true });
 
   return (
     <div className="home-sections">
-      <section className="home-intro" id="home-intro">
-        <h1>{t("home.introTitle")}</h1>
-        <p>{t("home.introText")}</p>
-      </section>
-
-      <section className="home-overview" id="quem-somos-resumo">
-        <div className="home-overview-copy">
-          <h2 className="section-title">{t("home.overviewTitle")}</h2>
-          <p>{t("home.overviewText1")}</p>
-          <p>{t("home.overviewText2")}</p>
-        </div>
-        <div className="home-overview-metrics">
-          {trustHighlights.map((item) => (
-            <article key={item.title} className="home-metric-card">
-              <strong>{item.value}</strong>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-services" id="servicos-principais">
-        <h2 className="section-title">{t("home.servicesTitle")}</h2>
-        <div className="home-service-grid">
-          {highlightedServices.map((service) => (
-            <article key={service.path} className="home-service-card">
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <Link to={service.path}>{t("home.serviceLearnMore")}</Link>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-workflow" id="como-funciona">
-        <h2 className="section-title">{t("home.workflowTitle")}</h2>
-        <div className="home-workflow-grid">
-          {workflowSteps.map((step, index) => (
-            <article key={step.title} className="home-workflow-card">
-              <span className="home-step-number">0{index + 1}</span>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-scenarios" id="solucoes-por-cenario">
-        <div className="home-scenarios-copy">
-          <h2 className="section-title">{t("home.scenariosTitle")}</h2>
-          <p>{t("home.scenariosText")}</p>
-        </div>
-        <div className="home-scenarios-grid">
-          {businessScenarios.map((scenario) => (
-            <article key={scenario} className="home-scenario-card">
-              <h3>{scenario}</h3>
-            </article>
-          ))}
+      <section className="home-service-blog" id="solucoes-em-detalhe">
+        <h2 className="section-title">{t("home.serviceSummariesTitle")}</h2>
+        <div className="service-blog-list">
+          {serviceBlogCards.map((card) => {
+            const img = SERVICE_IMAGES[card.path];
+            return (
+              <article key={card.path} className="service-blog-card">
+                {img && (
+                  <div className="service-blog-card__image">
+                    <img src={img.src} alt={img.alt} />
+                  </div>
+                )}
+                <div className="service-blog-card__body">
+                  <h3>{card.title}</h3>
+                  <p>{card.excerpt}</p>
+                  <Link to={card.path}>{t("home.serviceLearnMore")}</Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 

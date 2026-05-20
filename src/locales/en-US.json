@@ -27,6 +27,24 @@
   "footerServices": "Services",
   "footerCopyright": "All Rights Reserved",
   "home": {
+    "serviceSummariesTitle": "Our solutions in detail",
+    "serviceBlogCards": [
+      {
+        "title": "In-Company & Residence Language Courses",
+        "excerpt": "EnglishWay works with the communicative methodology, developed by world-renowned institutions (University of Cambridge, Instituto Cervantes, Alliance Francaise, Goethe Institute), adapted to the Brazilian student. Using teaching materials developed by these institutions, in addition to other materials developed by our team, we follow linguistic leveling standards [...]",
+        "path": "/servicos/cursos-de-idiomas-in-company"
+      },
+      {
+        "title": "Consulting",
+        "excerpt": "With expertise acquired over 13 years of experience and working with partners in a wide variety of business sectors such as aviation, technology and systems, commercial, industrial, automotive, financial, services, among others, EnglishWay develops solutions (support, preparation and execution) for the most diverse processes within the needs and demands of each client [...]",
+        "path": "/servicos/consultoria"
+      },
+      {
+        "title": "Coaching",
+        "excerpt": "Working with professionals from numerous business areas and always updating their knowledge of techniques and procedures in people and process management, EnglishWay consultants are always ready to offer the best support and guidance, both individually and in small groups, regarding learning, use, improvement and fluency [...]",
+        "path": "/servicos/coaching"
+      }
+    ],
     "introTitle": "Excellence in languages for professional and corporate growth",
     "introText": "English Way Express develops customized language solutions for companies and professionals who need to communicate with precision, confidence, and performance in real-world scenarios.",
     "overviewTitle": "Language consulting focused on real-world application",

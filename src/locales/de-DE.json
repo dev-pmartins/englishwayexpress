@@ -27,6 +27,24 @@
   "footerServices": "Leistungen",
   "footerCopyright": "Alle Rechte vorbehalten",
   "home": {
+    "serviceSummariesTitle": "Unsere Loesungen im Detail",
+    "serviceBlogCards": [
+      {
+        "title": "Sprachkurse In-Company und Residence",
+        "excerpt": "EnglishWay arbeitet mit der kommunikativen Methodik, die von weltbekannten Institutionen (Universitaet Cambridge, Instituto Cervantes, Alliance Francaise, Goethe-Institut) entwickelt und an brasilianische Lernende angepasst wurde. Mithilfe von Lernmaterialien dieser Institutionen sowie eigens entwickelter Materialien folgen wir den sprachlichen Einstufungsstandards [...]",
+        "path": "/servicos/cursos-de-idiomas-in-company"
+      },
+      {
+        "title": "Beratung",
+        "excerpt": "Mit dem Know-how aus ueber 13 Jahren Erfahrung und der Zusammenarbeit mit Partnern aus verschiedenen Branchen wie Luftfahrt, Technologie und Systeme, Handel, Industrie, Automobil, Finanzen und Dienstleistungen entwickelt EnglishWay massgeschneiderte Loesungen (Unterstuetzung, Vorbereitung und Umsetzung) [...]",
+        "path": "/servicos/consultoria"
+      },
+      {
+        "title": "Coaching",
+        "excerpt": "In der Zusammenarbeit mit Fachleuten aus zahlreichen Geschaeftsbereichen und der staendigen Aktualisierung ihrer Kenntnisse in Techniken und Verfahren des Personen- und Prozessmanagements sind die Berater von EnglishWay stets bereit, die beste Unterstuetzung und Anleitung zu bieten, sowohl individuell als auch in Kleingruppen [...]",
+        "path": "/servicos/coaching"
+      }
+    ],
     "introTitle": "Sprachliche Exzellenz fuer berufliches und unternehmerisches Wachstum",
     "introText": "English Way Express entwickelt massgeschneiderte Sprachloesungen fuer Unternehmen und Fachkraefte, die in realen Szenarien praezise, sicher und leistungsstark kommunizieren muessen.",
     "overviewTitle": "Sprachberatung mit Fokus auf reale Anwendung",

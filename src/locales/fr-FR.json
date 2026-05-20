@@ -27,6 +27,24 @@
   "footerServices": "Services",
   "footerCopyright": "Tous droits reserves",
   "home": {
+    "serviceSummariesTitle": "Nos solutions en detail",
+    "serviceBlogCards": [
+      {
+        "title": "Cours de langues In Company et Residence",
+        "excerpt": "EnglishWay travaille avec la methodologie communicative, developpee par des institutions de renommee mondiale (Universite de Cambridge, Instituto Cervantes, Alliance Francaise, Institut Goethe), adaptee a l'etudiant bresilien. En utilisant des materiaux pedagogiques developpes par ces institutions, ainsi que d'autres elabores par notre equipe, nous suivons les normes de nivellement linguistique [...]",
+        "path": "/servicos/cursos-de-idiomas-in-company"
+      },
+      {
+        "title": "Conseil",
+        "excerpt": "Avec une expertise acquise au cours de 13 ans d'experience et en travaillant avec des partenaires dans une grande variete de secteurs d'activite tels que l'aviation, la technologie et les systemes, le commercial, l'industriel, l'automobile, le financier, les services, entre autres, EnglishWay developpe des solutions (support, preparation et execution) [...]",
+        "path": "/servicos/consultoria"
+      },
+      {
+        "title": "Coaching",
+        "excerpt": "En travaillant avec des professionnels de nombreux domaines d'activite et en mettant constamment a jour leurs connaissances en techniques et procedures de gestion des personnes et des processus, les consultants EnglishWay sont toujours prets a offrir le meilleur soutien et accompagnement, individuellement ou en petits groupes [...]",
+        "path": "/servicos/coaching"
+      }
+    ],
     "introTitle": "Excellence en langues pour la croissance professionnelle et corporative",
     "introText": "English Way Express developpe des solutions linguistiques sur mesure pour les entreprises et les professionnels qui ont besoin de communiquer avec precision, assurance et performance dans des scenarios reels.",
     "overviewTitle": "Conseil linguistique axe sur l application reelle",

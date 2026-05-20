@@ -27,6 +27,24 @@
   "footerServices": "Servicos",
   "footerCopyright": "Todos os Direitos Reservados",
   "home": {
+    "serviceSummariesTitle": "Nossas solucoes em detalhe",
+    "serviceBlogCards": [
+      {
+        "title": "Cursos de Idiomas In Company & Residence",
+        "excerpt": "A EnglishWay trabalha com a metodologia comunicativa, desenvolvida por instituicoes de renome mundial (Universidade de Cambridge, Instituto Cervantes, Alliance Francaise, Instituto Goethe), adaptada ao estudante brasileiro. Utilizando materiais didaticos desenvolvidos por essas instituicoes, alem de outros elaborados pela nossa equipe, seguimos os padroes de nivelamento linguistico [...]",
+        "path": "/servicos/cursos-de-idiomas-in-company"
+      },
+      {
+        "title": "Consultoria",
+        "excerpt": "Com expertise adquirida ao longo de 13 anos de experiencia e atuando com parceiros em uma grande variedade de setores empresariais como aviacao, tecnologia e sistemas, comercial, industrial, automotivo, financeiro, servicos, entre outros, a EnglishWay desenvolve solucoes (suporte, preparacao e execucao) para os mais diversos processos dentro das necessidades e demandas de cada cliente [...]",
+        "path": "/servicos/consultoria"
+      },
+      {
+        "title": "Coaching",
+        "excerpt": "Trabalhando com profissionais de inumeras areas de negocios e sempre atualizando seus conhecimentos em tecnicas e procedimentos de gestao de pessoas e processos, os consultores da EnglishWay estao sempre prontos para oferecer o melhor suporte e orientacao, tanto individualmente quanto em pequenos grupos, em relacao a aprendizagem, uso, aprimoramento e fluencia [...]",
+        "path": "/servicos/coaching"
+      }
+    ],
     "introTitle": "Excelencia em idiomas para crescimento profissional e corporativo",
     "introText": "A English Way Express desenvolve solucoes linguisticas sob medida para empresas e profissionais que precisam comunicar com precisao, seguranca e performance em cenarios reais.",
     "overviewTitle": "Consultoria linguistica com foco em aplicacao real",

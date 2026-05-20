@@ -96,11 +96,38 @@ function Layout({ children, preContent }) {
 
       {preContent}
 
-      <main
-        className={`container page-content ${preContent ? "page-content-overlap" : ""}`}
-      >
-        {children}
-      </main>
+      <div className={`container content-layout ${preContent ? "content-layout--overlap" : ""}`}>
+        <aside className="site-sidebar" aria-label="Links rapidos">
+          <nav className="sidebar-section" aria-label={t("footerServices")}>
+            <h4>{t("footerServices")}</h4>
+            <ul>
+              {legacyContent.serviceLinks.map((link) => (
+                <li key={`sidebar-svc-${link.url}`}>
+                  {link.url.startsWith("http") ? (
+                    <a href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
+                  ) : (
+                    <Link to={link.url}>{link.label}</Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <nav className="sidebar-section" aria-label={t("footerLinks")}>
+            <h4>{t("footerLinks")}</h4>
+            <ul>
+              {legacyContent.usefulLinks.map((link) => (
+                <li key={`sidebar-lnk-${link.url}`}>
+                  <a href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+
+        <main className="page-content">
+          {children}
+        </main>
+      </div>
 
       <a
         className="whatsapp-fab"
