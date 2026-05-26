@@ -165,5 +165,16 @@
   "studentLoginFormTitle": "Se connecter à votre compte",
   "studentLoginContactHint": "Pas d'accès ? Contactez-nous",
   "studentLoginContactLink": "ici",
-  "portalBtn": "Espace Étudiant"
+  "portalBtn": "Espace Étudiant",
+  "studentHubSubtitle": "Choisissez une langue pour explorer les publications et matériaux récents.",
+  "studentHubExplore": "Explorer",
+  "studentBackHub": "Retour aux langues",
+  "studentNoPosts": "Aucune publication disponible pour cette langue.",
+  "lang": {
+    "en": "Anglais",
+    "es": "Espagnol",
+    "de": "Allemand",
+    "fr": "Français",
+    "it": "Italien"
+  }
 }

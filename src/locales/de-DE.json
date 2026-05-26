@@ -165,5 +165,16 @@
   "studentLoginFormTitle": "Bei deinem Konto anmelden",
   "studentLoginContactHint": "Kein Zugang? Kontaktiere uns",
   "studentLoginContactLink": "hier",
-  "portalBtn": "Studentenportal"
+  "portalBtn": "Studentenportal",
+  "studentHubSubtitle": "Wähle eine Sprache, um aktuelle Beiträge und Materialien zu erkunden.",
+  "studentHubExplore": "Erkunden",
+  "studentBackHub": "Zurück zu Sprachen",
+  "studentNoPosts": "Noch keine Beiträge für diese Sprache verfügbar.",
+  "lang": {
+    "en": "Englisch",
+    "es": "Spanisch",
+    "de": "Deutsch",
+    "fr": "Französisch",
+    "it": "Italienisch"
+  }
 }

@@ -165,5 +165,16 @@
   "studentLoginFormTitle": "Sign in to your account",
   "studentLoginContactHint": "No access? Contact us",
   "studentLoginContactLink": "here",
-  "portalBtn": "Student Portal"
+  "portalBtn": "Student Portal",
+  "studentHubSubtitle": "Choose a language to explore recent posts and materials.",
+  "studentHubExplore": "Explore",
+  "studentBackHub": "Back to languages",
+  "studentNoPosts": "No posts available for this language yet.",
+  "lang": {
+    "en": "English",
+    "es": "Spanish",
+    "de": "German",
+    "fr": "French",
+    "it": "Italian"
+  }
 }
