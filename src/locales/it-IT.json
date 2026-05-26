@@ -176,5 +176,8 @@
     "de": "Tedesco",
     "fr": "Francese",
     "it": "Italiano"
-  }
+  },
+  "studentPostsHeading": "Pubblicazioni",
+  "studentMaterialsHeading": "Materiali di Studio",
+  "studentMaterialsGate": "Accedi per visualizzare i materiali di studio riservati agli studenti."
 }

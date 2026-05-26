@@ -13,39 +13,116 @@ const LANG_META = {
   it: { flag: "🇮🇹", color: "#009246" },
 };
 
-export default function StudentLanguagePage({ langCode }) {
-  const { t } = useTranslation();
-  const { token } = useStudentAuth();
-
-  const [posts,   setPosts]   = useState(null);
+function MaterialsSection({ langCode, token, t }) {
+  const [groups,  setGroups]  = useState(null);
   const [loading, setLoading] = useState(true);
   const [error,   setError]   = useState("");
+  const [openMaterial, setOpenMaterial] = useState(null);
 
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    setError("");
-    fetch(`${API_BASE}/api/student/posts/${langCode}`, {
+    fetch(`${API_BASE}/api/student/modules`, {
       headers: { Authorization: `Bearer ${token}` },
     })
-      .then((r) => {
-        if (!r.ok) throw new Error(r.status);
-        return r.json();
-      })
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then((body) => {
         if (!cancelled) {
-          setPosts(body.data?.data ?? []);
+          const all = body.data ?? [];
+          // Filter to the current language
+          const match = all.filter((g) =>
+            g.language?.name?.toLowerCase().startsWith(langCode === "en" ? "ingl" : langCode)
+            || g.language?.code === langCode
+            || g.language?.code?.startsWith(langCode)
+          );
+          setGroups(match);
           setLoading(false);
         }
       })
-      .catch(() => {
-        if (!cancelled) {
-          setError(t("studentLoadError"));
-          setLoading(false);
-        }
-      });
+      .catch(() => { if (!cancelled) { setError(t("studentLoadError")); setLoading(false); } });
     return () => { cancelled = true; };
   }, [langCode, token, t]);
+
+  if (loading) return <p className="student-state-msg">{t("studentLoading")}</p>;
+  if (error)   return <p className="student-state-msg student-state-error">{error}</p>;
+  if (!groups || groups.length === 0) return <p className="student-state-msg">{t("studentNoModules")}</p>;
+
+  return (
+    <>
+      {groups.map((group) =>
+        group.modules.map((mod) => (
+          <div key={mod.id} className="student-module">
+            <h4 className="student-module-title">
+              {mod.name}
+              {mod.minimum_level && (
+                <span className="student-level-badge student-level-badge--sm">{mod.minimum_level}+</span>
+              )}
+            </h4>
+            {mod.materials.length === 0 ? (
+              <p className="student-empty">{t("studentNoMaterials")}</p>
+            ) : (
+              <ul className="student-materials-list">
+                {mod.materials.map((mat) => (
+                  <li key={mat.id}>
+                    <button
+                      className="student-material-btn"
+                      onClick={() => setOpenMaterial(openMaterial?.id === mat.id ? null : mat)}
+                    >
+                      <span>{mat.title || mat.name}</span>
+                      <span className="student-material-arrow">
+                        {openMaterial?.id === mat.id ? "▲" : "▼"}
+                      </span>
+                    </button>
+                    {openMaterial?.id === mat.id && (
+                      <div className="student-material-body">
+                        {mat.content && (
+                          <div className="student-material-content">
+                            {mat.content.split("\n").map((line, i) => <p key={i}>{line}</p>)}
+                          </div>
+                        )}
+                        {mat.attachments?.length > 0 && (
+                          <ul className="student-attachments">
+                            {mat.attachments.map((att) => (
+                              <li key={att.id}>
+                                <a href={att.url} target="_blank" rel="noreferrer">
+                                  📎 {att.original_name}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))
+      )}
+    </>
+  );
+}
+
+export default function StudentLanguagePage({ langCode }) {
+  const { t } = useTranslation();
+  const { isAuthenticated, token } = useStudentAuth();
+
+  const [posts,        setPosts]        = useState(null);
+  const [postsLoading, setPostsLoading] = useState(true);
+  const [postsError,   setPostsError]   = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+    setPostsLoading(true);
+    setPostsError("");
+    // Public endpoint — no auth header needed
+    fetch(`${API_BASE}/api/student/posts/${langCode}`)
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then((body) => { if (!cancelled) { setPosts(body.data?.data ?? []); setPostsLoading(false); } })
+      .catch(() => { if (!cancelled) { setPostsError(t("studentLoadError")); setPostsLoading(false); } });
+    return () => { cancelled = true; };
+  }, [langCode, t]);
 
   const meta = LANG_META[langCode] ?? {};
 
@@ -59,14 +136,17 @@ export default function StudentLanguagePage({ langCode }) {
         </h2>
       </div>
 
-      {loading && <p className="student-state-msg">{t("studentLoading")}</p>}
-      {error   && <p className="student-state-msg student-state-error">{error}</p>}
+      {/* ── Posts (public) ── */}
+      <h3 className="student-section-heading">{t("studentPostsHeading")}</h3>
 
-      {!loading && !error && posts?.length === 0 && (
+      {postsLoading && <p className="student-state-msg">{t("studentLoading")}</p>}
+      {postsError   && <p className="student-state-msg student-state-error">{postsError}</p>}
+
+      {!postsLoading && !postsError && posts?.length === 0 && (
         <p className="student-state-msg">{t("studentNoPosts")}</p>
       )}
 
-      {!loading && !error && posts?.length > 0 && (
+      {!postsLoading && !postsError && posts?.length > 0 && (
         <div className="student-posts-grid">
           {posts.map((post) => {
             const translation = post.translations?.[0];
@@ -89,6 +169,23 @@ export default function StudentLanguagePage({ langCode }) {
               </article>
             );
           })}
+        </div>
+      )}
+
+      {/* ── Materials (authenticated only) ── */}
+      <h3 className="student-section-heading student-section-heading--materials">
+        {t("studentMaterialsHeading")}
+      </h3>
+
+      {isAuthenticated ? (
+        <MaterialsSection langCode={langCode} token={token} t={t} />
+      ) : (
+        <div className="student-materials-gate">
+          <span className="student-materials-gate-icon">🔒</span>
+          <p>{t("studentMaterialsGate")}</p>
+          <Link to="/area-do-aluno/login" className="student-login-btn">
+            {t("studentLoginSubmit")}
+          </Link>
         </div>
       )}
     </div>

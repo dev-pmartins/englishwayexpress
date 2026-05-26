@@ -176,5 +176,8 @@
     "de": "German",
     "fr": "French",
     "it": "Italian"
-  }
+  },
+  "studentPostsHeading": "Posts",
+  "studentMaterialsHeading": "Study Materials",
+  "studentMaterialsGate": "Log in to access study materials exclusive to enrolled students."
 }

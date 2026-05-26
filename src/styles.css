@@ -2095,3 +2095,59 @@ h4 {
     grid-template-columns: 1fr;
   }
 }
+
+/* ─── Language page: section headings ─── */
+.student-section-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--blue);
+  border-bottom: 2px solid var(--blue);
+  padding-bottom: 0.4rem;
+  margin: 2rem 0 1rem;
+}
+
+.student-section-heading--materials {
+  margin-top: 2.5rem;
+}
+
+/* ─── Materials gate (unauthenticated) ─── */
+.student-materials-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2.5rem 1rem;
+  border: 2px dashed #d0d0d0;
+  border-radius: 10px;
+  text-align: center;
+  color: #666;
+}
+
+.student-materials-gate-icon {
+  font-size: 2rem;
+}
+
+.student-materials-gate p {
+  margin: 0;
+  font-size: 0.9rem;
+  max-width: 340px;
+}
+
+.student-materials-gate .student-login-btn {
+  display: inline-block;
+  margin-top: 0.25rem;
+  text-decoration: none;
+  padding: 0.55rem 1.5rem;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  transition: background 160ms ease;
+}
+
+.student-materials-gate .student-login-btn:hover {
+  background: #001060;
+}

@@ -176,5 +176,8 @@
     "de": "Allemand",
     "fr": "Français",
     "it": "Italien"
-  }
+  },
+  "studentPostsHeading": "Publications",
+  "studentMaterialsHeading": "Supports de cours",
+  "studentMaterialsGate": "Connectez-vous pour accéder aux supports exclusifs aux étudiants."
 }
