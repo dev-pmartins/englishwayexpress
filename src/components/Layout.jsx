@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { legacyContent } from "../content/legacyContent";
+import { useStudentAuth } from "../contexts/StudentAuthContext";
 
 const localeOptions = [
   { code: "en-US", label: "US English", flag: "🇺🇸" },
@@ -19,10 +20,11 @@ const normalizePath = (path) => {
   return normalized || "/";
 };
 
-function Layout({ children, preContent }) {
+function Layout({ children, preContent, hideSidebar = false }) {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { isAuthenticated } = useStudentAuth();
 
   const currentPath = normalizePath(location.pathname);
 
@@ -34,7 +36,15 @@ function Layout({ children, preContent }) {
             <img src="/logo-englishwayexpress.png" alt={t("brand")} />
           </Link>
 
-          <div className="lang-control" aria-label={t("language")}>
+          <div className="header-actions">
+            <Link
+              to={isAuthenticated ? "/area-do-aluno" : "/area-do-aluno/login"}
+              className="portal-btn"
+            >
+              {t("portalBtn")}
+            </Link>
+
+            <div className="lang-control" aria-label={t("language")}>
             {localeOptions.map((locale) => (
               <button
                 key={locale.code}
@@ -47,6 +57,7 @@ function Layout({ children, preContent }) {
                 <span aria-hidden="true">{locale.flag}</span>
               </button>
             ))}
+            </div>
           </div>
         </div>
       </header>
@@ -96,33 +107,35 @@ function Layout({ children, preContent }) {
 
       {preContent}
 
-      <div className={`container content-layout ${preContent ? "content-layout--overlap" : ""}`}>
-        <aside className="site-sidebar" aria-label="Links rapidos">
-          <nav className="sidebar-section" aria-label={t("footerServices")}>
-            <h4>{t("footerServices")}</h4>
-            <ul>
-              {legacyContent.serviceLinks.map((link) => (
-                <li key={`sidebar-svc-${link.url}`}>
-                  {link.url.startsWith("http") ? (
+      <div className={`container ${hideSidebar ? "content-layout--full" : `content-layout ${preContent ? "content-layout--overlap" : ""}`}`}>
+        {!hideSidebar && (
+          <aside className="site-sidebar" aria-label="Links rapidos">
+            <nav className="sidebar-section" aria-label={t("footerServices")}>
+              <h4>{t("footerServices")}</h4>
+              <ul>
+                {legacyContent.serviceLinks.map((link) => (
+                  <li key={`sidebar-svc-${link.url}`}>
+                    {link.url.startsWith("http") ? (
+                      <a href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
+                    ) : (
+                      <Link to={link.url}>{link.label}</Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <nav className="sidebar-section" aria-label={t("footerLinks")}>
+              <h4>{t("footerLinks")}</h4>
+              <ul>
+                {legacyContent.usefulLinks.map((link) => (
+                  <li key={`sidebar-lnk-${link.url}`}>
                     <a href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
-                  ) : (
-                    <Link to={link.url}>{link.label}</Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <nav className="sidebar-section" aria-label={t("footerLinks")}>
-            <h4>{t("footerLinks")}</h4>
-            <ul>
-              {legacyContent.usefulLinks.map((link) => (
-                <li key={`sidebar-lnk-${link.url}`}>
-                  <a href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </aside>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+        )}
 
         <main className="page-content">
           {children}

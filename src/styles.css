@@ -392,6 +392,48 @@ select {
   max-width: 62ch;
 }
 
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.portal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--blue);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  white-space: nowrap;
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.portal-btn:hover,
+.portal-btn:focus-visible {
+  background: #001060;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,23,129,0.22);
+}
+
+.portal-btn::before {
+  content: "\2022";
+  width: 7px;
+  height: 7px;
+  background: var(--red);
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 0;
+}
+
 .content-layout {
   flex: 1;
   display: grid;
@@ -1477,28 +1519,236 @@ h4 {
 }
 
 /* ============================================================
-   Student Area
+   Student Area — layout helpers
    ============================================================ */
 
-.student-login-wrap {
+.content-layout--full {
+  flex: 1;
+  margin-top: 1rem;
+  margin-bottom: 1.7rem;
+}
+
+.content-layout--full .page-content {
+  border-radius: var(--radius-xl);
+}
+
+/* ============================================================
+   Student Login Page
+   ============================================================ */
+
+.student-login-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hero (left) */
+.student-login-hero {
+  background: linear-gradient(150deg, #001060 0%, #001781 50%, #0d2bb5 100%);
+  padding: clamp(2rem, 4vw, 3rem);
   display: flex;
-  justify-content: center;
-  padding: 2rem 0;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.student-login-card {
-  width: 100%;
-  max-width: 440px;
+.student-login-hero::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(169,14,17,0.25) 0%, transparent 65%);
+  pointer-events: none;
 }
 
-.student-login-hint {
-  color: var(--gray, #666);
-  margin-bottom: 1.25rem;
+.student-login-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.student-login-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.student-login-logo-row img {
+  height: 38px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+
+.student-login-headline {
+  font-family: var(--title-font);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.student-login-tagline {
+  color: rgba(255,255,255,0.78);
   font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+  max-width: 34ch;
 }
+
+.student-login-features {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.student-login-features li {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Form (right) */
+.student-login-form-panel {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 3rem);
+}
+
+.student-login-form-inner {
+  width: 100%;
+  max-width: 360px;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.student-login-form-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin: 0;
+}
+
+.student-login-form-hint {
+  color: var(--text);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.student-login-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.student-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.student-field label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.student-field input {
+  border: 1.5px solid #d0d4e8;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--text-strong);
+  background: #f8f9fc;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.student-field input:focus {
+  outline: none;
+  border-color: var(--blue);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 23, 129, 0.1);
+}
+
+.student-field input::placeholder {
+  color: #b0b4c8;
+}
+
+.student-login-error {
+  background: rgba(169, 14, 17, 0.07);
+  border-left: 3px solid var(--red);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.9rem;
+  color: var(--red);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.student-login-btn {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  margin-top: 0.25rem;
+}
+
+.student-login-btn:hover:not(:disabled) {
+  background: #8f0d10;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(169, 14, 17, 0.28);
+}
+
+.student-login-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.student-login-contact-hint {
+  font-size: 0.8rem;
+  color: var(--text);
+  margin: 0.5rem 0 0;
+  text-align: center;
+}
+
+.student-login-contact-hint a {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* ============================================================
+   Student Materials Area
+   ============================================================ */
 
 .student-area {
-  margin-top: 1.5rem;
+  margin-top: 0.25rem;
 }
 
 .student-header {
@@ -1511,15 +1761,15 @@ h4 {
 }
 
 .student-subtitle {
-  color: var(--gray, #666);
+  color: var(--text);
   margin-top: 0.25rem;
   font-size: 0.95rem;
 }
 
 .student-logout-btn {
   background: transparent;
-  border: 2px solid var(--red, #a90e11);
-  color: var(--red, #a90e11);
+  border: 2px solid var(--red);
+  color: var(--red);
   border-radius: 999px;
   padding: 0.45rem 1.1rem;
   font-weight: 700;
@@ -1527,10 +1777,11 @@ h4 {
   font-size: 0.85rem;
   transition: background 180ms ease, color 180ms ease;
   white-space: nowrap;
+  font: inherit;
 }
 
 .student-logout-btn:hover {
-  background: var(--red, #a90e11);
+  background: var(--red);
   color: #fff;
 }
 
@@ -1542,38 +1793,38 @@ h4 {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  color: var(--blue, #0c1440);
+  color: var(--blue);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--red, #a90e11);
+  border-bottom: 2px solid var(--red);
 }
 
 .student-level-badge {
-  background: var(--red, #a90e11);
+  background: var(--red);
   color: #fff;
   font-size: 0.7rem;
   font-weight: 800;
   border-radius: 999px;
-  padding: 0.15rem 0.5rem;
+  padding: 0.15rem 0.55rem;
   letter-spacing: 0.06em;
 }
 
 .student-level-badge--sm {
-  background: var(--blue, #0c1440);
+  background: var(--blue);
   font-size: 0.65rem;
 }
 
 .student-module {
   background: #f9f9f9;
   border: 1px solid #e2e2e2;
-  border-radius: var(--radius-lg, 0.75rem);
+  border-radius: var(--radius-lg);
   padding: 1.25rem 1.5rem;
   margin-bottom: 1rem;
-  box-shadow: var(--shadow-xs, 0 1px 4px rgba(0,0,0,.06));
+  box-shadow: var(--shadow-xs);
 }
 
 .student-module-title {
@@ -1582,7 +1833,7 @@ h4 {
   gap: 0.5rem;
   font-size: 1rem;
   font-weight: 700;
-  color: var(--blue, #0c1440);
+  color: var(--blue);
   margin-bottom: 0.75rem;
 }
 
@@ -1601,25 +1852,25 @@ h4 {
   align-items: center;
   background: #fff;
   border: 1px solid #d0d0d8;
-  border-radius: var(--radius-sm, 0.375rem);
+  border-radius: var(--radius-sm);
   padding: 0.7rem 1rem;
   font: inherit;
   font-weight: 600;
   font-size: 0.9rem;
-  color: var(--blue, #0c1440);
+  color: var(--blue);
   cursor: pointer;
   text-align: left;
   transition: border-color 180ms ease, background 180ms ease;
 }
 
 .student-material-btn:hover {
-  border-color: var(--red, #a90e11);
+  border-color: var(--red);
   background: rgba(169, 14, 17, 0.04);
 }
 
 .student-material-arrow {
   font-size: 0.7rem;
-  color: var(--red, #a90e11);
+  color: var(--red);
   flex-shrink: 0;
 }
 
@@ -1627,7 +1878,7 @@ h4 {
   background: #fff;
   border: 1px solid #e2e2e2;
   border-top: none;
-  border-radius: 0 0 var(--radius-sm, 0.375rem) var(--radius-sm, 0.375rem);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
   padding: 1rem;
 }
 
@@ -1651,14 +1902,14 @@ h4 {
   align-items: center;
   gap: 0.35rem;
   font-size: 0.875rem;
-  color: var(--blue, #0c1440);
+  color: var(--blue);
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .student-attachments a:hover {
-  color: var(--red, #a90e11);
+  color: var(--red);
 }
 
 .student-state-msg {
@@ -1676,4 +1927,17 @@ h4 {
   color: #aaa;
   font-size: 0.875rem;
   font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .student-login-page {
+    grid-template-columns: 1fr;
+  }
+  .student-login-hero {
+    padding: 2rem 1.5rem 1.75rem;
+  }
+  .student-login-features {
+    display: none;
+  }
 }

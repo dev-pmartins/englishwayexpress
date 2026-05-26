@@ -157,5 +157,13 @@
   "studentLoading": "Loading materials...",
   "studentLoadError": "Could not load materials. Please try again.",
   "studentNoModules": "No modules available for your level yet.",
-  "studentNoMaterials": "No materials in this module yet."
+  "studentNoMaterials": "No materials in this module yet.",
+  "studentLoginTagline": "Access your study modules and materials tailored to your level.",
+  "studentFeature1": "Modules organised by language and level",
+  "studentFeature2": "Materials created by the English Way Express team",
+  "studentFeature3": "Attachments and downloadable resources",
+  "studentLoginFormTitle": "Sign in to your account",
+  "studentLoginContactHint": "No access? Contact us",
+  "studentLoginContactLink": "here",
+  "portalBtn": "Student Portal"
 }

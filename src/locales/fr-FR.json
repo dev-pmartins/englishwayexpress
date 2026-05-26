@@ -157,5 +157,13 @@
   "studentLoading": "Chargement des supports...",
   "studentLoadError": "Impossible de charger les supports. Réessayez.",
   "studentNoModules": "Aucun module disponible pour votre niveau.",
-  "studentNoMaterials": "Aucun support dans ce module."
+  "studentNoMaterials": "Aucun support dans ce module.",
+  "studentLoginTagline": "Accédez à vos modules et supports adaptés à votre niveau.",
+  "studentFeature1": "Modules organisés par langue et niveau",
+  "studentFeature2": "Supports créés par l'équipe English Way Express",
+  "studentFeature3": "Pièces jointes et ressources téléchargeables",
+  "studentLoginFormTitle": "Se connecter à votre compte",
+  "studentLoginContactHint": "Pas d'accès ? Contactez-nous",
+  "studentLoginContactLink": "ici",
+  "portalBtn": "Espace Étudiant"
 }

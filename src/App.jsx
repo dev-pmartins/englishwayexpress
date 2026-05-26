@@ -8,6 +8,7 @@ import LeadForm from "./components/LeadForm";
 import HomeCarousel from "./components/HomeCarousel";
 import HomePageSections from "./components/HomePageSections";
 import StudentArea from "./components/student/StudentArea";
+import StudentLoginPage from "./components/student/StudentLoginPage";
 
 const normalizePath = (path) => {
   const normalized = `/${path}`.replace(/\/+/g, "/").replace(/\/+$/, "");
@@ -84,11 +85,16 @@ function App() {
 
   const page = legacyContent.pageMap.get(path);
 
+  const isStudentArea = path === "/area-do-aluno" || path.startsWith("/area-do-aluno/");
+  const isStudentLogin = path === "/area-do-aluno/login";
+
   let content = <NotFound />;
 
   if (path === "/") {
     content = <HomePage />;
-  } else if (path === "/area-do-aluno" || path.startsWith("/area-do-aluno/")) {
+  } else if (isStudentLogin) {
+    content = <StudentLoginPage />;
+  } else if (isStudentArea) {
     content = <StudentArea />;
   } else if (page) {
     content = <LegacyPage page={page} />;
@@ -110,7 +116,11 @@ function App() {
     </div>
   );
 
-  return <Layout preContent={renderedPreContent}>{renderedContent}</Layout>;
+  return (
+    <Layout preContent={renderedPreContent} hideSidebar={isStudentArea}>
+      {renderedContent}
+    </Layout>
+  );
 }
 
 export default App;

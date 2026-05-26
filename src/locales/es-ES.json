@@ -157,5 +157,13 @@
   "studentLoading": "Cargando materiales...",
   "studentLoadError": "No se pudieron cargar los materiales. Inténtalo de nuevo.",
   "studentNoModules": "Aún no hay módulos disponibles para tu nivel.",
-  "studentNoMaterials": "No hay materiales en este módulo aún."
+  "studentNoMaterials": "No hay materiales en este módulo aún.",
+  "studentLoginTagline": "Accede a tus módulos y materiales de estudio adaptados a tu nivel.",
+  "studentFeature1": "Módulos organizados por idioma y nivel",
+  "studentFeature2": "Materiales creados por el equipo English Way Express",
+  "studentFeature3": "Archivos adjuntos y recursos descargables",
+  "studentLoginFormTitle": "Iniciar sesión en tu cuenta",
+  "studentLoginContactHint": "¿Sin acceso? Contáctanos",
+  "studentLoginContactLink": "aquí",
+  "portalBtn": "Portal del Alumno"
 }

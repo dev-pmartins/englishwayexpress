@@ -157,5 +157,13 @@
   "studentLoading": "Materialien werden geladen...",
   "studentLoadError": "Materialien konnten nicht geladen werden. Bitte erneut versuchen.",
   "studentNoModules": "Noch keine Module für dein Niveau verfügbar.",
-  "studentNoMaterials": "Noch keine Materialien in diesem Modul."
+  "studentNoMaterials": "Noch keine Materialien in diesem Modul.",
+  "studentLoginTagline": "Greife auf deine Lernmodule und Materialien passend zu deinem Niveau zu.",
+  "studentFeature1": "Module nach Sprache und Niveau geordnet",
+  "studentFeature2": "Materialien vom English Way Express Team",
+  "studentFeature3": "Anhänge und herunterladbare Ressourcen",
+  "studentLoginFormTitle": "Bei deinem Konto anmelden",
+  "studentLoginContactHint": "Kein Zugang? Kontaktiere uns",
+  "studentLoginContactLink": "hier",
+  "portalBtn": "Studentenportal"
 }
