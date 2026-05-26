@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const initialState = {
@@ -8,16 +8,18 @@ const initialState = {
   message: ""
 };
 
+const SOURCE_TO_CATEGORY = {
+  "fale-conosco": "fale_conosco",
+  "trabalhe-conosco": "trabalhe_conosco"
+};
+
+const API_BASE = import.meta.env.VITE_API_URL ?? "";
+
 function LeadForm({ source }) {
   const { t } = useTranslation();
   const [formData, setFormData] = useState(initialState);
   const [status, setStatus] = useState("idle");
   const [feedback, setFeedback] = useState("");
-
-  const webhookUrl = useMemo(
-    () => import.meta.env.VITE_GOOGLE_SHEETS_WEBHOOK_URL,
-    []
-  );
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -30,41 +32,33 @@ function LeadForm({ source }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!webhookUrl) {
-      setStatus("error");
-      setFeedback(t("formMissingWebhook"));
-      return;
-    }
-
     setStatus("sending");
     setFeedback("");
 
     try {
       const payload = {
         ...formData,
-        source,
-        locale: navigator.language,
-        sentAt: new Date().toISOString()
+        category: SOURCE_TO_CATEGORY[source] ?? "fale_conosco"
       };
 
-      const response = await fetch(webhookUrl, {
+      const response = await fetch(`${API_BASE}/api/contacts`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
 
       if (!response.ok) {
-        throw new Error("Webhook error");
+        const body = await response.json().catch(() => ({}));
+        const firstError = Object.values(body.errors ?? {})?.[0]?.[0];
+        throw new Error(firstError ?? "API error");
       }
 
       setStatus("success");
       setFeedback(t("formSuccess"));
       setFormData(initialState);
-    } catch {
+    } catch (err) {
       setStatus("error");
-      setFeedback(t("formError"));
+      setFeedback(err.message !== "API error" ? err.message : t("formError"));
     }
   };
 
