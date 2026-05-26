@@ -2151,3 +2151,52 @@ h4 {
 .student-materials-gate .student-login-btn:hover {
   background: #001060;
 }
+
+/* ─── Post card as link ─── */
+.student-post-card--link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.student-post-card--link .student-post-title {
+  transition: color 140ms ease;
+}
+
+.student-post-card--link:hover .student-post-title {
+  color: var(--red);
+}
+
+/* ─── Single post article page ─── */
+.student-post-article {
+  max-width: 720px;
+}
+
+.student-post-article-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.student-post-article-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin: 0.4rem 0 0.5rem;
+  line-height: 1.25;
+}
+
+.student-post-article-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #333;
+}
+
+.student-post-article-body p {
+  margin-bottom: 1rem;
+}
+
+.student-post-article-body h2,
+.student-post-article-body h3 {
+  color: var(--blue);
+  margin-top: 1.5rem;
+}

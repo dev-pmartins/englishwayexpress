@@ -152,7 +152,11 @@ export default function StudentLanguagePage({ langCode }) {
             const translation = post.translations?.[0];
             if (!translation) return null;
             return (
-              <article key={post.id} className="student-post-card">
+              <Link
+                key={post.id}
+                to={`/area-do-aluno/${langCode}/${translation.slug}`}
+                className="student-post-card student-post-card--link"
+              >
                 <span className="student-post-category">{post.category}</span>
                 <h3 className="student-post-title">{translation.title}</h3>
                 {post.published_at && (
@@ -166,27 +170,20 @@ export default function StudentLanguagePage({ langCode }) {
                     {translation.content.length > 200 ? "…" : ""}
                   </p>
                 )}
-              </article>
+              </Link>
             );
           })}
         </div>
       )}
 
-      {/* ── Materials (authenticated only) ── */}
-      <h3 className="student-section-heading student-section-heading--materials">
-        {t("studentMaterialsHeading")}
-      </h3>
-
-      {isAuthenticated ? (
-        <MaterialsSection langCode={langCode} token={token} t={t} />
-      ) : (
-        <div className="student-materials-gate">
-          <span className="student-materials-gate-icon">🔒</span>
-          <p>{t("studentMaterialsGate")}</p>
-          <Link to="/area-do-aluno/login" className="student-login-btn">
-            {t("studentLoginSubmit")}
-          </Link>
-        </div>
+      {/* ── Materials (authenticated only — hidden when logged out) ── */}
+      {isAuthenticated && (
+        <>
+          <h3 className="student-section-heading student-section-heading--materials">
+            {t("studentMaterialsHeading")}
+          </h3>
+          <MaterialsSection langCode={langCode} token={token} t={t} />
+        </>
       )}
     </div>
   );
