@@ -29,12 +29,7 @@ function MaterialsSection({ langCode, token, t }) {
       .then((body) => {
         if (!cancelled) {
           const all = body.data ?? [];
-          // Filter to the current language
-          const match = all.filter((g) =>
-            g.language?.name?.toLowerCase().startsWith(langCode === "en" ? "ingl" : langCode)
-            || g.language?.code === langCode
-            || g.language?.code?.startsWith(langCode)
-          );
+          const match = all.filter((g) => g.language?.code === langCode);
           setGroups(match);
           setLoading(false);
         }
