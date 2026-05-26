@@ -7,6 +7,7 @@ import LegacyMarkdown from "./components/LegacyMarkdown";
 import LeadForm from "./components/LeadForm";
 import HomeCarousel from "./components/HomeCarousel";
 import HomePageSections from "./components/HomePageSections";
+import StudentArea from "./components/student/StudentArea";
 
 const normalizePath = (path) => {
   const normalized = `/${path}`.replace(/\/+/g, "/").replace(/\/+$/, "");
@@ -87,13 +88,12 @@ function App() {
 
   if (path === "/") {
     content = <HomePage />;
+  } else if (path === "/area-do-aluno" || path.startsWith("/area-do-aluno/")) {
+    content = <StudentArea />;
   } else if (page) {
     content = <LegacyPage page={page} />;
   } else if (path === "/servicos") {
     content = <ServicesHub />;
-  } else if (path === "/area-do-aluno/english") {
-    const studentPage = legacyContent.pageMap.get("/area-do-aluno");
-    content = studentPage ? <LegacyPage page={studentPage} /> : <NotFound />;
   }
 
   const preContent = path === "/" ? <HomeCarousel /> : null;

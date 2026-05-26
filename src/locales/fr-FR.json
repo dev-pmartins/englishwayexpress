@@ -67,19 +67,52 @@
     "contactWhatsapp": "Discuter sur WhatsApp",
     "whatsappMessage": "Bonjour%2C+je+souhaite+obtenir+plus+d+informations+sur+les+services+d+English+Way+Express.",
     "trustHighlights": [
-      { "value": "13+ ans", "title": "Experience du marche", "description": "Travail avec des entreprises, des professionnels et des projets sur mesure dans differents secteurs." },
-      { "value": "2 profils", "title": "Corporatif et individuel", "description": "Solutions concues aussi bien pour des equipes que pour des professionnels ayant des objectifs specifiques." },
-      { "value": "Reponse agile", "title": "Mise en oeuvre rapide", "description": "Diagnostic et execution axes sur le contexte d utilisation reel, sans formulations generiques." }
+      {
+        "value": "13+ ans",
+        "title": "Experience du marche",
+        "description": "Travail avec des entreprises, des professionnels et des projets sur mesure dans differents secteurs."
+      },
+      {
+        "value": "2 profils",
+        "title": "Corporatif et individuel",
+        "description": "Solutions concues aussi bien pour des equipes que pour des professionnels ayant des objectifs specifiques."
+      },
+      {
+        "value": "Reponse agile",
+        "title": "Mise en oeuvre rapide",
+        "description": "Diagnostic et execution axes sur le contexte d utilisation reel, sans formulations generiques."
+      }
     ],
     "highlightedServices": [
-      { "title": "Cours de langues In Company et en residence", "description": "Programmes personnalises pour les equipes et les professionnels axes sur la fluidite appliquee au travail quotidien.", "path": "/servicos/cursos-de-idiomas-in-company" },
-      { "title": "Coaching", "description": "Accompagnement linguistique individuel et en petits groupes, avec des objectifs clairs et une evolution mesurable.", "path": "/servicos/coaching" },
-      { "title": "Conseil", "description": "Soutien pratique pour les reunions, evenements, materiaux et processus strategiques dans de multiples segments d activite.", "path": "/servicos/consultoria" }
+      {
+        "title": "Cours de langues In Company et en residence",
+        "description": "Programmes personnalises pour les equipes et les professionnels axes sur la fluidite appliquee au travail quotidien.",
+        "path": "/servicos/cursos-de-idiomas-in-company"
+      },
+      {
+        "title": "Coaching",
+        "description": "Accompagnement linguistique individuel et en petits groupes, avec des objectifs clairs et une evolution mesurable.",
+        "path": "/servicos/coaching"
+      },
+      {
+        "title": "Conseil",
+        "description": "Soutien pratique pour les reunions, evenements, materiaux et processus strategiques dans de multiples segments d activite.",
+        "path": "/servicos/consultoria"
+      }
     ],
     "workflowSteps": [
-      { "title": "Diagnostic des besoins", "description": "Nous cartographions le contexte, le niveau linguistique, les objectifs et les contraintes operationnelles avant de proposer une solution." },
-      { "title": "Plan personnalise", "description": "Nous structurons le format ideal pour les cours, le coaching, le conseil, la traduction ou la formation corporative." },
-      { "title": "Suivi et evolution", "description": "Nous ajustons le processus en fonction de l utilisation pratique de la langue et des demandes qui surgissent tout au long du parcours." }
+      {
+        "title": "Diagnostic des besoins",
+        "description": "Nous cartographions le contexte, le niveau linguistique, les objectifs et les contraintes operationnelles avant de proposer une solution."
+      },
+      {
+        "title": "Plan personnalise",
+        "description": "Nous structurons le format ideal pour les cours, le coaching, le conseil, la traduction ou la formation corporative."
+      },
+      {
+        "title": "Suivi et evolution",
+        "description": "Nous ajustons le processus en fonction de l utilisation pratique de la langue et des demandes qui surgissent tout au long du parcours."
+      }
     ],
     "businessScenarios": [
       "Reunions, presentations et negociations internationales",
@@ -90,11 +123,39 @@
       "Preparation aux examens et certifications internationaux"
     ],
     "faqItems": [
-      { "question": "English Way Express sert-elle les entreprises et les particuliers ?", "answer": "Oui. Notre travail inclut aussi bien des projets corporatifs pour les equipes et les dirigeants que l accompagnement individuel de professionnels ayant des objectifs specifiques." },
-      { "question": "Les solutions sont-elles personnalisees ou existe-t-il des forfaits prets a l emploi ?", "answer": "Le travail commence par une evaluation initiale pour comprendre le contexte, le niveau, l objectif et l urgence. A partir de la, le format le plus adapte est defini pour chaque cas." },
-      { "question": "Quels services sont disponibles ?", "answer": "L entreprise travaille avec des cours de langues in company et en residence, du coaching, du conseil, de la traduction, de l interpretation et de la preparation aux examens et certifications internationaux." },
-      { "question": "L ecole travaille-t-elle uniquement avec l anglais ?", "answer": "Le focus actuel inclut l anglais et l espagnol, avec une structure en expansion pour d autres langues d interet corporatif et professionnel." },
-      { "question": "Comment demarrer une conversation sur un projet ?", "answer": "Il vous suffit de nous contacter via le formulaire ou WhatsApp. A partir de la, l equipe evalue le besoin et propose le meilleur chemin pour la mise en oeuvre." }
+      {
+        "question": "English Way Express sert-elle les entreprises et les particuliers ?",
+        "answer": "Oui. Notre travail inclut aussi bien des projets corporatifs pour les equipes et les dirigeants que l accompagnement individuel de professionnels ayant des objectifs specifiques."
+      },
+      {
+        "question": "Les solutions sont-elles personnalisees ou existe-t-il des forfaits prets a l emploi ?",
+        "answer": "Le travail commence par une evaluation initiale pour comprendre le contexte, le niveau, l objectif et l urgence. A partir de la, le format le plus adapte est defini pour chaque cas."
+      },
+      {
+        "question": "Quels services sont disponibles ?",
+        "answer": "L entreprise travaille avec des cours de langues in company et en residence, du coaching, du conseil, de la traduction, de l interpretation et de la preparation aux examens et certifications internationaux."
+      },
+      {
+        "question": "L ecole travaille-t-elle uniquement avec l anglais ?",
+        "answer": "Le focus actuel inclut l anglais et l espagnol, avec une structure en expansion pour d autres langues d interet corporatif et professionnel."
+      },
+      {
+        "question": "Comment demarrer une conversation sur un projet ?",
+        "answer": "Il vous suffit de nous contacter via le formulaire ou WhatsApp. A partir de la, l equipe evalue le besoin et propose le meilleur chemin pour la mise en oeuvre."
+      }
     ]
-  }
+  },
+  "studentLoginTitle": "Espace Étudiant",
+  "studentLoginHint": "Connectez-vous pour accéder à vos supports de cours.",
+  "studentPassword": "Mot de passe",
+  "studentLoginSubmit": "Se connecter",
+  "studentLoggingIn": "Connexion...",
+  "studentLoginError": "Email ou mot de passe invalide.",
+  "studentWelcome": "Bonjour, {{name}} !",
+  "studentSubtitle": "Vos modules et supports disponibles :",
+  "studentLogout": "Se déconnecter",
+  "studentLoading": "Chargement des supports...",
+  "studentLoadError": "Impossible de charger les supports. Réessayez.",
+  "studentNoModules": "Aucun module disponible pour votre niveau.",
+  "studentNoMaterials": "Aucun support dans ce module."
 }
