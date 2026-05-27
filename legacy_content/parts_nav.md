@@ -12,7 +12,9 @@
 
 ### Coaching /servicos/coaching/
 
-### Tradução/Intérprete /servicos/traducao-interprete/
+### Serviço de tradutor /servicos/traducao-interprete/
+
+### Tradução de materiais diversos /servicos/traducao-de-materiais
 
 ### Intercâmbio /servicos/intercambio/
 

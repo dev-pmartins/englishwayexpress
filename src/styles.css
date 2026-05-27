@@ -14,7 +14,7 @@
   --shadow-md: 0 8px 28px rgba(0,0,0,.09);
   --shadow-lg: 0 16px 48px rgba(0,0,0,.12);
   --carousel-width: 1980px;
-  --carousel-overlay-start-y: 210px;
+  --carousel-overlay-start-y: 285px;
   --carousel-overlay-height: 146px;
   --title-font: "ExoBlackItalic", Arial, sans-serif;
   --body-font: "Exo 2", Arial, sans-serif;
@@ -288,7 +288,7 @@ select {
   position: relative;
   width: var(--carousel-width);
   min-width: var(--carousel-width);
-  height: 445px;
+  height: 520px;
   border: 1px solid #cecece;
   overflow: hidden;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
@@ -305,7 +305,7 @@ select {
   transform: scale(1.018);
   transition: opacity 520ms ease, transform 4600ms ease;
   background-size: cover;
-  background-position: center;
+  background-position: center 36%;
 }
 
 .carousel-slide.active {
@@ -1426,7 +1426,7 @@ h4 {
   .home-carousel-shell {
     width: 100%;
     min-width: 0;
-    height: clamp(220px, 58vw, 360px);
+    height: clamp(260px, 62vw, 420px);
     border-left: 0;
     border-right: 0;
   }

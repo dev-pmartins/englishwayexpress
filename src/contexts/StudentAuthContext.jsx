@@ -31,8 +31,8 @@ export function StudentAuthProvider({ children }) {
       });
       const body = await res.json();
       if (!res.ok) throw body;
-      persist(body.data.token, body.data.user);
-      return body.data.user;
+      persist(body.token, body.user);
+      return body.user;
     } finally {
       setLoading(false);
     }
