@@ -9,6 +9,8 @@ import HomeCarousel from "./components/HomeCarousel";
 import HomePageSections from "./components/HomePageSections";
 import StudentArea from "./components/student/StudentArea";
 import StudentLoginPage from "./components/student/StudentLoginPage";
+import PostsPage from "./components/posts/PostsPage";
+import PostDetailPage from "./components/posts/PostDetailPage";
 
 const normalizePath = (path) => {
   const normalized = `/${path}`.replace(/\/+/g, "/").replace(/\/+$/, "");
@@ -85,8 +87,9 @@ function App() {
 
   const page = legacyContent.pageMap.get(path);
 
-  const isStudentArea = path === "/area-do-aluno" || path.startsWith("/area-do-aluno/");
+  const isStudentArea  = path === "/area-do-aluno" || path.startsWith("/area-do-aluno/");
   const isStudentLogin = path === "/area-do-aluno/login";
+  const postsSlugMatch = path.match(/^\/noticias\/([^/]+)$/);
 
   let content = <NotFound />;
 
@@ -96,6 +99,10 @@ function App() {
     content = <StudentLoginPage />;
   } else if (isStudentArea) {
     content = <StudentArea />;
+  } else if (postsSlugMatch) {
+    content = <PostDetailPage slug={postsSlugMatch[1]} />;
+  } else if (path === "/noticias") {
+    content = <PostsPage />;
   } else if (page) {
     content = <LegacyPage page={page} />;
   } else if (path === "/servicos") {

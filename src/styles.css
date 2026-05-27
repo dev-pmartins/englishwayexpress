@@ -2200,3 +2200,55 @@ h4 {
   color: var(--blue);
   margin-top: 1.5rem;
 }
+
+/* ── Public Posts / Noticias ─────────────────────────────── */
+.posts-page { max-width: 960px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+.posts-page-header { margin-bottom: 2rem; }
+.posts-page-title  { font-size: 2rem; font-weight: 700; color: var(--blue); margin: 0 0 0.4rem; }
+.posts-page-subtitle { color: var(--text); margin: 0; }
+
+.posts-filters { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+.posts-filter-group { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.posts-filter-label { font-size: 0.8rem; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+.posts-filter-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.posts-filter-pill  { padding: 0.3rem 0.85rem; border-radius: 99px; font-size: 0.82rem; font-weight: 500; border: 1.5px solid var(--line); background: #fff; color: var(--text-strong); cursor: pointer; transition: all .15s; }
+.posts-filter-pill:hover { border-color: var(--blue); color: var(--blue); }
+.posts-filter-pill--active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+.posts-state-msg   { text-align: center; padding: 2rem; color: var(--text); }
+.posts-state-error { color: var(--red); }
+
+.posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+
+.posts-card { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.25rem; background: #fff; border-radius: var(--radius-md); box-shadow: var(--shadow-xs); border: 1.5px solid var(--line); text-decoration: none; color: inherit; transition: box-shadow .2s, border-color .2s, transform .15s; }
+.posts-card:hover { box-shadow: var(--shadow-sm); border-color: var(--blue); transform: translateY(-2px); }
+
+.posts-card-top { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.posts-card-category { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 0.18rem 0.6rem; border-radius: 99px; }
+.posts-card-lang { font-size: 0.75rem; color: var(--text); margin-left: auto; }
+.posts-card-title { font-size: 1.05rem; font-weight: 700; color: var(--blue); margin: 0; line-height: 1.3; }
+.posts-card-date  { font-size: 0.78rem; color: var(--text); }
+.posts-card-excerpt { font-size: 0.88rem; color: var(--text); margin: 0; line-height: 1.55; flex-grow: 1; }
+.posts-card-readmore { font-size: 0.82rem; font-weight: 600; color: var(--blue); margin-top: auto; }
+
+/* ── Post Detail Page ─────────────────────────────────────── */
+.post-detail { max-width: 720px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+.post-detail-nav  { margin-bottom: 1.5rem; }
+.post-detail-back { font-size: 0.88rem; color: var(--blue); text-decoration: none; font-weight: 600; }
+.post-detail-back:hover { text-decoration: underline; }
+
+.post-detail-article { }
+.post-detail-header  { margin-bottom: 2rem; border-bottom: 1.5px solid var(--line); padding-bottom: 1.25rem; }
+.post-detail-title   { font-size: 1.7rem; font-weight: 800; color: var(--blue); margin: 0.5rem 0 0.75rem; line-height: 1.25; }
+.post-detail-meta    { display: flex; align-items: center; gap: 0.75rem; font-size: 0.82rem; color: var(--text); }
+
+.post-detail-langs       { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; font-size: 0.82rem; }
+.post-detail-langs-label { color: var(--text); }
+.post-detail-lang-link   { color: var(--blue); text-decoration: none; font-weight: 600; padding: 0.15rem 0.55rem; border-radius: 99px; border: 1.5px solid currentColor; }
+.post-detail-lang-link:hover { background: var(--blue); color: #fff; }
+
+.post-detail-body { font-size: 1rem; line-height: 1.8; color: #333; }
+.post-detail-body p  { margin-bottom: 1rem; }
+.post-detail-body h2, .post-detail-body h3 { color: var(--blue); margin-top: 1.5rem; }

@@ -18,6 +18,8 @@
 
 ### Preparação para exames diversos e certificações internacionais /servicos/preparacao-para-exames-diversos-e-certificacoes-internacionais/
 
+## Notícias /noticias
+
 ## Área do Aluno /area-do-aluno/
 
 ## Clientes /clientes/

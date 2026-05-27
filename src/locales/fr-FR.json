@@ -179,5 +179,22 @@
   },
   "studentPostsHeading": "Publications",
   "studentMaterialsHeading": "Supports de cours",
-  "studentMaterialsGate": "Connectez-vous pour accéder aux supports exclusifs aux étudiants."
+  "studentMaterialsGate": "Connectez-vous pour accéder aux supports exclusifs aux étudiants.",
+  "postsPageTitle": "Publications",
+  "postsPageSubtitle": "Actualités, conseils, événements et opportunités d'English Way Express.",
+  "postsFilterAll": "Tous",
+  "postsFilterCategory": "Catégorie",
+  "postsFilterLang": "Langue",
+  "postsCat": {
+    "news": "Actualités",
+    "opportunities": "Opportunités",
+    "tips": "Conseils",
+    "events": "Événements"
+  },
+  "postsLoading": "Chargement des publications…",
+  "postsLoadError": "Impossible de charger les publications.",
+  "postsNone": "Aucune publication trouvée.",
+  "postsReadMore": "Lire la suite",
+  "postsBack": "Retour aux publications",
+  "postsOtherLangs": "Aussi disponible en"
 }

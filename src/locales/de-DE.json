@@ -179,5 +179,22 @@
   },
   "studentPostsHeading": "Beiträge",
   "studentMaterialsHeading": "Lernmaterialien",
-  "studentMaterialsGate": "Melde dich an, um exklusive Lernmaterialien zu nutzen."
+  "studentMaterialsGate": "Melde dich an, um exklusive Lernmaterialien zu nutzen.",
+  "postsPageTitle": "Veröffentlichungen",
+  "postsPageSubtitle": "Neuigkeiten, Tipps, Veranstaltungen und Chancen von English Way Express.",
+  "postsFilterAll": "Alle",
+  "postsFilterCategory": "Kategorie",
+  "postsFilterLang": "Sprache",
+  "postsCat": {
+    "news": "Neuigkeiten",
+    "opportunities": "Chancen",
+    "tips": "Tipps",
+    "events": "Veranstaltungen"
+  },
+  "postsLoading": "Publikationen werden geladen…",
+  "postsLoadError": "Publikationen konnten nicht geladen werden.",
+  "postsNone": "Keine Publikationen gefunden.",
+  "postsReadMore": "Weiterlesen",
+  "postsBack": "Zurück zu Publikationen",
+  "postsOtherLangs": "Auch verfügbar in"
 }

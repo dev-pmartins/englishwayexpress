@@ -179,5 +179,22 @@
   },
   "studentPostsHeading": "Posts",
   "studentMaterialsHeading": "Study Materials",
-  "studentMaterialsGate": "Log in to access study materials exclusive to enrolled students."
+  "studentMaterialsGate": "Log in to access study materials exclusive to enrolled students.",
+  "postsPageTitle": "Publications",
+  "postsPageSubtitle": "News, tips, events and opportunities from English Way Express.",
+  "postsFilterAll": "All",
+  "postsFilterCategory": "Category",
+  "postsFilterLang": "Language",
+  "postsCat": {
+    "news": "News",
+    "opportunities": "Opportunities",
+    "tips": "Tips",
+    "events": "Events"
+  },
+  "postsLoading": "Loading publications…",
+  "postsLoadError": "Could not load publications.",
+  "postsNone": "No publications found.",
+  "postsReadMore": "Read more",
+  "postsBack": "Back to publications",
+  "postsOtherLangs": "Also available in"
 }
