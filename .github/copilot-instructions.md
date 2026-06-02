@@ -28,12 +28,27 @@ Navigation items are parsed from `parts_nav.md` using a custom parser: `## Label
 
 ### Routing
 
-There are no `<Routes>` or `<Route>` components. `App.jsx` does manual path matching:
+There are no `<Routes>` or `<Route>` components. `App.jsx` does manual path matching in this priority order:
 
 1. `/` → `<HomePage />`
-2. Path found in `legacyContent.pageMap` → `<LegacyPage />`
-3. `/servicos` → `<ServicesHub />`
-4. Anything else → `<NotFound />`
+2. `/area-do-aluno/login` → `<StudentLoginPage />`
+3. `/area-do-aluno` or `/area-do-aluno/*` → `<StudentArea />`
+4. `/noticias/{slug}` → `<PostDetailPage />`
+5. `/noticias` → `<PostsPage />`
+6. Path found in `legacyContent.pageMap` → `<LegacyPage />`
+7. `/servicos` → `<ServicesHub />`
+8. Anything else → `<NotFound />`
+
+`StudentArea` does its own sub-routing by reading `location.pathname` directly:
+- `/area-do-aluno` → `<StudentHub />`
+- `/area-do-aluno/{lang}` (en/es/de/fr/it) → `<StudentLanguagePage />`
+- `/area-do-aluno/{lang}/{slug}` → `<StudentPostPage />`
+
+### Student area
+
+Authentication is handled by `StudentAuthContext` (JWT). Tokens are stored in localStorage under `ewe_student_token` / `ewe_student_user`. The API base URL comes from `VITE_API_URL` (defaults to same origin).
+
+The nav "Área do Aluno" item opens a **language preference modal** (`StudentLanguageModal`) instead of navigating directly. Selected language codes are persisted in localStorage under `ewe_student_languages` via the `useStudentLanguages` hook (`src/hooks/useStudentLanguages.js`). `StudentHub` reads this preference and shows only the selected languages (falls back to all five if none saved).
 
 ### i18n
 
@@ -51,5 +66,7 @@ Always add new UI strings to **all** locale files at once. Use `useTranslation()
 
 - **Adding a new page**: create `legacy_content/pages_{slug}.md` (use `_` for path separators) with a `# Title` as the first line. It will automatically appear in `legacyContent.pageMap` and be routable.
 - **Adding a nav link**: edit `legacy_content/parts_nav.md` using the `## Label /path` / `### Label /path` syntax.
-- **Environment variable prefix**: all Vite env vars exposed to the client must be prefixed with `VITE_`. The only current one is `VITE_GOOGLE_SHEETS_WEBHOOK_URL`.
+- **Environment variable prefix**: all Vite env vars exposed to the client must be prefixed with `VITE_`. Current vars: `VITE_GOOGLE_SHEETS_WEBHOOK_URL`, `VITE_API_URL`.
 - **`normalizePath`**: trailing slashes are stripped everywhere to keep path matching consistent.
+- **localStorage keys**: `ewe_student_token`, `ewe_student_user` (auth), `ewe_student_languages` (language preferences).
+- **Nav special behavior**: the "Área do Aluno" parent nav item (`/area-do-aluno`) is rendered as a `<button>` in `Layout.jsx` that opens `StudentLanguageModal` instead of navigating. Other nav items are standard `<Link>` elements.
