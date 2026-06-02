@@ -62,6 +62,53 @@ Always add new UI strings to **all** locale files at once. Use `useTranslation()
 - **`LeadForm`** — posts contact/job-application data as JSON to the Google Apps Script webhook configured in `VITE_GOOGLE_SHEETS_WEBHOOK_URL`. This env var must be set in both `.env` and in the Vercel project settings.
 - **`Layout`** — wraps every page; renders the header with the language switcher, the nav (populated from `legacyContent.navItems`), an optional `preContent` slot (used for the hero carousel on the home page), `children`, a WhatsApp FAB, and the footer.
 
+## Backend API (`englishwayexpress-api`)
+
+The companion API lives at `../englishwayexpress-api` (sibling directory). It is a **Laravel 13 + Sanctum** application using SQLite by default. The frontend points to it via `VITE_API_URL`.
+
+### Running the API locally
+
+```bash
+cd ../englishwayexpress-api
+php artisan serve        # starts at http://localhost:8000
+php artisan migrate      # run migrations
+php artisan db:seed      # seed sample data
+```
+
+### Auth
+
+- `POST /api/auth/login` → returns a Sanctum token
+- `POST /api/auth/logout` / `POST /api/auth/refresh` / `GET /api/auth/me`
+- Roles: `admin`, `professor`, `aluno` — enforced via `role:` middleware
+
+### Key API endpoints
+
+| Method | Path | Auth | Description |
+|--------|------|------|-------------|
+| GET | `/api/posts` | public | List published posts (news) |
+| GET | `/api/posts/{slug}` | public | Post detail |
+| GET | `/api/student/posts/{languageCode}` | public | Student posts by language (en/es/de/fr/it) |
+| GET | `/api/student/modules` | aluno/professor/admin | Student modules for sidebar |
+| GET/POST/PUT/DELETE | `/api/admin/posts` | admin/professor | Manage posts + translations |
+| GET/POST/PUT/DELETE | `/api/admin/modules` | admin/professor | Manage modules |
+| GET/POST/PUT/DELETE | `/api/admin/materials` | admin/professor | Manage materials |
+| GET/POST/PUT/DELETE | `/api/admin/users` | admin | Manage users |
+| GET/PUT/DELETE | `/api/admin/contacts` | admin/professor | Manage contact form submissions |
+
+### Data model highlights
+
+- **Post** — has `category` (news/opportunities/tips/events), `status`, `author_id`, `published_at`; translated via `PostTranslation` (one per language code)
+- **Module** — belongs to a `Language`, has a `minimum_level`, contains many `Material`s
+- **Language** — code (e.g. `en`, `es`, `de`, `fr`, `it`); used to scope student content
+- **StudentLevel** — links a user to a language + level (e.g. B2 in English)
+- **Contact** — submitted via `POST /api/contacts`; may have `ContactAttachment`s
+
+### Backend env vars
+
+Key vars in `englishwayexpress-api/.env`:
+- `FRONTEND_URL` — must match the frontend origin for CORS
+- `DB_CONNECTION` — defaults to `sqlite`; switch to `mysql` for production
+
 ## Key conventions
 
 - **Adding a new page**: create `legacy_content/pages_{slug}.md` (use `_` for path separators) with a `# Title` as the first line. It will automatically appear in `legacyContent.pageMap` and be routable.
