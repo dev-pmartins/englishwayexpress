@@ -270,6 +270,18 @@ select {
   overflow: hidden;
 }
 
+/* Invisible bridge on the <li> (not clipped by sub-nav overflow) to fill
+   the 6px gap so hover isn't lost when moving the mouse slowly */
+.nav-list > li:has(.sub-nav)::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  z-index: 14;
+}
+
 .nav-list > li:hover .sub-nav,
 .nav-list > li:focus-within .sub-nav {
   display: block;
