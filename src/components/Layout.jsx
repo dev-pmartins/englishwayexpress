@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import StudentLanguageModal from "./student/StudentLanguageModal";
 
 import { legacyContent } from "../content/legacyContent";
 import { useStudentAuth } from "../contexts/StudentAuthContext";
@@ -23,7 +24,9 @@ const normalizePath = (path) => {
 function Layout({ children, preContent, hideSidebar = false }) {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLangModalOpen, setIsLangModalOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { isAuthenticated } = useStudentAuth();
 
   const currentPath = normalizePath(location.pathname);
@@ -78,9 +81,19 @@ function Layout({ children, preContent, hideSidebar = false }) {
         <ul className={`nav-list ${isMenuOpen ? "open" : ""}`}>
           {legacyContent.navItems.map((item) => (
             <li key={item.path} className={currentPath === normalizePath(item.path) ? "active" : ""}>
-              <Link to={normalizePath(item.path)} onClick={() => setIsMenuOpen(false)}>
-                {item.label}
-              </Link>
+              {normalizePath(item.path) === "/area-do-aluno" ? (
+                <button
+                  type="button"
+                  className="nav-area-trigger"
+                  onClick={() => { setIsMenuOpen(false); setIsLangModalOpen(true); }}
+                >
+                  {item.label}
+                </button>
+              ) : (
+                <Link to={normalizePath(item.path)} onClick={() => setIsMenuOpen(false)}>
+                  {item.label}
+                </Link>
+              )}
               {item.children.length > 0 ? (
                 <ul className="sub-nav">
                   {item.children.map((child) => (
@@ -215,6 +228,14 @@ function Layout({ children, preContent, hideSidebar = false }) {
           </p>
         </div>
       </footer>
+
+      {isLangModalOpen && (
+        <StudentLanguageModal
+          onClose={() => setIsLangModalOpen(false)}
+          onConfirm={() => { setIsLangModalOpen(false); navigate("/area-do-aluno"); }}
+          onSkip={() => { setIsLangModalOpen(false); navigate("/area-do-aluno"); }}
+        />
+      )}
     </div>
   );
 }

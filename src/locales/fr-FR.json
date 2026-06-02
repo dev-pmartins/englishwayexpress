@@ -196,5 +196,10 @@
   "postsNone": "Aucune publication trouvée.",
   "postsReadMore": "Lire la suite",
   "postsBack": "Retour aux publications",
-  "postsOtherLangs": "Aussi disponible en"
+  "postsOtherLangs": "Aussi disponible en",
+  "modalClose": "Fermer",
+  "studentLangModalTitle": "Choisissez vos langues d'intérêt",
+  "studentLangModalSubtitle": "Sélectionnez les langues dont vous souhaitez voir le contenu dans l'Espace Étudiant. Vous pouvez modifier cette préférence à tout moment.",
+  "studentLangModalConfirm": "Confirmer",
+  "studentLangModalSkip": "Voir toutes les langues"
 }

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useStudentAuth } from "../../contexts/StudentAuthContext";
+import { useStudentLanguages } from "../../hooks/useStudentLanguages";
 
-const LANGUAGES = [
+const ALL_LANGUAGES = [
   { code: "en", flag: "🇬🇧", color: "#012169", accent: "#C8102E" },
   { code: "es", flag: "🇪🇸", color: "#c60b1e", accent: "#F1BF00" },
   { code: "de", flag: "🇩🇪", color: "#222",    accent: "#FFCD00" },
@@ -13,6 +14,12 @@ const LANGUAGES = [
 export default function StudentHub() {
   const { t } = useTranslation();
   const { user, logout } = useStudentAuth();
+  const { languages } = useStudentLanguages();
+
+  const displayed =
+    languages.length > 0
+      ? ALL_LANGUAGES.filter((l) => languages.includes(l.code))
+      : ALL_LANGUAGES;
 
   return (
     <div className="student-area">
@@ -29,7 +36,7 @@ export default function StudentHub() {
       </div>
 
       <div className="student-lang-grid">
-        {LANGUAGES.map((lang) => (
+        {displayed.map((lang) => (
           <Link
             key={lang.code}
             to={`/area-do-aluno/${lang.code}`}

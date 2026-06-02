@@ -196,5 +196,10 @@
   "postsNone": "No publications found.",
   "postsReadMore": "Read more",
   "postsBack": "Back to publications",
-  "postsOtherLangs": "Also available in"
+  "postsOtherLangs": "Also available in",
+  "modalClose": "Close",
+  "studentLangModalTitle": "Choose your languages of interest",
+  "studentLangModalSubtitle": "Select the languages whose content you want to see in the Student Area. You can change this preference at any time.",
+  "studentLangModalConfirm": "Confirm",
+  "studentLangModalSkip": "Show all languages"
 }

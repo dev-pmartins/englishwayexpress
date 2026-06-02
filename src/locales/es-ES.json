@@ -196,5 +196,10 @@
   "postsNone": "No se encontraron publicaciones.",
   "postsReadMore": "Leer más",
   "postsBack": "Volver a publicaciones",
-  "postsOtherLangs": "También disponible en"
+  "postsOtherLangs": "También disponible en",
+  "modalClose": "Cerrar",
+  "studentLangModalTitle": "Elige tus idiomas de interés",
+  "studentLangModalSubtitle": "Selecciona los idiomas cuyo contenido deseas ver en el Área del Alumno. Puedes cambiar esta preferencia en cualquier momento.",
+  "studentLangModalConfirm": "Confirmar",
+  "studentLangModalSkip": "Ver todos los idiomas"
 }

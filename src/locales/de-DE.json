@@ -196,5 +196,10 @@
   "postsNone": "Keine Publikationen gefunden.",
   "postsReadMore": "Weiterlesen",
   "postsBack": "Zurück zu Publikationen",
-  "postsOtherLangs": "Auch verfügbar in"
+  "postsOtherLangs": "Auch verfügbar in",
+  "modalClose": "Schließen",
+  "studentLangModalTitle": "Wählen Sie Ihre Sprachen",
+  "studentLangModalSubtitle": "Wählen Sie die Sprachen aus, deren Inhalte Sie im Studentenbereich sehen möchten. Sie können diese Einstellung jederzeit ändern.",
+  "studentLangModalConfirm": "Bestätigen",
+  "studentLangModalSkip": "Alle Sprachen anzeigen"
 }

@@ -230,6 +230,31 @@ select {
   transform: translateY(-1px);
 }
 
+/* Nav trigger button styled to match nav links */
+.nav-area-trigger {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font: inherit;
+  color: #575757;
+  padding: 0.35rem 0.45rem;
+  display: inline-block;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-area-trigger:hover,
+.nav-area-trigger:focus-visible {
+  color: var(--red);
+  border-bottom-color: var(--red);
+  background: rgba(169, 14, 17, 0.05);
+  transform: translateY(-1px);
+}
+
 .sub-nav {
   position: absolute;
   top: calc(100% + 6px);
@@ -2252,3 +2277,158 @@ h4 {
 .post-detail-body { font-size: 1rem; line-height: 1.8; color: #333; }
 .post-detail-body p  { margin-bottom: 1rem; }
 .post-detail-body h2, .post-detail-body h3 { color: var(--blue); margin-top: 1.5rem; }
+
+/* ── Language Preference Modal ────────────────────────────── */
+.lang-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 180ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lang-modal-box {
+  background: #fff;
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: var(--shadow-md);
+  padding: 2rem 1.75rem 1.75rem;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  animation: slideUp 200ms ease;
+  outline: none;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.lang-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.9rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #999;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: color 140ms ease;
+}
+.lang-modal-close:hover { color: var(--red); }
+
+.lang-modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin: 0 0 0.4rem;
+}
+
+.lang-modal-subtitle {
+  font-size: 0.9rem;
+  color: var(--text);
+  margin: 0 0 1.25rem;
+  line-height: 1.5;
+}
+
+.lang-modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lang-modal-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md, 8px);
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease;
+  user-select: none;
+}
+
+.lang-modal-option:hover {
+  border-color: var(--blue);
+  background: rgba(0, 51, 102, 0.04);
+}
+
+.lang-modal-option.checked {
+  border-color: var(--blue);
+  background: rgba(0, 51, 102, 0.07);
+}
+
+.lang-modal-option input[type="checkbox"] {
+  accent-color: var(--blue);
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+}
+
+.lang-modal-flag {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.lang-modal-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.lang-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.lang-modal-confirm {
+  flex: 1;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.65rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 140ms ease, transform 120ms ease;
+}
+
+.lang-modal-confirm:hover {
+  background: #8a090b;
+  transform: translateY(-1px);
+}
+
+.lang-modal-skip {
+  flex: 1;
+  background: transparent;
+  color: var(--text);
+  border: 2px solid #ccc;
+  border-radius: 999px;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 140ms ease, color 140ms ease;
+}
+
+.lang-modal-skip:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
