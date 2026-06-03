@@ -245,5 +245,11 @@
     "Content in multiple languages: English, Spanish, French and more",
     "Exclusive complementary material, tips and exercises",
     "Ongoing support from specialist teachers"
-  ]
+  ],
+  "attachmentImage": "Image",
+  "attachmentAudio": "Audio",
+  "attachmentDocument": "Document",
+  "attachmentZip": "ZIP Archive",
+  "attachmentDownload": "Download file",
+  "attachmentPreviewNotAvailable": "Preview not available in development"
 }

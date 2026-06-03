@@ -245,5 +245,11 @@
     "Contenido en múltiples idiomas: inglés, español, francés y más",
     "Material complementario, consejos y ejercicios exclusivos",
     "Apoyo continuo de profesores especializados"
-  ]
+  ],
+  "attachmentImage": "Imagen",
+  "attachmentAudio": "Audio",
+  "attachmentDocument": "Documento",
+  "attachmentZip": "Archivo ZIP",
+  "attachmentDownload": "Descargar archivo",
+  "attachmentPreviewNotAvailable": "Vista previa no disponible en desarrollo"
 }
