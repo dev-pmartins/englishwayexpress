@@ -2502,7 +2502,130 @@ h4 {
   font-size: 0.78rem;
 }
 
-/* ── Hub: "Quero ser aluno" enroll banner ─────────────────────────── */
+/* ── Hub: inviting hero section ───────────────────────────────────── */
+
+.hub-hero {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: linear-gradient(135deg, #0d1b5e 0%, #1a3a9e 60%, #1e4fd8 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 44px 48px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hub-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(255,255,255,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hub-hero-body {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.hub-hero-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+  margin: 0 0 10px;
+}
+
+.hub-hero-title {
+  font-family: var(--title-font);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0 0 14px;
+}
+
+.hub-hero-description {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,.82);
+  margin: 0 0 22px;
+  max-width: 520px;
+}
+
+.hub-hero-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hub-hero-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,.9);
+}
+
+.hub-hero-benefit-check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,.18);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+.hub-hero-actions {
+  margin-top: 0;
+}
+
+.hub-hero-visual {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hub-hero-flags {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.hub-hero-flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  font-size: 1.8rem;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,.18);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.hub-hero-flag:hover {
+  transform: scale(1.1);
+  background: rgba(255,255,255,.22);
+}
+
+/* ── Hub: "Quero ser aluno" enroll banner (kept for potential reuse) ── */
 
 .hub-enroll-banner {
   display: flex;
@@ -2516,6 +2639,7 @@ h4 {
   margin-bottom: 36px;
   flex-wrap: wrap;
 }
+
 
 .hub-enroll-content {
   display: flex;
@@ -2656,7 +2780,42 @@ h4 {
   color: #9ca3af;
 }
 
+@media (max-width: 860px) {
+  .hub-hero {
+    flex-direction: column;
+    padding: 32px 28px;
+    gap: 28px;
+  }
+
+  .hub-hero-title {
+    font-size: 1.55rem;
+  }
+
+  .hub-hero-visual {
+    width: 100%;
+  }
+
+  .hub-hero-flags {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+
+  .hub-hero-flag {
+    width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
+  }
+}
+
 @media (max-width: 600px) {
+  .hub-hero {
+    padding: 26px 20px;
+  }
+
+  .hub-hero-title {
+    font-size: 1.35rem;
+  }
+
   .hub-enroll-banner {
     flex-direction: column;
     padding: 22px 20px;
@@ -2665,6 +2824,11 @@ h4 {
   .hub-enroll-actions {
     width: 100%;
     flex-direction: column;
+  }
+
+  .hub-hero-actions {
+    flex-direction: column;
+    width: 100%;
   }
 
   .hub-enroll-btn {

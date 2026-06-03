@@ -75,6 +75,8 @@ export default function StudentHub() {
   const { isAuthenticated, user, logout } = useStudentAuth();
   const { languages } = useStudentLanguages();
 
+  const benefits = t("hubBenefits", { returnObjects: true });
+
   return (
     <div className="student-area">
       {/* Header (logged-in only) */}
@@ -92,23 +94,41 @@ export default function StudentHub() {
         </div>
       )}
 
-      {/* "Quero ser aluno" banner — shown only when logged out */}
+      {/* Inviting hero section — shown only when logged out */}
       {!isAuthenticated && (
-        <div className="hub-enroll-banner">
-          <div className="hub-enroll-content">
-            <span className="hub-enroll-icon" aria-hidden="true">🎓</span>
-            <div>
-              <h2 className="hub-enroll-title">{t("hubEnrollTitle")}</h2>
-              <p className="hub-enroll-subtitle">{t("hubEnrollSubtitle")}</p>
+        <div className="hub-hero">
+          <div className="hub-hero-body">
+            <p className="hub-hero-eyebrow">{t("hubHeroEyebrow")}</p>
+            <h2 className="hub-hero-title">{t("hubHeroTitle")}</h2>
+            <p className="hub-hero-description">{t("hubHeroDescription")}</p>
+
+            {Array.isArray(benefits) && benefits.length > 0 && (
+              <ul className="hub-hero-benefits">
+                {benefits.map((benefit, i) => (
+                  <li key={i} className="hub-hero-benefit-item">
+                    <span className="hub-hero-benefit-check" aria-hidden="true">✓</span>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <div className="hub-enroll-actions hub-hero-actions">
+              <Link to="/fale-conosco" className="hub-enroll-btn hub-enroll-btn--primary">
+                🎓 {t("hubEnrollCta")}
+              </Link>
+              <Link to="/area-do-aluno/login" className="hub-enroll-btn hub-enroll-btn--ghost">
+                {t("studentLoginSubmit")}
+              </Link>
             </div>
           </div>
-          <div className="hub-enroll-actions">
-            <Link to="/fale-conosco" className="hub-enroll-btn hub-enroll-btn--primary">
-              {t("hubEnrollCta")}
-            </Link>
-            <Link to="/area-do-aluno/login" className="hub-enroll-btn hub-enroll-btn--ghost">
-              {t("studentLoginSubmit")}
-            </Link>
+
+          <div className="hub-hero-visual" aria-hidden="true">
+            <div className="hub-hero-flags">
+              {["🇬🇧", "🇺🇸", "🇪🇸", "🇩🇪", "🇫🇷", "🇮🇹"].map((flag, i) => (
+                <span key={i} className="hub-hero-flag">{flag}</span>
+              ))}
+            </div>
           </div>
         </div>
       )}

@@ -223,5 +223,14 @@
   "tipsLoadMore": "Charger plus",
   "practicePageTitle": "Practice your English!",
   "practicePageSubtitle": "Exercices et activités pour pratiquer la langue au quotidien",
-  "practiceLoadMore": "Charger plus"
+  "practiceLoadMore": "Charger plus",
+  "hubHeroEyebrow": "English Way Express",
+  "hubHeroTitle": "Transformez votre avenir grâce au pouvoir des langues",
+  "hubHeroDescription": "Apprenez l'anglais, l'espagnol, le français et bien plus avec une méthodologie personnalisée, des enseignants expérimentés et du contenu à jour — à votre rythme.",
+  "hubBenefits": [
+    "Programmes personnalisés adaptés à votre niveau et vos objectifs",
+    "Contenu en plusieurs langues : anglais, espagnol, français et plus",
+    "Matériel complémentaire, conseils et exercices exclusifs",
+    "Accompagnement continu par des enseignants spécialisés"
+  ]
 }
