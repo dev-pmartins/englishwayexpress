@@ -86,6 +86,14 @@ function MaterialsSection({ langCode, token, t }) {
                             ))}
                           </ul>
                         )}
+                        {mat.slug && (
+                          <Link
+                            to={`/area-do-aluno/material/${mat.slug}`}
+                            className="comp-material-detail-link"
+                          >
+                            {t("materialViewFull")} →
+                          </Link>
+                        )}
                       </div>
                     )}
                   </li>
