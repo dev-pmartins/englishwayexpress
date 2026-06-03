@@ -16,6 +16,19 @@ const localeOptions = [
   { code: "pt-BR", label: "Portugues", flag: "🇧🇷" }
 ];
 
+const LS_KEY = "ewe_student_languages";
+
+const hasLanguagePreference = () => {
+  const val = localStorage.getItem(LS_KEY);
+  if (val === null) return false;
+  try {
+    const parsed = JSON.parse(val);
+    return Array.isArray(parsed);
+  } catch {
+    return false;
+  }
+};
+
 const normalizePath = (path) => {
   const normalized = path.replace(/\/+$/, "");
   return normalized || "/";
@@ -85,7 +98,14 @@ function Layout({ children, preContent, hideSidebar = false }) {
                 <button
                   type="button"
                   className="nav-area-trigger"
-                  onClick={() => { setIsMenuOpen(false); setIsLangModalOpen(true); }}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    if (hasLanguagePreference()) {
+                      navigate("/area-do-aluno");
+                    } else {
+                      setIsLangModalOpen(true);
+                    }
+                  }}
                 >
                   {item.label}
                 </button>

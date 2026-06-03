@@ -201,5 +201,15 @@
   "studentLangModalTitle": "Wählen Sie Ihre Sprachen",
   "studentLangModalSubtitle": "Wählen Sie die Sprachen aus, deren Inhalte Sie im Studentenbereich sehen möchten. Sie können diese Einstellung jederzeit ändern.",
   "studentLangModalConfirm": "Bestätigen",
-  "studentLangModalSkip": "Alle Sprachen anzeigen"
+  "studentLangModalSkip": "Alle Sprachen anzeigen",
+  "studentFilterLabel": "Sprachen filtern",
+  "hubEnrollTitle": "Ich möchte Schüler werden",
+  "hubEnrollSubtitle": "Entdecken Sie unsere personalisierten Programme und beginnen Sie Ihre Sprachreise.",
+  "hubEnrollCta": "Kontakt aufnehmen",
+  "hubSection": {
+    "news": "Nachrichten",
+    "tips": "Tipps",
+    "complementary": "Ergänzungsmaterial",
+    "practice": "Practice your English!"
+  }
 }

@@ -2444,3 +2444,232 @@ h4 {
   border-color: var(--blue);
   color: var(--blue);
 }
+
+/* ── Student language filter bar ──────────────────────────────────── */
+.student-lang-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #f3f4f6;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.student-lang-filter-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+
+.student-lang-filter-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.student-lang-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  border: 2px solid #e5e7eb;
+  background: #fff;
+  font-size: 0.82rem;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.student-lang-filter-btn.active {
+  border-color: var(--blue, #2563eb);
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.student-lang-filter-btn:hover:not(.active) {
+  border-color: #9ca3af;
+  color: #374151;
+}
+
+.student-lang-filter-name {
+  font-size: 0.78rem;
+}
+
+/* ── Hub: "Quero ser aluno" enroll banner ─────────────────────────── */
+
+.hub-enroll-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(135deg, var(--blue) 0%, #1a3a9e 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.hub-enroll-content {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+  min-width: 0;
+}
+
+.hub-enroll-icon {
+  font-size: 2.4rem;
+  flex-shrink: 0;
+}
+
+.hub-enroll-title {
+  font-family: var(--title-font);
+  font-size: 1.45rem;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.hub-enroll-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,.82);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.hub-enroll-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.hub-enroll-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  white-space: nowrap;
+}
+
+.hub-enroll-btn--primary {
+  background: var(--red);
+  color: #fff;
+  border: 2px solid var(--red);
+}
+
+.hub-enroll-btn--primary:hover {
+  background: #c01014;
+  border-color: #c01014;
+  color: #fff;
+}
+
+.hub-enroll-btn--ghost {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,.55);
+}
+
+.hub-enroll-btn--ghost:hover {
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.8);
+  color: #fff;
+}
+
+/* ── Hub: content sections ────────────────────────────────────────── */
+
+.hub-section {
+  margin-bottom: 40px;
+}
+
+.hub-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--title-font);
+  font-size: 1.2rem;
+  color: var(--text-strong);
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--line);
+}
+
+.hub-section-icon {
+  font-size: 1.3rem;
+}
+
+.hub-posts-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.hub-post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--text-strong);
+  transition: box-shadow 0.18s, border-color 0.18s, transform 0.18s;
+}
+
+.hub-post-card:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.hub-post-lang {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--blue);
+}
+
+.hub-post-title {
+  font-size: 0.97rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+  color: var(--text-strong);
+}
+
+.hub-post-date {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 600px) {
+  .hub-enroll-banner {
+    flex-direction: column;
+    padding: 22px 20px;
+  }
+
+  .hub-enroll-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hub-enroll-btn {
+    justify-content: center;
+  }
+}
+
+

@@ -1,54 +1,128 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useStudentAuth } from "../../contexts/StudentAuthContext";
 import { useStudentLanguages } from "../../hooks/useStudentLanguages";
 
-const ALL_LANGUAGES = [
-  { code: "en", flag: "🇬🇧", color: "#012169", accent: "#C8102E" },
-  { code: "es", flag: "🇪🇸", color: "#c60b1e", accent: "#F1BF00" },
-  { code: "de", flag: "🇩🇪", color: "#222",    accent: "#FFCD00" },
-  { code: "fr", flag: "🇫🇷", color: "#002395", accent: "#ED2939" },
-  { code: "it", flag: "🇮🇹", color: "#009246", accent: "#CE2B37" },
+const API_BASE = import.meta.env.VITE_API_URL ?? "";
+
+const SECTIONS = [
+  { key: "news",          icon: "📰" },
+  { key: "tips",          icon: "💡" },
+  { key: "complementary", icon: "📚" },
+  { key: "practice",      icon: "🗣️" },
 ];
+
+function HubSection({ sectionKey, icon, langs, t }) {
+  const [posts,   setPosts]   = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    const params = new URLSearchParams({ category: sectionKey, per_page: 3 });
+    if (langs.length > 0) params.set("langs", langs.join(","));
+    fetch(`${API_BASE}/api/posts/by-languages?${params}`)
+      .then((r) => r.json())
+      .then((body) => { if (!cancelled) { setPosts(body.data?.data ?? []); setLoading(false); } })
+      .catch(() => { if (!cancelled) { setPosts([]); setLoading(false); } });
+    return () => { cancelled = true; };
+  }, [sectionKey, langs.join(",")]);
+
+  return (
+    <section className="hub-section">
+      <h3 className="hub-section-title">
+        <span className="hub-section-icon" aria-hidden="true">{icon}</span>
+        {t(`hubSection.${sectionKey}`)}
+      </h3>
+
+      {loading && <p className="student-state-msg">{t("studentLoading")}</p>}
+
+      {!loading && posts?.length === 0 && (
+        <p className="student-state-msg">{t("studentNoPosts")}</p>
+      )}
+
+      {!loading && posts?.length > 0 && (
+        <div className="hub-posts-row">
+          {posts.map((post) => {
+            const tr = post.translations?.[0];
+            if (!tr) return null;
+            const langCode = tr.language?.code ?? "en";
+            return (
+              <Link
+                key={post.id}
+                to={`/area-do-aluno/${langCode}/${tr.slug}`}
+                className="hub-post-card"
+              >
+                <span className="hub-post-lang">{tr.language?.name ?? langCode}</span>
+                <h4 className="hub-post-title">{tr.title}</h4>
+                {post.published_at && (
+                  <time className="hub-post-date" dateTime={post.published_at}>
+                    {new Date(post.published_at).toLocaleDateString()}
+                  </time>
+                )}
+              </Link>
+            );
+          })}
+        </div>
+      )}
+    </section>
+  );
+}
 
 export default function StudentHub() {
   const { t } = useTranslation();
-  const { user, logout } = useStudentAuth();
+  const { isAuthenticated, user, logout } = useStudentAuth();
   const { languages } = useStudentLanguages();
-
-  const displayed =
-    languages.length > 0
-      ? ALL_LANGUAGES.filter((l) => languages.includes(l.code))
-      : ALL_LANGUAGES;
 
   return (
     <div className="student-area">
-      <div className="student-header">
-        <div>
-          <h2 className="section-title section-title-small">
-            {t("studentWelcome", { name: user?.name?.split(" ")[0] })}
-          </h2>
-          <p className="student-subtitle">{t("studentHubSubtitle")}</p>
+      {/* Header (logged-in only) */}
+      {isAuthenticated && (
+        <div className="student-header">
+          <div>
+            <h2 className="section-title section-title-small">
+              {t("studentWelcome", { name: user?.name?.split(" ")[0] })}
+            </h2>
+            <p className="student-subtitle">{t("studentHubSubtitle")}</p>
+          </div>
+          <button className="student-logout-btn" onClick={logout}>
+            {t("studentLogout")}
+          </button>
         </div>
-        <button className="student-logout-btn" onClick={logout}>
-          {t("studentLogout")}
-        </button>
-      </div>
+      )}
 
-      <div className="student-lang-grid">
-        {displayed.map((lang) => (
-          <Link
-            key={lang.code}
-            to={`/area-do-aluno/${lang.code}`}
-            className="student-lang-card"
-            style={{ "--card-color": lang.color, "--card-accent": lang.accent }}
-          >
-            <span className="student-lang-flag" aria-hidden="true">{lang.flag}</span>
-            <span className="student-lang-name">{t(`lang.${lang.code}`)}</span>
-            <span className="student-lang-cta">{t("studentHubExplore")} →</span>
-          </Link>
-        ))}
-      </div>
+      {/* "Quero ser aluno" banner — shown only when logged out */}
+      {!isAuthenticated && (
+        <div className="hub-enroll-banner">
+          <div className="hub-enroll-content">
+            <span className="hub-enroll-icon" aria-hidden="true">🎓</span>
+            <div>
+              <h2 className="hub-enroll-title">{t("hubEnrollTitle")}</h2>
+              <p className="hub-enroll-subtitle">{t("hubEnrollSubtitle")}</p>
+            </div>
+          </div>
+          <div className="hub-enroll-actions">
+            <Link to="/fale-conosco" className="hub-enroll-btn hub-enroll-btn--primary">
+              {t("hubEnrollCta")}
+            </Link>
+            <Link to="/area-do-aluno/login" className="hub-enroll-btn hub-enroll-btn--ghost">
+              {t("studentLoginSubmit")}
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Content sections */}
+      {SECTIONS.map((s) => (
+        <HubSection
+          key={s.key}
+          sectionKey={s.key}
+          icon={s.icon}
+          langs={languages}
+          t={t}
+        />
+      ))}
     </div>
   );
 }

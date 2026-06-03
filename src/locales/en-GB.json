@@ -201,5 +201,15 @@
   "studentLangModalTitle": "Choose your languages of interest",
   "studentLangModalSubtitle": "Select the languages whose content you want to see in the Student Area. You can change this preference at any time.",
   "studentLangModalConfirm": "Confirm",
-  "studentLangModalSkip": "Show all languages"
+  "studentLangModalSkip": "Show all languages",
+  "studentFilterLabel": "Filter languages",
+  "hubEnrollTitle": "I want to be a student",
+  "hubEnrollSubtitle": "Discover our personalised programmes and start your language journey.",
+  "hubEnrollCta": "Get in touch",
+  "hubSection": {
+    "news": "News",
+    "tips": "Tips",
+    "complementary": "Complementary & Extra Material",
+    "practice": "Practice your English!"
+  }
 }

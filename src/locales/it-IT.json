@@ -201,5 +201,15 @@
   "studentLangModalTitle": "Scegli le tue lingue di interesse",
   "studentLangModalSubtitle": "Seleziona le lingue i cui contenuti vuoi vedere nell'Area Studenti. Puoi modificare questa preferenza in qualsiasi momento.",
   "studentLangModalConfirm": "Conferma",
-  "studentLangModalSkip": "Mostra tutte le lingue"
+  "studentLangModalSkip": "Mostra tutte le lingue",
+  "studentFilterLabel": "Filtra lingue",
+  "hubEnrollTitle": "Voglio diventare studente",
+  "hubEnrollSubtitle": "Scopri i nostri programmi personalizzati e inizia il tuo percorso linguistico.",
+  "hubEnrollCta": "Contattaci",
+  "hubSection": {
+    "news": "Notizie",
+    "tips": "Consigli",
+    "complementary": "Materiale Complementare",
+    "practice": "Practice your English!"
+  }
 }
