@@ -8,6 +8,8 @@ const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
 function MaterialCard({ material }) {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
+  const hasSlug = Boolean(material.slug);
 
   return (
     <div className="comp-material-card">
@@ -42,6 +44,14 @@ function MaterialCard({ material }) {
                 </li>
               ))}
             </ul>
+          )}
+          {hasSlug && (
+            <Link
+              to={`/area-do-aluno/material/${material.slug}`}
+              className="comp-material-detail-link"
+            >
+              {t("materialViewFull")} →
+            </Link>
           )}
         </div>
       )}

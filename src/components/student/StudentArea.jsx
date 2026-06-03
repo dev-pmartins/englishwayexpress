@@ -6,6 +6,7 @@ import StudentPostPage from "./StudentPostPage";
 import StudentComplementaryPage from "./StudentComplementaryPage";
 import StudentTipsPage from "./StudentTipsPage";
 import StudentPracticePage from "./StudentPracticePage";
+import StudentMaterialPage from "./StudentMaterialPage";
 import StudentLanguageFilter from "./StudentLanguageFilter";
 import StudentLanguageModal from "./StudentLanguageModal";
 import { useStudentLanguages } from "../../hooks/useStudentLanguages";
@@ -32,6 +33,7 @@ export default function StudentArea() {
   const isComplementary = location.pathname === "/area-do-aluno/complementary-material";
   const isTips          = location.pathname === "/area-do-aluno/tips";
   const isPractice      = location.pathname === "/area-do-aluno/practice";
+  const materialMatch   = location.pathname.match(/^\/area-do-aluno\/material\/([^/]+)$/);
   const postMatch = location.pathname.match(/^\/area-do-aluno\/([a-z]{2})\/([^/]+)$/);
   const langMatch = location.pathname.match(/^\/area-do-aluno\/([a-z]{2})$/);
 
@@ -42,6 +44,8 @@ export default function StudentArea() {
     content = <StudentTipsPage />;
   } else if (isPractice) {
     content = <StudentPracticePage />;
+  } else if (materialMatch) {
+    content = <StudentMaterialPage slug={materialMatch[1]} />;
   } else if (postMatch && VALID_LANG_CODES.includes(postMatch[1])) {
     content = <StudentPostPage langCode={postMatch[1]} slug={postMatch[2]} />;
   } else if (langMatch && VALID_LANG_CODES.includes(langMatch[1])) {
