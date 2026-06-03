@@ -21,6 +21,7 @@
   "formSending": "Wird gesendet...",
   "formSuccess": "Nachricht erfolgreich gesendet.",
   "formError": "Senden momentan nicht moeglich. Bitte spaeter erneut versuchen.",
+  "formCaptchaRequired": "Bitte bestaetigen Sie, dass Sie kein Roboter sind.",
   "formMissingWebhook": "Google-Sheets-Webhook nicht konfiguriert. Setzen Sie VITE_GOOGLE_SHEETS_WEBHOOK_URL.",
   "footerLinks": "Nutzliche Links",
   "footerSiteMap": "Sitemap",

@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
+
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY ?? "";
 
 const initialState = {
   name: "",
@@ -20,6 +23,8 @@ function LeadForm({ source }) {
   const [formData, setFormData] = useState(initialState);
   const [status, setStatus] = useState("idle");
   const [feedback, setFeedback] = useState("");
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const recaptchaRef = useRef(null);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -32,13 +37,20 @@ function LeadForm({ source }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (RECAPTCHA_SITE_KEY && !captchaToken) {
+      setStatus("error");
+      setFeedback(t("formCaptchaRequired"));
+      return;
+    }
+
     setStatus("sending");
     setFeedback("");
 
     try {
       const payload = {
         ...formData,
-        category: SOURCE_TO_CATEGORY[source] ?? "fale_conosco"
+        category: SOURCE_TO_CATEGORY[source] ?? "fale_conosco",
+        ...(captchaToken ? { recaptcha_token: captchaToken } : {})
       };
 
       const response = await fetch(`${API_BASE}/api/contacts`, {
@@ -56,9 +68,13 @@ function LeadForm({ source }) {
       setStatus("success");
       setFeedback(t("formSuccess"));
       setFormData(initialState);
+      setCaptchaToken(null);
+      recaptchaRef.current?.reset();
     } catch (err) {
       setStatus("error");
       setFeedback(err.message !== "API error" ? err.message : t("formError"));
+      recaptchaRef.current?.reset();
+      setCaptchaToken(null);
     }
   };
 
@@ -111,9 +127,18 @@ function LeadForm({ source }) {
           />
         </label>
 
-        <button type="submit" disabled={status === "sending"}>
+        <button type="submit" disabled={status === "sending" || (RECAPTCHA_SITE_KEY && !captchaToken)}>
           {status === "sending" ? t("formSending") : t("formSubmit")}
         </button>
+
+        {RECAPTCHA_SITE_KEY && (
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={RECAPTCHA_SITE_KEY}
+            onChange={(token) => setCaptchaToken(token)}
+            onExpired={() => setCaptchaToken(null)}
+          />
+        )}
 
         {feedback ? (
           <p className={`form-feedback ${status === "success" ? "ok" : "error"}`}>
