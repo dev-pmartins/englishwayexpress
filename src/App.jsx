@@ -8,7 +8,6 @@ import LeadForm from "./components/LeadForm";
 import HomeCarousel from "./components/HomeCarousel";
 import HomePageSections from "./components/HomePageSections";
 import StudentArea from "./components/student/StudentArea";
-import StudentSidebar from "./components/student/StudentSidebar";
 import StudentLoginPage from "./components/student/StudentLoginPage";
 import PostsPage from "./components/posts/PostsPage";
 import PostDetailPage from "./components/posts/PostDetailPage";
@@ -125,7 +124,7 @@ function App() {
   );
 
   return (
-    <Layout preContent={renderedPreContent} sidebarContent={isStudentArea ? <StudentSidebar /> : null}>
+    <Layout preContent={renderedPreContent}>
       {renderedContent}
     </Layout>
   );
