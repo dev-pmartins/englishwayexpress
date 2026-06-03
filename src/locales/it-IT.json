@@ -217,5 +217,8 @@
   "compGuestNotice": "Stai visualizzando solo contenuti gratuiti.",
   "compGuestLogin": "Accedi per vederne di più",
   "compNoMaterials": "Nessun materiale disponibile per le lingue selezionate.",
-  "studentYourLevel": "Il tuo livello"
+  "studentYourLevel": "Il tuo livello",
+  "tipsPageTitle": "Tips",
+  "tipsPageSubtitle": "Consigli pratici per accelerare il tuo apprendimento",
+  "tipsLoadMore": "Carica altro"
 }

@@ -2806,3 +2806,26 @@ h4 {
     margin-left: 0;
   }
 }
+
+/* ── Tips Page ───────────────────────────────────────────────────── */
+.tips-load-more {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0 8px;
+}
+
+.tips-load-more-btn {
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  font-size: 0.93rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.tips-load-more-btn:hover {
+  background: #2d2d4e;
+}
