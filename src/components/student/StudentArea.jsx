@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import StudentHub from "./StudentHub";
 import StudentLanguagePage from "./StudentLanguagePage";
 import StudentPostPage from "./StudentPostPage";
+import StudentComplementaryPage from "./StudentComplementaryPage";
 import StudentLanguageFilter from "./StudentLanguageFilter";
 import StudentLanguageModal from "./StudentLanguageModal";
 import { useStudentLanguages } from "../../hooks/useStudentLanguages";
@@ -10,9 +11,10 @@ import { useStudentLanguages } from "../../hooks/useStudentLanguages";
 const VALID_LANG_CODES = ["en", "es", "de", "fr", "it"];
 const LS_KEY = "ewe_student_languages";
 
-// /area-do-aluno            — public: language banner hub
-// /area-do-aluno/{lang}     — public: posts + materials (auth-gated)
-// /area-do-aluno/{lang}/{slug} — public: single post page
+// /area-do-aluno                        — public: hub with content sections
+// /area-do-aluno/complementary-material — public/auth: complementary materials
+// /area-do-aluno/{lang}                 — public: posts + materials (auth-gated)
+// /area-do-aluno/{lang}/{slug}          — public: single post page
 export default function StudentArea() {
   const location = useLocation();
   const { saveLanguages } = useStudentLanguages();
@@ -25,11 +27,14 @@ export default function StudentArea() {
     }
   }, []);
 
+  const isComplementary = location.pathname === "/area-do-aluno/complementary-material";
   const postMatch = location.pathname.match(/^\/area-do-aluno\/([a-z]{2})\/([^/]+)$/);
   const langMatch = location.pathname.match(/^\/area-do-aluno\/([a-z]{2})$/);
 
   let content;
-  if (postMatch && VALID_LANG_CODES.includes(postMatch[1])) {
+  if (isComplementary) {
+    content = <StudentComplementaryPage />;
+  } else if (postMatch && VALID_LANG_CODES.includes(postMatch[1])) {
     content = <StudentPostPage langCode={postMatch[1]} slug={postMatch[2]} />;
   } else if (langMatch && VALID_LANG_CODES.includes(langMatch[1])) {
     content = <StudentLanguagePage langCode={langMatch[1]} />;
@@ -39,7 +44,6 @@ export default function StudentArea() {
 
   const handleModalConfirm = () => setShowModal(false);
   const handleModalSkip = () => {
-    // Mark as "seen" so it won't auto-open again
     if (localStorage.getItem(LS_KEY) === null) {
       saveLanguages([]);
     }

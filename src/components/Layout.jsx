@@ -177,7 +177,7 @@ function Layout({ children, preContent, hideSidebar = false }) {
 
       <a
         className="whatsapp-fab"
-        href={`https://wa.me/5511999584492?text=${t("home.whatsappMessage")}`}
+        href={`https://wa.me/5511999584492?text=${t("home.whatsappMessage", "Olá, gostaria de me tornar um aluno da English Way Express.")}`}
         target="_blank"
         rel="noreferrer"
         aria-label="WhatsApp"

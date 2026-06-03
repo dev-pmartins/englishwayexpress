@@ -2673,3 +2673,136 @@ h4 {
 }
 
 
+
+/* ── Complementary Material Page ────────────────────────────────── */
+.comp-page-header {
+  padding: 24px 0 12px;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 24px;
+}
+
+.comp-page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 8px 0 6px;
+}
+
+.comp-page-subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.comp-guest-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 24px;
+  font-size: 0.92rem;
+  color: #166534;
+}
+
+.comp-guest-login-link {
+  margin-left: auto;
+  color: #16a34a;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.comp-guest-login-link:hover {
+  text-decoration: underline;
+}
+
+.comp-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.comp-lang-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.comp-lang-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.comp-lang-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.comp-materials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comp-material-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.comp-material-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #f9fafb;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.93rem;
+  color: #111827;
+  transition: background 0.15s;
+}
+
+.comp-material-btn:hover {
+  background: #f3f4f6;
+}
+
+.comp-material-btn-title {
+  flex: 1;
+  font-weight: 500;
+}
+
+.comp-material-open-badge {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.comp-material-module-label {
+  font-size: 0.82rem;
+  color: #6b7280;
+  margin: 0 0 10px;
+}
+
+@media (max-width: 600px) {
+  .comp-lang-section {
+    padding: 16px;
+  }
+
+  .comp-guest-notice {
+    flex-wrap: wrap;
+  }
+
+  .comp-guest-login-link {
+    margin-left: 0;
+  }
+}

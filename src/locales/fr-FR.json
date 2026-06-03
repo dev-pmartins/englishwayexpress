@@ -211,5 +211,11 @@
     "tips": "Conseils",
     "complementary": "Matériel Complémentaire",
     "practice": "Practice your English!"
-  }
+  },
+  "compPageTitle": "Matériel Complémentaire",
+  "compPageSubtitle": "Matériaux de soutien pour améliorer votre apprentissage",
+  "compGuestNotice": "Vous ne voyez que le contenu gratuit.",
+  "compGuestLogin": "Connectez-vous pour voir plus",
+  "compNoMaterials": "Aucun matériel disponible pour les langues sélectionnées.",
+  "studentYourLevel": "Votre niveau"
 }
