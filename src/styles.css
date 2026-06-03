@@ -536,10 +536,15 @@ select {
 }
 
 .sidebar-section a:hover,
-.sidebar-section a:focus-visible {
+.sidebar-section a:focus-visible,
+.sidebar-section a.sidebar-link--active {
   color: var(--red);
   border-left-color: var(--red);
   padding-left: 0.78rem;
+}
+
+.sidebar-section a.sidebar-link--active {
+  font-weight: 600;
 }
 
 .route-stage {

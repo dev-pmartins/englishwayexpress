@@ -207,6 +207,11 @@
   "hubEnrollTitle": "Quiero ser alumno",
   "hubEnrollSubtitle": "Conoce nuestros programas personalizados y comienza tu camino en el idioma que necesitas.",
   "hubEnrollCta": "Ponerse en contacto",
+  "sidebarNavTitle": "Navegación",
+  "sidebarHub": "Área del Alumno",
+  "sidebarComplementary": "Material Complementario",
+  "sidebarTips": "Consejos",
+  "sidebarPractice": "Práctica",
   "hubSection": {
     "news": "Noticias",
     "tips": "Tips",

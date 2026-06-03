@@ -34,7 +34,7 @@ const normalizePath = (path) => {
   return normalized || "/";
 };
 
-function Layout({ children, preContent, hideSidebar = false }) {
+function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangModalOpen, setIsLangModalOpen] = useState(false);
@@ -140,33 +140,37 @@ function Layout({ children, preContent, hideSidebar = false }) {
 
       {preContent}
 
-      <div className={`container ${hideSidebar ? "content-layout--full" : `content-layout ${preContent ? "content-layout--overlap" : ""}`}`}>
-        {!hideSidebar && (
+      <div className={`container ${(hideSidebar && !sidebarContent) ? "content-layout--full" : `content-layout ${preContent ? "content-layout--overlap" : ""}`}`}>
+        {(!hideSidebar || sidebarContent) && (
           <aside className="site-sidebar" aria-label="Links rapidos">
-            <nav className="sidebar-section" aria-label={t("footerServices")}>
-              <h4>{t("footerServices")}</h4>
-              <ul>
-                {legacyContent.serviceLinks.map((link) => (
-                  <li key={`sidebar-svc-${link.url}`}>
-                    {link.url.startsWith("http") ? (
-                      <a href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
-                    ) : (
-                      <Link to={link.url}>{link.label}</Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <nav className="sidebar-section" aria-label={t("footerLinks")}>
-              <h4>{t("footerLinks")}</h4>
-              <ul>
-                {legacyContent.usefulLinks.map((link) => (
-                  <li key={`sidebar-lnk-${link.url}`}>
-                    <a href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            {sidebarContent ? sidebarContent : (
+              <>
+                <nav className="sidebar-section" aria-label={t("footerServices")}>
+                  <h4>{t("footerServices")}</h4>
+                  <ul>
+                    {legacyContent.serviceLinks.map((link) => (
+                      <li key={`sidebar-svc-${link.url}`}>
+                        {link.url.startsWith("http") ? (
+                          <a href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
+                        ) : (
+                          <Link to={link.url}>{link.label}</Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+                <nav className="sidebar-section" aria-label={t("footerLinks")}>
+                  <h4>{t("footerLinks")}</h4>
+                  <ul>
+                    {legacyContent.usefulLinks.map((link) => (
+                      <li key={`sidebar-lnk-${link.url}`}>
+                        <a href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </>
+            )}
           </aside>
         )}
 
