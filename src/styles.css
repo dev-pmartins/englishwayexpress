@@ -3178,3 +3178,166 @@ h4 {
 .tips-load-more-btn:hover {
   background: #2d2d4e;
 }
+
+/* ── Catalog pages (Languages, Levels, Modules, Materials) ── */
+
+.catalog-page {
+  padding: 8px 0 48px;
+}
+
+.catalog-page-title {
+  font-family: var(--title-font);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--blue);
+  margin: 0 0 8px;
+}
+
+.catalog-page-subtitle {
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0 0 28px;
+}
+
+.catalog-filters {
+  margin-bottom: 24px;
+}
+
+.catalog-filter-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.catalog-grid--langs {
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.catalog-grid--levels {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.catalog-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow 220ms ease, transform 220ms ease;
+}
+
+.catalog-card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.catalog-card--lang {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.catalog-card-flag {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.catalog-card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0;
+}
+
+.catalog-card-code {
+  font-size: 0.78rem;
+  background: #f3f4f6;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: var(--text);
+}
+
+.catalog-card--level {
+  background: var(--level-color, #f3f4f6);
+  border-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.catalog-card-level-code {
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-family: var(--title-font);
+  color: var(--text-strong);
+}
+
+.catalog-card-level-name {
+  font-size: 0.88rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.catalog-card--module {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.catalog-card-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.catalog-card-lang {
+  font-size: 0.75rem;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.catalog-card-level-badge {
+  font-size: 0.72rem;
+  background: #ede9fe;
+  color: #5b21b6;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.catalog-lang-group {
+  margin-bottom: 36px;
+}
+
+.catalog-lang-group-title {
+  font-family: var(--title-font);
+  font-size: 1.25rem;
+  color: var(--blue);
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--line);
+}
+
+.catalog-material-module {
+  font-size: 0.82rem;
+  color: var(--text);
+  margin: 0 0 8px;
+}

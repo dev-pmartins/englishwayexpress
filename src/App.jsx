@@ -11,6 +11,10 @@ import StudentArea from "./components/student/StudentArea";
 import StudentLoginPage from "./components/student/StudentLoginPage";
 import PostsPage from "./components/posts/PostsPage";
 import PostDetailPage from "./components/posts/PostDetailPage";
+import LanguagesPage from "./components/languages/LanguagesPage";
+import LevelsPage from "./components/levels/LevelsPage";
+import ModulesPage from "./components/modules/ModulesPage";
+import MaterialsPage from "./components/materials/MaterialsPage";
 
 const normalizePath = (path) => {
   const normalized = `/${path}`.replace(/\/+/g, "/").replace(/\/+$/, "");
@@ -103,6 +107,14 @@ function App() {
     content = <PostDetailPage slug={postsSlugMatch[1]} />;
   } else if (path === "/noticias") {
     content = <PostsPage />;
+  } else if (path === "/idiomas") {
+    content = <LanguagesPage />;
+  } else if (path === "/niveis") {
+    content = <LevelsPage />;
+  } else if (path === "/modulos") {
+    content = <ModulesPage />;
+  } else if (path === "/materiais") {
+    content = <MaterialsPage />;
   } else if (page) {
     content = <LegacyPage page={page} />;
   } else if (path === "/servicos") {

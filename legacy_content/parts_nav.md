@@ -30,6 +30,16 @@
 
 ### Practice your English! /area-do-aluno/practice
 
+## Plataforma /idiomas
+
+### Idiomas /idiomas
+
+### Níveis /niveis
+
+### Módulos /modulos
+
+### Materiais /materiais
+
 ## Clientes /clientes/
 
 ## Trabalhe Conosco /trabalhe-conosco/

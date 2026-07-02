@@ -1,13 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { publicApi } from "../api/publicApi";
 
 const LS_KEY = "ewe_student_languages";
-const VALID_CODES = ["en", "es", "de", "fr", "it"];
 
 const readFromStorage = () => {
   try {
     const saved = JSON.parse(localStorage.getItem(LS_KEY));
-    if (!Array.isArray(saved)) return [];
-    return [...new Set(saved.filter((c) => VALID_CODES.includes(c)))];
+    return Array.isArray(saved) ? saved : [];
   } catch {
     return [];
   }
@@ -15,12 +14,23 @@ const readFromStorage = () => {
 
 export function useStudentLanguages() {
   const [languages, setLanguages] = useState(readFromStorage);
+  const [availableCodes, setAvailableCodes] = useState([]);
+
+  useEffect(() => {
+    publicApi.getLanguages()
+      .then(body => {
+        const langs = body.data ?? body;
+        setAvailableCodes(Array.isArray(langs) ? langs.map(l => l.code) : []);
+      })
+      .catch(() => {});
+  }, []);
 
   const saveLanguages = (langs) => {
-    const clean = [...new Set(langs.filter((c) => VALID_CODES.includes(c)))];
+    const validCodes = availableCodes.length > 0 ? availableCodes : langs;
+    const clean = [...new Set(langs.filter(c => validCodes.includes(c)))];
     setLanguages(clean);
     localStorage.setItem(LS_KEY, JSON.stringify(clean));
   };
 
-  return { languages, saveLanguages };
+  return { languages, saveLanguages, availableCodes };
 }

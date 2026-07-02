@@ -11,7 +11,7 @@ import StudentLanguageFilter from "./StudentLanguageFilter";
 import StudentLanguageModal from "./StudentLanguageModal";
 import { useStudentLanguages } from "../../hooks/useStudentLanguages";
 
-const VALID_LANG_CODES = ["en", "es", "de", "fr", "it"];
+const LANG_CODE_PATTERN = /^[a-z]{2}(-[A-Z]{2})?$/;
 const LS_KEY = "ewe_student_languages";
 
 // /area-do-aluno                        — public: hub with content sections
@@ -46,9 +46,9 @@ export default function StudentArea() {
     content = <StudentPracticePage />;
   } else if (materialMatch) {
     content = <StudentMaterialPage slug={materialMatch[1]} />;
-  } else if (postMatch && VALID_LANG_CODES.includes(postMatch[1])) {
+  } else if (postMatch && LANG_CODE_PATTERN.test(postMatch[1])) {
     content = <StudentPostPage langCode={postMatch[1]} slug={postMatch[2]} />;
-  } else if (langMatch && VALID_LANG_CODES.includes(langMatch[1])) {
+  } else if (langMatch && LANG_CODE_PATTERN.test(langMatch[1])) {
     content = <StudentLanguagePage langCode={langMatch[1]} />;
   } else {
     content = <StudentHub />;
