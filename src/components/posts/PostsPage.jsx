@@ -141,10 +141,10 @@ export default function PostsPage() {
                     {new Date(post.published_at).toLocaleDateString()}
                   </time>
                 )}
-                {tr.content && (
+                {tr.short_description && (
                   <p className="posts-card-excerpt">
-                    {tr.content.replace(/[#*`>[\]()]/g, "").slice(0, 180)}
-                    {tr.content.length > 180 ? "…" : ""}
+                    {tr.short_description.slice(0, 180)}
+                    {tr.short_description.length > 180 ? "…" : ""}
                   </p>
                 )}
                 <span className="posts-card-readmore">{t("postsReadMore")} →</span>
