@@ -48,6 +48,17 @@ function AttachmentViewer({ att }) {
     );
   }
 
+  if (att.type === "video") {
+    return (
+      <div className="attachment-viewer attachment-viewer--video">
+        <p className="attachment-viewer-label">🎬 {att.original_name}</p>
+        <video controls className="attachment-video" src={att.url}>
+          <a href={att.url} download>{t("attachmentDownload")}</a>
+        </video>
+      </div>
+    );
+  }
+
   // zip or unknown
   return (
     <div className="attachment-viewer attachment-viewer--zip">
