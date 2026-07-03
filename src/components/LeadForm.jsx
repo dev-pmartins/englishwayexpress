@@ -117,22 +117,22 @@ function LeadForm({ source }) {
       <form className="lead-form" onSubmit={handleSubmit}>
         <label>
           {t("formName")}
-          <input name="name" type="text" value={formData.name} onChange={handleChange} required />
+          <input name="name" type="text" value={formData.name} onChange={handleChange} required placeholder={t("formNamePlaceholder", "Seu nome completo")} />
         </label>
 
         <label>
           {t("formEmail")}
-          <input name="email" type="email" value={formData.email} onChange={handleChange} required />
+          <input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder={t("formEmailPlaceholder", "seu@email.com")} />
         </label>
 
         <label>
           {t("formPhone")}
-          <input name="phone" type="tel" value={formData.phone} onChange={handleChange} />
+          <input name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder={t("formPhonePlaceholder", "(00) 00000-0000")} />
         </label>
 
         <label>
           {t("formMessage")}
-          <textarea name="message" rows={5} value={formData.message} onChange={handleChange} required />
+          <textarea name="message" rows={5} value={formData.message} onChange={handleChange} required placeholder={t("formMessagePlaceholder", isWorkForm ? "Conte um pouco sobre você e sua experiência..." : "Como podemos ajudar?")} />
         </label>
 
         {isWorkForm && (
