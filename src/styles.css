@@ -1284,21 +1284,10 @@ h4 {
 /* ─── Lead Form Card ────────────────────────────────────────────────────── */
 .form-card {
   margin-top: 2.5rem;
-  background: #ffffff;
-  border: 1px solid rgba(0, 23, 129, 0.1);
-  border-radius: var(--radius-xl);
-  padding: 2.4rem 2.2rem;
-  box-shadow: 0 8px 40px rgba(0, 23, 129, 0.08), 0 1px 4px rgba(0,0,0,.04);
-  position: relative;
-  overflow: hidden;
 }
 
 .form-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--red) 0%, var(--blue) 100%);
+  display: none;
 }
 
 /* ─── Lead Form ─────────────────────────────────────────────────────────── */
