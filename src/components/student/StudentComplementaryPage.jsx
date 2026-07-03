@@ -98,7 +98,7 @@ export default function StudentComplementaryPage() {
     setError("");
 
     const langs = selectedLangs?.length ? selectedLangs.join(",") : "";
-    const url   = `${API_BASE}/api/materials/complementary${langs ? `?langs=${langs}` : ""}`;
+    const url   = `${API_BASE}/api/materials${langs ? `?langs=${langs}` : ""}`;
 
     const headers = {};
     if (token) headers.Authorization = `Bearer ${token}`;
