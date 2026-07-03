@@ -1347,6 +1347,42 @@ h4 {
   cursor: wait;
 }
 
+/* CV file upload field */
+.lead-form-file-label { display: flex; flex-direction: column; gap: 0.4rem; }
+.lead-form-file-wrapper { display: flex; flex-direction: column; gap: 0.5rem; }
+.lead-form-file-input {
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  background: var(--surface);
+}
+.lead-form-file-input:hover { border-color: var(--blue); }
+.lead-form-file-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-strong);
+  background: #f0f4ff;
+  border: 1px solid #c7d7fc;
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.7rem;
+}
+.lead-form-file-remove {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0 0.2rem;
+  line-height: 1;
+}
+.lead-form-file-remove:hover { color: var(--red); }
+.lead-form-file-hint { font-size: 0.78rem; color: var(--text); margin: 0; }
+
 .form-feedback {
   margin: 0.25rem 0 0;
   font-weight: 700;
