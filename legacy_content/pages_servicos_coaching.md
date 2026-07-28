@@ -1,3 +1,7 @@
+---
+banner: /service-banners/services-banner.png
+---
+
 # Coaching
 
 Atuando junto a profissionais de inúmeras áreas de negócios e sempre atualizando o conhecimento em técnicas e procedimentos na gestão de pessoas e processos, os consultores da logo-conteudo estão sempre prontos para oferecer o melhor suporte e acompanhamento tanto de forma individual quanto em pequenos grupos em relação ao aprendizado, utilização, aperfeiçoamento e obtenção de fluência em idiomas, com o domínio nos mais variados cenários.

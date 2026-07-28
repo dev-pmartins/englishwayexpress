@@ -481,6 +481,21 @@ select {
   max-width: 62ch;
 }
 
+.services-banner {
+  width: 100%;
+  overflow: hidden;
+  background: #eef0f3;
+  border-bottom: 1px solid rgba(0, 23, 129, 0.12);
+}
+
+.services-banner img {
+  display: block;
+  width: 100%;
+  height: clamp(240px, 52.25vw, 535px);
+  object-fit: cover;
+  object-position: center;
+}
+
 .header-actions {
   display: flex;
   align-items: center;

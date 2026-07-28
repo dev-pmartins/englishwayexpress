@@ -1,3 +1,7 @@
+---
+banner: /service-banners/services-banner.png
+---
+
 # Cursos de Idiomas Corporativos e Individuais
 
 A logo-conteudo trabalha com a metodologia comunicativa, desenvolvida por instituições mundialmente renomadas (Universidade de Cambridge, Instituto Cervantes, Aliança Francesa, Instituto Goethe), adaptada ao estudante brasileiro. Utilizando material didático desenvolvido pelas mesmas instituições além de outros adicionais desenvolvidos pela nossa equipe, seguimos padrões de nivelamento linguístico internacional. Nos cursos de inglês, por exemplo, damos ênfase à vertente do idioma utilizado na América (mais difundida no planeta), com menções à forma utilizada no Reino Unido, assim como o espanhol do país de origem, com menções às peculiaridades da língua falada na América do Sul.

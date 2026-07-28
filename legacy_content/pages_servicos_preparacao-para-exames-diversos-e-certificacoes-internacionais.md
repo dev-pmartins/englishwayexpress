@@ -1,3 +1,7 @@
+---
+banner: /service-banners/services-banner.png
+---
+
 # Preparação para exames diversos e certificações internacionais
 
 A EnglishWay oferece cursos específicos intensivos de preparação para exames de certificação, concursos e avaliação profissional nas mais diversas áreas:

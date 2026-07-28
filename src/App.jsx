@@ -7,6 +7,7 @@ import LegacyMarkdown from "./components/LegacyMarkdown";
 import LeadForm from "./components/LeadForm";
 import HomeCarousel from "./components/HomeCarousel";
 import HomePageSections from "./components/HomePageSections";
+import ServicesBanner from "./components/ServicesBanner";
 import StudentArea from "./components/student/StudentArea";
 import StudentLoginPage from "./components/student/StudentLoginPage";
 import PostsPage from "./components/posts/PostsPage";
@@ -110,6 +111,7 @@ function HomePage() {
 }
 
 function App() {
+  const { t } = useTranslation();
   const location = useLocation();
   const path = normalizePath(location.pathname);
 
@@ -118,6 +120,8 @@ function App() {
   }
 
   const page = legacyContent.pageMap.get(path);
+  const isServicesHub = path === "/servicos";
+  const isServicePage = Boolean(page && path.startsWith("/servicos/"));
 
   const isStudentArea  = path === "/area-do-aluno" || path.startsWith("/area-do-aluno/");
   const isStudentLogin = path === "/area-do-aluno/login";
@@ -145,11 +149,22 @@ function App() {
     content = <MaterialsPage />;
   } else if (page) {
     content = <LegacyPage page={page} />;
-  } else if (path === "/servicos") {
+  } else if (isServicesHub) {
     content = <ServicesHub />;
   }
 
-  const preContent = path === "/" ? <HomeCarousel /> : null;
+  let preContent = null;
+
+  if (path === "/") {
+    preContent = <HomeCarousel />;
+  } else if (isServicesHub || isServicePage) {
+    preContent = (
+      <ServicesBanner
+        src={isServicePage ? page.banner : '/service-banners/services-banner.png'}
+        alt={isServicePage ? page.title : t("servicesHubTitle")}
+      />
+    );
+  }
 
   const renderedPreContent = preContent ? (
     <div key={`hero-${path}`} className="route-stage route-stage-hero">
