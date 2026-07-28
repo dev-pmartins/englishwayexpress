@@ -2,19 +2,19 @@
 
 ## Serviços
 
- - [Cursos de Idiomas In Company](/servicos/cursos-de-idiomas-in-company/)
+ - [Cursos de Idiomas Corporativos e Individuais](/servicos/cursos-de-idiomas-corporativos-e-individuais/)
  - [Consultoria](/servicos/consultoria/)
  - [Coaching](/servicos/coaching/)
  - [Serviços de Tradutor / Intérprete](/servicos/traducao-interprete/)
- - [Tradução de materiais diversos](servicos/traducao-de-materiais-diversos/)
- - [Intercâmbio](servicos/intercambio/)
+ - [Tradução de materiais diversos](/servicos/traducao-de-materiais/)
+ - [Intercâmbio](/servicos/intercambio/)
  - [Preparação para exames diversos e certificações internacionais](/servicos/preparacao-para-exames-diversos-e-certificacoes-internacionais/)
 
-## CURSOS DE IDIOMAS IN COMPANY & RESIDENCE
+## CURSOS DE IDIOMAS CORPORATIVOS E INDIVIDUAIS
 
 A EnglishWay trabalha com a metodologia comunicativa, desenvolvida por instituições mundialmente renomadas (Universidade de Cambridge, Instituto Cervantes, Aliança Francesa, Instituto Goethe), adaptada ao estudante brasileiro. Utilizando material didático desenvolvido pelas mesmas instituições além de outros adicionais desenvolvidos pela nossa equipe, seguimos padrões de nivelamento linguístico […]
 
-[Leia mais](https://englishwayexpress.com.br/cursos-de-idiomas-in-company/)
+[Leia mais](https://englishwayexpress.com.br/cursos-de-idiomas-corporativos-e-individuais/)
 
 ## CONSULTORIA
 

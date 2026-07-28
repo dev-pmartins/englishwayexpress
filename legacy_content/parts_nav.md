@@ -6,7 +6,7 @@
 
 ## Serviços /servicos
 
-### Cursos de Idiomas In Company /servicos/cursos-de-idiomas-in-company/
+### Cursos de Idiomas Corporativos e Individuais /servicos/cursos-de-idiomas-corporativos-e-individuais/
 
 ### Consultoria /servicos/consultoria/
 

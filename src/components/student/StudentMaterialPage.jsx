@@ -5,6 +5,70 @@ import { useStudentAuth } from "../../contexts/StudentAuthContext";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
+function AttachmentViewer({ att }) {
+  const { t } = useTranslation();
+
+  if (att.type === "image") {
+    return (
+      <div className="attachment-viewer attachment-viewer--image">
+        <p className="attachment-viewer-label">🖼️ {att.original_name}</p>
+        <img src={att.url} alt={att.original_name} className="attachment-image" />
+      </div>
+    );
+  }
+
+  if (att.type === "audio") {
+    return (
+      <div className="attachment-viewer attachment-viewer--audio">
+        <p className="attachment-viewer-label">🎵 {att.original_name}</p>
+        <audio controls className="attachment-audio" src={att.url}>
+          <a href={att.url} download>{t("attachmentDownload")}</a>
+        </audio>
+      </div>
+    );
+  }
+
+  if (att.type === "document") {
+    const officeViewerUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(att.url)}`;
+    return (
+      <div className="attachment-viewer attachment-viewer--document">
+        <div className="attachment-viewer-header">
+          <p className="attachment-viewer-label">📊 {att.original_name}</p>
+          <a href={att.url} download className="attachment-download-link">
+            ⬇ {t("attachmentDownload")}
+          </a>
+        </div>
+        <iframe
+          src={officeViewerUrl}
+          className="attachment-office-frame"
+          title={att.original_name}
+          allowFullScreen
+        />
+      </div>
+    );
+  }
+
+  if (att.type === "video") {
+    return (
+      <div className="attachment-viewer attachment-viewer--video">
+        <p className="attachment-viewer-label">🎬 {att.original_name}</p>
+        <video controls className="attachment-video" src={att.url}>
+          <a href={att.url} download>{t("attachmentDownload")}</a>
+        </video>
+      </div>
+    );
+  }
+
+  // zip or unknown
+  return (
+    <div className="attachment-viewer attachment-viewer--zip">
+      <a href={att.url} download className="attachment-zip-btn">
+        📦 {att.original_name} — {t("attachmentDownload")}
+      </a>
+    </div>
+  );
+}
+
 export default function StudentMaterialPage({ slug }) {
   const { t } = useTranslation();
   const { token } = useStudentAuth();
@@ -87,15 +151,11 @@ export default function StudentMaterialPage({ slug }) {
           {material.attachments?.length > 0 && (
             <div className="material-detail-attachments">
               <h4 className="material-detail-attachments-title">{t("materialAttachments")}</h4>
-              <ul className="student-attachments">
+              <div className="attachment-list">
                 {material.attachments.map((att) => (
-                  <li key={att.id}>
-                    <a href={att.url} target="_blank" rel="noreferrer">
-                      📎 {att.original_name}
-                    </a>
-                  </li>
+                  <AttachmentViewer key={att.id} att={att} />
                 ))}
-              </ul>
+              </div>
             </div>
           )}
         </article>

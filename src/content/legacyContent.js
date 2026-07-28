@@ -19,6 +19,43 @@ const slugFromFileName = (filePath) => {
   return rawSlug === "home" ? "" : rawSlug.replaceAll("_", "/");
 };
 
+const parseFrontMatter = (markdownText) => {
+  const match = markdownText.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*(?:\r?\n|$)/);
+
+  if (!match) {
+    return { attributes: {}, content: markdownText };
+  }
+
+  const attributes = {};
+
+  for (const line of match[1].split(/\r?\n/)) {
+    const separatorIndex = line.indexOf(":");
+
+    if (separatorIndex === -1) {
+      continue;
+    }
+
+    const key = line.slice(0, separatorIndex).trim();
+    let value = line.slice(separatorIndex + 1).trim();
+
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
+
+    if (key) {
+      attributes[key] = value;
+    }
+  }
+
+  return {
+    attributes,
+    content: markdownText.slice(match[0].length).trimStart()
+  };
+};
+
 const parseTitle = (markdownText) => {
   const firstHeading = markdownText
     .split("\n")
@@ -89,17 +126,19 @@ const extractLinks = (markdownText, sectionTitlePattern) => {
 
 const pages = Object.entries(pageFiles)
   .map(([filePath, markdown]) => {
+    const { attributes, content } = parseFrontMatter(markdown);
     const slug = slugFromFileName(filePath);
     const path = cleanPath(slug);
-    const title = parseTitle(markdown);
+    const title = parseTitle(content);
 
     return {
       filePath,
       slug,
       path,
       title,
-      markdown,
-      body: stripFirstHeading(markdown)
+      banner: attributes.banner || null,
+      markdown: content,
+      body: stripFirstHeading(content)
     };
   })
   .sort((a, b) => {

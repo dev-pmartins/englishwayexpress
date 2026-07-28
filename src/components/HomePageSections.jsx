@@ -6,15 +6,15 @@ import slideConsultoria from "../../slide_2_consultoria.webp";
 import slideCoaching from "../../slide_3_coaching.webp";
 
 const SERVICE_IMAGES = {
-  "/servicos/cursos-de-idiomas-in-company": { src: slideCursos, alt: "Cursos de Idiomas In Company" },
-  "/servicos/consultoria":                  { src: slideConsultoria, alt: "Consultoria" },
-  "/servicos/coaching":                     { src: slideCoaching, alt: "Coaching" },
+  "/servicos/cursos-de-idiomas-corporativos-e-individuais": slideCursos,
+  "/servicos/consultoria": slideConsultoria,
+  "/servicos/coaching": slideCoaching,
 };
 
 const LOGO_DEV_PUBLIC_KEY = 'pk_E4z3_AiLTsKx66PE8t6Sng';
 
 const featuredClients = [
-  { name: "TAM",                   domain: "latam.com" },
+  { name: "LATAM Airlines",        domain: "latam.com" },
   { name: "IBM",                   domain: "ibm.com" },
   { name: "Microsoft",             domain: "microsoft.com" },
   { name: "Ford do Brasil",        domain: "ford.com" },
@@ -80,10 +80,6 @@ function HomePageSections() {
   const { t } = useTranslation();
   const whatsappNumber = "5511999584492";
 
-  const trustHighlights = t("home.trustHighlights", { returnObjects: true });
-  const highlightedServices = t("home.highlightedServices", { returnObjects: true });
-  const workflowSteps = t("home.workflowSteps", { returnObjects: true });
-  const businessScenarios = t("home.businessScenarios", { returnObjects: true });
   const faqItems = t("home.faqItems", { returnObjects: true });
   const serviceBlogCards = t("home.serviceBlogCards", { returnObjects: true });
 
@@ -93,12 +89,12 @@ function HomePageSections() {
         <h2 className="section-title">{t("home.serviceSummariesTitle")}</h2>
         <div className="service-blog-list">
           {serviceBlogCards.map((card) => {
-            const img = SERVICE_IMAGES[card.path];
+            const image = SERVICE_IMAGES[card.path];
             return (
               <article key={card.path} className="service-blog-card">
-                {img && (
+                {image && (
                   <div className="service-blog-card__image">
-                    <img src={img.src} alt={img.alt} />
+                    <img src={image} alt={card.title} />
                   </div>
                 )}
                 <div className="service-blog-card__body">

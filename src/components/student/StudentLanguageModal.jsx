@@ -1,26 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useStudentLanguages } from "../../hooks/useStudentLanguages";
+import { publicApi } from "../../api/publicApi";
 
-const LANGUAGES = [
-  { code: "en", flag: "🇬🇧" },
-  { code: "es", flag: "🇪🇸" },
-  { code: "de", flag: "🇩🇪" },
-  { code: "fr", flag: "🇫🇷" },
-  { code: "it", flag: "🇮🇹" },
-];
+const FLAG_MAP = { en: "🇬🇧", es: "🇪🇸", de: "🇩🇪", fr: "🇫🇷", it: "🇮🇹", "pt-BR": "🇧🇷" };
 
 export default function StudentLanguageModal({ onClose, onConfirm, onSkip }) {
   const { t } = useTranslation();
   const { languages, saveLanguages } = useStudentLanguages();
   const [selected, setSelected] = useState(languages);
+  const [apiLangs, setApiLangs] = useState([]);
   const dialogRef = useRef(null);
 
   useEffect(() => {
+    publicApi.getLanguages()
+      .then(body => setApiLangs(body.data ?? body))
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
     dialogRef.current?.focus();
-    const handleKey = (e) => {
-      if (e.key === "Escape") onClose();
-    };
+    const handleKey = (e) => { if (e.key === "Escape") onClose(); };
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
   }, [onClose]);
@@ -59,7 +59,7 @@ export default function StudentLanguageModal({ onClose, onConfirm, onSkip }) {
         <p className="lang-modal-subtitle">{t("studentLangModalSubtitle")}</p>
 
         <ul className="lang-modal-list">
-          {LANGUAGES.map((lang) => {
+          {apiLangs.map((lang) => {
             const checked = selected.includes(lang.code);
             return (
               <li key={lang.code}>
@@ -69,8 +69,8 @@ export default function StudentLanguageModal({ onClose, onConfirm, onSkip }) {
                     checked={checked}
                     onChange={() => toggle(lang.code)}
                   />
-                  <span className="lang-modal-flag" aria-hidden="true">{lang.flag}</span>
-                  <span className="lang-modal-name">{t(`lang.${lang.code}`)}</span>
+                  <span className="lang-modal-flag" aria-hidden="true">{FLAG_MAP[lang.code] ?? "🌐"}</span>
+                  <span className="lang-modal-name">{t(`lang.${lang.code}`, { defaultValue: lang.name })}</span>
                 </label>
               </li>
             );

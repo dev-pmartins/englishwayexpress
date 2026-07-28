@@ -122,32 +122,53 @@ export default function PostsPage() {
                 to={`/noticias/${tr.slug}`}
                 className="posts-card"
               >
-                <div className="posts-card-top">
+                <div className="posts-card-cover">
+                  {post.cover_image ? (
+                    <img
+                      src={post.cover_image}
+                      alt={tr.title}
+                      className="posts-card-cover-img"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="posts-card-cover-placeholder" aria-hidden="true">
+                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="48" height="48" rx="8" fill="#e5e7eb"/>
+                        <path d="M12 34l8-10 6 7 4-5 6 8H12z" fill="#d1d5db"/>
+                        <circle cx="30" cy="18" r="4" fill="#d1d5db"/>
+                      </svg>
+                    </div>
+                  )}
                   <span
-                    className="posts-card-category"
+                    className="posts-card-category posts-card-category--overlay"
                     style={{ background: cc.bg, color: cc.color }}
                   >
                     {t(`postsCat.${post.category}`, { defaultValue: post.category })}
                   </span>
-                  {tr.language && (
-                    <span className="posts-card-lang">
-                      {t(`lang.${tr.language.code}`, { defaultValue: tr.language.name })}
-                    </span>
-                  )}
                 </div>
-                <h2 className="posts-card-title">{tr.title}</h2>
-                {post.published_at && (
-                  <time className="posts-card-date" dateTime={post.published_at}>
-                    {new Date(post.published_at).toLocaleDateString()}
-                  </time>
-                )}
-                {tr.content && (
-                  <p className="posts-card-excerpt">
-                    {tr.content.replace(/[#*`>[\]()]/g, "").slice(0, 180)}
-                    {tr.content.length > 180 ? "…" : ""}
-                  </p>
-                )}
-                <span className="posts-card-readmore">{t("postsReadMore")} →</span>
+
+                <div className="posts-card-body">
+                  <div className="posts-card-top">
+                    {tr.language && (
+                      <span className="posts-card-lang">
+                        {t(`lang.${tr.language.code}`, { defaultValue: tr.language.name })}
+                      </span>
+                    )}
+                    {post.published_at && (
+                      <time className="posts-card-date" dateTime={post.published_at}>
+                        {new Date(post.published_at).toLocaleDateString()}
+                      </time>
+                    )}
+                  </div>
+                  <h2 className="posts-card-title">{tr.title}</h2>
+                  {tr.short_description && (
+                    <p className="posts-card-excerpt">
+                      {tr.short_description.slice(0, 160)}
+                      {tr.short_description.length > 160 ? "…" : ""}
+                    </p>
+                  )}
+                  <span className="posts-card-readmore">{t("postsReadMore")} →</span>
+                </div>
               </Link>
             );
           })}

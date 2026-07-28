@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { legacyContent } from "./content/legacyContent";
@@ -7,10 +7,15 @@ import LegacyMarkdown from "./components/LegacyMarkdown";
 import LeadForm from "./components/LeadForm";
 import HomeCarousel from "./components/HomeCarousel";
 import HomePageSections from "./components/HomePageSections";
+import ServicesBanner from "./components/ServicesBanner";
 import StudentArea from "./components/student/StudentArea";
 import StudentLoginPage from "./components/student/StudentLoginPage";
 import PostsPage from "./components/posts/PostsPage";
 import PostDetailPage from "./components/posts/PostDetailPage";
+import LanguagesPage from "./components/languages/LanguagesPage";
+import LevelsPage from "./components/levels/LevelsPage";
+import ModulesPage from "./components/modules/ModulesPage";
+import MaterialsPage from "./components/materials/MaterialsPage";
 
 const normalizePath = (path) => {
   const normalized = `/${path}`.replace(/\/+/g, "/").replace(/\/+$/, "");
@@ -18,12 +23,41 @@ const normalizePath = (path) => {
 };
 
 const servicesPaths = [
-  "/servicos/cursos-de-idiomas-in-company",
-  "/servicos/consultoria",
-  "/servicos/coaching",
-  "/servicos/traducao-interprete",
-  "/servicos/intercambio",
-  "/servicos/preparacao-para-exames-diversos-e-certificacoes-internacionais"
+  {
+    title: "Cursos de Idiomas Online & Presenciais",
+    alt: "Cursos de Idiomas Online & Presenciais",
+    link: "/servicos/cursos-de-idiomas-corporativos-e-individuais"
+  },
+  {
+    title: "Consultoria",
+    alt: "Consultoria",
+    link: "/servicos/consultoria"
+  },
+  {
+    title: "Coaching",
+    alt: "Coaching",
+    link: "/servicos/coaching"
+  },
+  {
+    title: "Tradução de Materiais Diversos (Inclusive Técnicos)",
+    alt: "Tradução de Materiais Diversos (Inclusive Técnicos)",
+    link: "/servicos/traducao-de-materiais"
+  },
+  {
+    title: "Tradução & Interpretação Simultânea",
+    alt: "Tradução & Interpretação Simultânea",
+    link: "/servicos/traducao-interprete"
+  },
+  {
+    title: "Intercâmbio",
+    alt: "Intercâmbio",
+    link: "/servicos/intercambio"
+  },
+  {
+    title: "Preparação para exames diversos e certificações internacionais",
+    alt: "Preparação para exames diversos e certificações internacionais",
+    link: "/servicos/preparacao-para-exames-diversos-e-certificacoes-internacionais"
+  }
 ];
 
 function ServicesHub() {
@@ -34,15 +68,10 @@ function ServicesHub() {
       <h1>{t("servicesHubTitle")}</h1>
       <p>{t("servicesHubSubtitle")}</p>
       <ul>
-        {servicesPaths.map((path) => {
-          const page = legacyContent.pageMap.get(path);
-          if (!page) {
-            return null;
-          }
-
+        {servicesPaths.map((servicePath) => {
           return (
-            <li key={path}>
-              <Link to={path}>{page.title}</Link>
+            <li key={servicePath.link}>
+              <Link to={servicePath.link}>{servicePath.title}</Link>
             </li>
           );
         })}
@@ -82,10 +111,17 @@ function HomePage() {
 }
 
 function App() {
+  const { t } = useTranslation();
   const location = useLocation();
   const path = normalizePath(location.pathname);
 
+  if (path === "/servicos/cursos-de-idiomas-in-company") {
+    return <Navigate replace to="/servicos/cursos-de-idiomas-corporativos-e-individuais" />;
+  }
+
   const page = legacyContent.pageMap.get(path);
+  const isServicesHub = path === "/servicos";
+  const isServicePage = Boolean(page && path.startsWith("/servicos/"));
 
   const isStudentArea  = path === "/area-do-aluno" || path.startsWith("/area-do-aluno/");
   const isStudentLogin = path === "/area-do-aluno/login";
@@ -103,13 +139,32 @@ function App() {
     content = <PostDetailPage slug={postsSlugMatch[1]} />;
   } else if (path === "/noticias") {
     content = <PostsPage />;
+  } else if (path === "/idiomas") {
+    content = <LanguagesPage />;
+  } else if (path === "/niveis") {
+    content = <LevelsPage />;
+  } else if (path === "/modulos") {
+    content = <ModulesPage />;
+  } else if (path === "/materiais") {
+    content = <MaterialsPage />;
   } else if (page) {
     content = <LegacyPage page={page} />;
-  } else if (path === "/servicos") {
+  } else if (isServicesHub) {
     content = <ServicesHub />;
   }
 
-  const preContent = path === "/" ? <HomeCarousel /> : null;
+  let preContent = null;
+
+  if (path === "/") {
+    preContent = <HomeCarousel />;
+  } else if (isServicesHub || isServicePage) {
+    preContent = (
+      <ServicesBanner
+        src={isServicePage ? page.banner : '/service-banners/services-banner.png'}
+        alt={isServicePage ? page.title : t("servicesHubTitle")}
+      />
+    );
+  }
 
   const renderedPreContent = preContent ? (
     <div key={`hero-${path}`} className="route-stage route-stage-hero">

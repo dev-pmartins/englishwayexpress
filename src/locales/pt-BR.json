@@ -1,18 +1,27 @@
 {
   "brand": "English Way Express",
   "tagline": "Consultoria de idiomas para empresas e profissionais",
-  "navLabel": "Navegacao",
+  "navLabel": "Navegação",
   "language": "Idioma",
   "menuOpen": "Abrir menu",
   "menuClose": "Fechar menu",
-  "contentNotice": "Este conteudo esta sendo exibido no idioma original (portugues) enquanto finalizamos as traducoes.",
-  "pageNotFound": "Pagina nao encontrada",
-  "pageNotFoundHint": "Confira a navegacao ou volte para a pagina inicial.",
+  "contentNotice": "Este conteúdo está sendo exibido no idioma original (português) enquanto finalizamos as traduções.",
+  "pageNotFound": "Página não encontrada",
+  "pageNotFoundHint": "Confira a navegação ou volte para a página inicial.",
   "backToHome": "Voltar para Home",
-  "servicesHubTitle": "Servicos",
-  "servicesHubSubtitle": "Selecione uma das nossas solucoes especializadas:",
+  "servicesHubTitle": "Serviços",
+  "servicesHubSubtitle": "Selecione uma das nossas soluções especializadas:",
+  "serviceNames": {
+    "languageCourses": "Cursos de Idiomas Corporativos e Individuais",
+    "consulting": "Consultoria",
+    "coaching": "Coaching",
+    "materialTranslation": "Tradução de Materiais Diversos (Inclusive Técnicos)",
+    "simultaneousInterpretation": "Tradução e Interpretação Simultânea",
+    "exchange": "Intercâmbio",
+    "examPreparation": "Preparação para exames diversos e certificações internacionais"
+  },
   "formContactTitle": "Envie sua mensagem",
-  "formWorkTitle": "Envie seu curriculo e apresente seu perfil",
+  "formWorkTitle": "Envie seu currículo e apresente seu perfil",
   "formName": "Nome",
   "formEmail": "Email",
   "formPhone": "Telefone",
@@ -20,39 +29,58 @@
   "formSubmit": "Enviar",
   "formSending": "Enviando...",
   "formSuccess": "Mensagem enviada com sucesso.",
-  "formError": "Nao foi possivel enviar agora. Tente novamente em instantes.",
-  "formCaptchaRequired": "Por favor, confirme que voce nao e um robo.",
-  "formMissingWebhook": "Webhook do Google Sheets nao configurado. Defina VITE_GOOGLE_SHEETS_WEBHOOK_URL.",
-  "footerLinks": "Links uteis",
+  "formError": "Não foi possível enviar agora. Tente novamente em instantes.",
+  "formCaptchaRequired": "Por favor, confirme que você não é um robô.",
+  "formMissingWebhook": "Webhook do Google Sheets não configurado. Defina VITE_GOOGLE_SHEETS_WEBHOOK_URL.",
+  "footerLinks": "Links úteis",
   "footerSiteMap": "Mapa do Site",
-  "footerServices": "Servicos",
+  "footerServices": "Serviços",
   "footerCopyright": "Todos os Direitos Reservados",
   "home": {
-    "serviceSummariesTitle": "Nossas solucoes em detalhe",
+    "carousel": {
+      "label": "Destaques de serviços",
+      "selectLabel": "Selecionar slide",
+      "slideLabel": "Slide {{number}}: {{title}}",
+      "slides": {
+        "courses": {
+          "title": "CURSOS DE IDIOMAS CORPORATIVOS & INDIVIDUAIS",
+          "content": "Soluções personalizadas de acordo com as metas e objetivos de cada cliente, seja uma empresa ou aluno individual."
+        },
+        "consulting": {
+          "title": "CONSULTORIA",
+          "content": "Soluções práticas, rápidas e efetivas no suporte, preparação e execução de projetos e serviços para a sua empresa ou carreira."
+        },
+        "coaching": {
+          "title": "COACHING",
+          "content": "Suporte, acompanhamento e apoio linguístico individual e para pequenos grupos."
+        }
+      }
+    },
+    "serviceSummariesTitle": "Nossas soluções em detalhe",
     "serviceBlogCards": [
       {
-        "title": "Cursos de Idiomas In Company & Residence",
-        "excerpt": "A EnglishWay trabalha com a metodologia comunicativa, desenvolvida por instituicoes de renome mundial (Universidade de Cambridge, Instituto Cervantes, Alliance Francaise, Instituto Goethe), adaptada ao estudante brasileiro. Utilizando materiais didaticos desenvolvidos por essas instituicoes, alem de outros elaborados pela nossa equipe, seguimos os padroes de nivelamento linguistico [...]",
-        "path": "/servicos/cursos-de-idiomas-in-company"
+        "title": "Cursos de Idiomas Corporativos e Individuais",
+        "excerpt": "A EnglishWay trabalha com a metodologia comunicativa, desenvolvida por instituições de renome mundial (Universidade de Cambridge, Instituto Cervantes, Alliance Francaise, Instituto Goethe), adaptada ao estudante brasileiro. Utilizando materiais didáticos desenvolvidos por essas instituições, além de outros elaborados pela nossa equipe, seguimos os padrões de nivelamento linguístico [...]",
+        "path": "/servicos/cursos-de-idiomas-corporativos-e-individuais"
       },
       {
         "title": "Consultoria",
-        "excerpt": "Com expertise adquirida ao longo de 13 anos de experiencia e atuando com parceiros em uma grande variedade de setores empresariais como aviacao, tecnologia e sistemas, comercial, industrial, automotivo, financeiro, servicos, entre outros, a EnglishWay desenvolve solucoes (suporte, preparacao e execucao) para os mais diversos processos dentro das necessidades e demandas de cada cliente [...]",
+        "excerpt": "Com expertise adquirida ao longo de 13 anos de experiência e atuando com parceiros em uma grande variedade de setores empresariais como aviação, tecnologia e sistemas, comercial, industrial, automotivo, financeiro, serviços, entre outros, a EnglishWay desenvolve soluções (suporte, preparação e execução) para os mais diversos processos dentro das necessidades e demandas de cada cliente [...]",
         "path": "/servicos/consultoria"
       },
       {
         "title": "Coaching",
-        "excerpt": "Trabalhando com profissionais de inumeras areas de negocios e sempre atualizando seus conhecimentos em tecnicas e procedimentos de gestao de pessoas e processos, os consultores da EnglishWay estao sempre prontos para oferecer o melhor suporte e orientacao, tanto individualmente quanto em pequenos grupos, em relacao a aprendizagem, uso, aprimoramento e fluencia [...]",
+        "excerpt": "Trabalhando com profissionais de inúmeras áreas de negócios e sempre atualizando seus conhecimentos em técnicas e procedimentos de gestão de pessoas e processos, os consultores da EnglishWay estão sempre prontos para oferecer o melhor suporte e orientação, tanto individualmente quanto em pequenos grupos, em relação à aprendizagem, uso, aprimoramento e fluência [...]",
         "path": "/servicos/coaching"
       }
     ],
-    "introTitle": "Excelencia em idiomas para crescimento profissional e corporativo",
-    "introText": "A English Way Express desenvolve solucoes linguisticas sob medida para empresas e profissionais que precisam comunicar com precisao, seguranca e performance em cenarios reais.",
-    "overviewTitle": "Consultoria linguistica com foco em aplicacao real",
-    "overviewText1": "Ha mais de 13 anos, a English Way Express atua com cursos personalizados, coaching, consultoria, traducao, interpretacao e preparacao para contextos corporativos em que o idioma precisa gerar resultado concreto.",
-    "overviewText2": "O trabalho combina metodologia comunicativa, leitura rapida de contexto e customizacao por setor para apoiar desde rotinas internas ate situacoes de alta exposicao.",
-    "servicesTitle": "Servicos principais",
-    "serviceLearnMore": "Conhecer servico",
+    "introTitle": "Excelência em idiomas para crescimento profissional e corporativo",
+    "introText": "A English Way Express desenvolve soluções linguísticas sob medida para empresas e profissionais que precisam comunicar com precisão, segurança e performance em cenários reais.",
+    "overviewTitle": "Consultoria linguística com foco em aplicação real",
+    "overviewText1": "Há mais de 13 anos, a English Way Express atua com cursos personalizados, coaching, consultoria, tradução, interpretação e preparação para contextos corporativos em que o idioma precisa gerar resultado concreto.",
+    "overviewText2": "O trabalho combina metodologia comunicativa, leitura rápida de contexto e customização por setor para apoiar desde rotinas internas até situações de alta exposição.",
+    "servicesTitle": "Serviços principais",
+    "serviceLearnMore": "Conhecer serviço",
     "workflowTitle": "Como funciona",
     "scenariosTitle": "Solucoes para cenarios reais de negocio",
     "scenariosText": "Em vez de oferecer pacotes padronizados, a English Way Express estrutura o suporte linguistico de acordo com a situacao em que a comunicacao precisa performar.",
@@ -61,7 +89,7 @@
     "clientsCarouselLabel": "Carrossel de clientes",
     "clientVisitSite": "visitar site",
     "faqTitle": "Duvidas frequentes",
-    "faqText": "Algumas perguntas comuns para quem esta avaliando cursos, consultoria ou suporte linguistico personalizado.",
+    "faqText": "Algumas perguntas comuns sobre nossos cursos, consultoria e suporte linguístico personalizado.",
     "contactTitle": "Entre em contato conosco",
     "contactText": "Fale com nossa equipe para desenhar um plano ideal para sua empresa ou para sua evolucao individual.",
     "contactFormLink": "Ir para formulario de contato",
@@ -71,78 +99,74 @@
       {
         "value": "13+ anos",
         "title": "Experiencia de mercado",
-        "description": "Atuacao com empresas, profissionais e projetos sob medida em diferentes segmentos."
+        "description": "Atuação com empresas, profissionais e projetos sob medida em diferentes segmentos."
       },
       {
         "value": "2 perfis",
         "title": "Corporativo e individual",
-        "description": "Solucoes desenhadas tanto para times quanto para profissionais com objetivos especificos."
+        "description": "Soluções desenhadas tanto para times quanto para profissionais com objetivos específicos."
       },
       {
-        "value": "Resposta agil",
-        "title": "Implementacao rapida",
-        "description": "Diagnostico e execucao com foco em contexto real de uso, sem formulacoes genericas."
+        "value": "Resposta ágil",
+        "title": "Implementação rápida",
+        "description": "Diagnóstico e execução com foco em contexto real de uso, sem formulações genéricas."
       }
     ],
     "highlightedServices": [
       {
-        "title": "Cursos de Idiomas In Company & Residence",
-        "description": "Programas personalizados para equipes e profissionais com foco em fluencia aplicada ao dia a dia de trabalho.",
-        "path": "/servicos/cursos-de-idiomas-in-company"
+        "title": "Cursos de Idiomas Corporativos e Individuais",
+        "description": "Programas personalizados para equipes e profissionais com foco em fluência aplicada ao dia a dia de trabalho.",
+        "path": "/servicos/cursos-de-idiomas-corporativos-e-individuais"
       },
       {
         "title": "Coaching",
-        "description": "Acompanhamento linguistico individual e para pequenos grupos, com objetivos claros e evolucao mensuravel.",
+        "description": "Acompanhamento linguístico individual e para pequenos grupos, com objetivos claros e evolução mensurável.",
         "path": "/servicos/coaching"
       },
       {
         "title": "Consultoria",
-        "description": "Suporte pratico para reunioes, eventos, materiais e processos estrategicos em multiplos segmentos de negocio.",
+        "description": "Suporte prático para reuniões, eventos, materiais e processos estratégicos em múltiplos segmentos de negócio.",
         "path": "/servicos/consultoria"
       }
     ],
     "workflowSteps": [
       {
-        "title": "Diagnostico da necessidade",
-        "description": "Mapeamos contexto, nivel linguistico, objetivos e restricoes operacionais antes de propor a solucao."
+        "title": "Diagnóstico da necessidade",
+        "description": "Mapeamos contexto, nível linguístico, objetivos e restrições operacionais antes de propor a solução."
       },
       {
         "title": "Plano personalizado",
-        "description": "Estruturamos o formato ideal para aulas, coaching, consultoria, traducao ou treinamento corporativo."
+        "description": "Estruturamos o formato ideal para aulas, coaching, consultoria, tradução ou treinamento corporativo."
       },
       {
-        "title": "Acompanhamento e evolucao",
-        "description": "Ajustamos o processo com base no uso pratico do idioma e nas demandas que surgem ao longo da jornada."
+        "title": "Acompanhamento e evolução",
+        "description": "Ajustamos o processo com base no uso prático do idioma e nas demandas que surgem ao longo da jornada."
       }
     ],
     "businessScenarios": [
-      "Reunioes, apresentacoes e negociacoes internacionais",
+      "Reuniões, apresentações e negociações internacionais",
       "Processos seletivos e entrevistas em outros idiomas",
       "Treinamentos corporativos e desenvolvimento de equipes",
-      "Eventos, workshops, feiras e video ou fone conferencias",
-      "Traducao e interpretacao para materiais e interacoes ao vivo",
-      "Preparacao para exames e certificacoes internacionais"
+      "Eventos, workshops, feiras e vídeo ou fone conferências",
+      "Tradução e interpretação para materiais e interações ao vivo",
+      "Preparação para exames e certificações internacionais"
     ],
     "faqItems": [
       {
-        "question": "A English Way Express atende empresas e pessoas fisicas?",
-        "answer": "Sim. A atuacao inclui tanto projetos corporativos para equipes e liderancas quanto acompanhamento individual para profissionais com metas especificas."
+        "question": "A English Way Express atende empresas e pessoas físicas?",
+        "answer": "Sim. A atuação inclui tanto projetos corporativos para equipes e lideranças quanto acompanhamento individual para profissionais com metas específicas."
       },
       {
-        "question": "As solucoes sao personalizadas ou existem formatos prontos?",
-        "answer": "O trabalho parte de um diagnostico inicial para entender contexto, nivel, objetivo e urgencia. A partir disso, o formato mais adequado e definido para cada caso."
+        "question": "As soluções são personalizadas ou existem formatos prontos?",
+        "answer": "A partir da análise detalhada de cada caso, é desenvolvida uma solução customizada de acordo com os objetivos e particularidades de cada cliente, visando à otimização de processos e à obtenção de resultados significativos e consistentes em um curto espaço de tempo."
       },
       {
-        "question": "Quais servicos podem ser contratados?",
-        "answer": "A empresa atua com cursos de idiomas in company e residence, coaching, consultoria, traducao, interpretacao e preparacao para exames e certificacoes internacionais."
-      },
-      {
-        "question": "A escola atua apenas com ingles?",
-        "answer": "O foco atual inclui ingles e espanhol, com estrutura em expansao para outros idiomas de interesse corporativo e profissional."
+        "question": "A English Way Express atua apenas com serviços em inglês?",
+        "answer": "Trabalhamos com soluções em sete idiomas: inglês, espanhol, italiano, francês, alemão, mandarim e japonês."
       },
       {
         "question": "Como iniciar uma conversa sobre um projeto?",
-        "answer": "Basta entrar em contato pelo formulario ou WhatsApp. A partir disso, a equipe avalia a necessidade e propoe o melhor caminho para implementacao."
+        "answer": "Basta entrar em contato pelo canal “Fale Conosco” ou via WhatsApp para agendarmos uma reunião online ou presencial, entendermos as demandas e propormos as melhores soluções."
       }
     ]
   },
@@ -245,5 +269,11 @@
     "Conteúdo em múltiplos idiomas: inglês, espanhol, francês e mais",
     "Material complementar, dicas e exercícios exclusivos",
     "Suporte contínuo de professores especializados"
-  ]
+  ],
+  "attachmentImage": "Imagem",
+  "attachmentAudio": "Áudio",
+  "attachmentDocument": "Documento",
+  "attachmentZip": "Arquivo ZIP",
+  "attachmentDownload": "Baixar arquivo",
+  "attachmentPreviewNotAvailable": "Pré-visualização indisponível em desenvolvimento"
 }
