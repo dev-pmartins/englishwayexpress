@@ -11,6 +11,15 @@
   "backToHome": "Retour a l accueil",
   "servicesHubTitle": "Services",
   "servicesHubSubtitle": "Choisissez une de nos solutions specialisees :",
+  "serviceNames": {
+    "languageCourses": "Cours de langues pour entreprises et particuliers",
+    "consulting": "Conseil",
+    "coaching": "Coaching",
+    "materialTranslation": "Traduction de documents generaux et techniques",
+    "simultaneousInterpretation": "Traduction et interpretation simultanee",
+    "exchange": "Sejour linguistique",
+    "examPreparation": "Preparation aux examens et certifications internationaux"
+  },
   "formContactTitle": "Envoyez votre message",
   "formWorkTitle": "Envoyez votre CV et profil",
   "formName": "Nom",
@@ -28,12 +37,31 @@
   "footerServices": "Services",
   "footerCopyright": "Tous droits reserves",
   "home": {
+    "carousel": {
+      "label": "Services a la une",
+      "selectLabel": "Selectionner une diapositive",
+      "slideLabel": "Diapositive {{number}} : {{title}}",
+      "slides": {
+        "courses": {
+          "title": "COURS DE LANGUES POUR ENTREPRISES ET PARTICULIERS",
+          "content": "Des solutions personnalisees selon les objectifs de chaque client, qu'il s'agisse d'une entreprise ou d'un apprenant individuel."
+        },
+        "consulting": {
+          "title": "CONSEIL",
+          "content": "Des solutions pratiques, rapides et efficaces pour soutenir, preparer et realiser des projets et services pour votre entreprise ou votre carriere."
+        },
+        "coaching": {
+          "title": "COACHING",
+          "content": "Accompagnement et soutien linguistique individuel et en petits groupes."
+        }
+      }
+    },
     "serviceSummariesTitle": "Nos solutions en detail",
     "serviceBlogCards": [
       {
-        "title": "Cours de langues In Company et Residence",
+        "title": "Cours de langues pour entreprises et particuliers",
         "excerpt": "EnglishWay travaille avec la methodologie communicative, developpee par des institutions de renommee mondiale (Universite de Cambridge, Instituto Cervantes, Alliance Francaise, Institut Goethe), adaptee a l'etudiant bresilien. En utilisant des materiaux pedagogiques developpes par ces institutions, ainsi que d'autres elabores par notre equipe, nous suivons les normes de nivellement linguistique [...]",
-        "path": "/servicos/cursos-de-idiomas-in-company"
+        "path": "/servicos/cursos-de-idiomas-corporativos-e-individuais"
       },
       {
         "title": "Conseil",
@@ -86,9 +114,9 @@
     ],
     "highlightedServices": [
       {
-        "title": "Cours de langues In Company et en residence",
+        "title": "Cours de langues pour entreprises et particuliers",
         "description": "Programmes personnalises pour les equipes et les professionnels axes sur la fluidite appliquee au travail quotidien.",
-        "path": "/servicos/cursos-de-idiomas-in-company"
+        "path": "/servicos/cursos-de-idiomas-corporativos-e-individuais"
       },
       {
         "title": "Coaching",
@@ -130,19 +158,15 @@
       },
       {
         "question": "Les solutions sont-elles personnalisees ou existe-t-il des forfaits prets a l emploi ?",
-        "answer": "Le travail commence par une evaluation initiale pour comprendre le contexte, le niveau, l objectif et l urgence. A partir de la, le format le plus adapte est defini pour chaque cas."
+        "answer": "Apres une analyse detaillee, nous developpons une solution personnalisee selon les objectifs et les besoins particuliers de chaque client."
       },
       {
-        "question": "Quels services sont disponibles ?",
-        "answer": "L entreprise travaille avec des cours de langues in company et en residence, du coaching, du conseil, de la traduction, de l interpretation et de la preparation aux examens et certifications internationaux."
-      },
-      {
-        "question": "L ecole travaille-t-elle uniquement avec l anglais ?",
-        "answer": "Le focus actuel inclut l anglais et l espagnol, avec une structure en expansion pour d autres langues d interet corporatif et professionnel."
+        "question": "English Way Express propose-t-elle uniquement des services en anglais ?",
+        "answer": "Nous proposons des solutions en sept langues : anglais, espagnol, italien, francais, allemand, mandarin et japonais."
       },
       {
         "question": "Comment demarrer une conversation sur un projet ?",
-        "answer": "Il vous suffit de nous contacter via le formulaire ou WhatsApp. A partir de la, l equipe evalue le besoin et propose le meilleur chemin pour la mise en oeuvre."
+        "answer": "Contactez-nous via le formulaire ou WhatsApp pour organiser une reunion en ligne ou en personne, discuter de vos besoins et identifier les meilleures solutions."
       }
     ]
   },

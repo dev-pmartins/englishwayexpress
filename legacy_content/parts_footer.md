@@ -13,8 +13,8 @@
  - [Consultoria](/servicos/consultoria/)
  - [Coaching](/servicos/coaching/)
  - [Serviços de Tradutor / Intérprete](/servicos/traducao-interprete/)
- - [Tradução de materiais diversos](servicos/traducao-de-materiais-diversos/)
- - [Intercâmbio](servicos/intercambio/)
+ - [Tradução de materiais diversos](/servicos/traducao-de-materiais/)
+ - [Intercâmbio](/servicos/intercambio/)
  - [Preparação para exames diversos e certificações internacionais](/servicos/preparacao-para-exames-diversos-e-certificacoes-internacionais/)
 
 

@@ -1,7 +1,7 @@
 {
   "brand": "English Way Express",
   "tagline": "Consultoria de idiomas para empresas e profissionais",
-  "navLabel": "Navegacao",
+  "navLabel": "Navegação",
   "language": "Idioma",
   "menuOpen": "Abrir menu",
   "menuClose": "Fechar menu",
@@ -11,8 +11,17 @@
   "backToHome": "Voltar para Home",
   "servicesHubTitle": "Serviços",
   "servicesHubSubtitle": "Selecione uma das nossas soluções especializadas:",
+  "serviceNames": {
+    "languageCourses": "Cursos de Idiomas Corporativos e Individuais",
+    "consulting": "Consultoria",
+    "coaching": "Coaching",
+    "materialTranslation": "Tradução de Materiais Diversos (Inclusive Técnicos)",
+    "simultaneousInterpretation": "Tradução e Interpretação Simultânea",
+    "exchange": "Intercâmbio",
+    "examPreparation": "Preparação para exames diversos e certificações internacionais"
+  },
   "formContactTitle": "Envie sua mensagem",
-  "formWorkTitle": "Envie seu curriculo e apresente seu perfil",
+  "formWorkTitle": "Envie seu currículo e apresente seu perfil",
   "formName": "Nome",
   "formEmail": "Email",
   "formPhone": "Telefone",
@@ -20,20 +29,39 @@
   "formSubmit": "Enviar",
   "formSending": "Enviando...",
   "formSuccess": "Mensagem enviada com sucesso.",
-  "formError": "Nao foi possivel enviar agora. Tente novamente em instantes.",
-  "formCaptchaRequired": "Por favor, confirme que voce nao e um robo.",
-  "formMissingWebhook": "Webhook do Google Sheets nao configurado. Defina VITE_GOOGLE_SHEETS_WEBHOOK_URL.",
-  "footerLinks": "Links uteis",
+  "formError": "Não foi possível enviar agora. Tente novamente em instantes.",
+  "formCaptchaRequired": "Por favor, confirme que você não é um robô.",
+  "formMissingWebhook": "Webhook do Google Sheets não configurado. Defina VITE_GOOGLE_SHEETS_WEBHOOK_URL.",
+  "footerLinks": "Links úteis",
   "footerSiteMap": "Mapa do Site",
-  "footerServices": "Servicos",
+  "footerServices": "Serviços",
   "footerCopyright": "Todos os Direitos Reservados",
   "home": {
-    "serviceSummariesTitle": "Nossas solucoes em detalhe",
+    "carousel": {
+      "label": "Destaques de serviços",
+      "selectLabel": "Selecionar slide",
+      "slideLabel": "Slide {{number}}: {{title}}",
+      "slides": {
+        "courses": {
+          "title": "CURSOS DE IDIOMAS CORPORATIVOS & INDIVIDUAIS",
+          "content": "Soluções personalizadas de acordo com as metas e objetivos de cada cliente, seja uma empresa ou aluno individual."
+        },
+        "consulting": {
+          "title": "CONSULTORIA",
+          "content": "Soluções práticas, rápidas e efetivas no suporte, preparação e execução de projetos e serviços para a sua empresa ou carreira."
+        },
+        "coaching": {
+          "title": "COACHING",
+          "content": "Suporte, acompanhamento e apoio linguístico individual e para pequenos grupos."
+        }
+      }
+    },
+    "serviceSummariesTitle": "Nossas soluções em detalhe",
     "serviceBlogCards": [
       {
         "title": "Cursos de Idiomas Corporativos e Individuais",
         "excerpt": "A EnglishWay trabalha com a metodologia comunicativa, desenvolvida por instituições de renome mundial (Universidade de Cambridge, Instituto Cervantes, Alliance Francaise, Instituto Goethe), adaptada ao estudante brasileiro. Utilizando materiais didáticos desenvolvidos por essas instituições, além de outros elaborados pela nossa equipe, seguimos os padrões de nivelamento linguístico [...]",
-        "path": "/servicos/cursos-de-idiomas-in-company"
+        "path": "/servicos/cursos-de-idiomas-corporativos-e-individuais"
       },
       {
         "title": "Consultoria",
@@ -42,7 +70,7 @@
       },
       {
         "title": "Coaching",
-        "excerpt": "Trabalhando com profissionais de inumeras areas de negocios e sempre atualizando seus conhecimentos em tecnicas e procedimentos de gestao de pessoas e processos, os consultores da EnglishWay estao sempre prontos para oferecer o melhor suporte e orientacao, tanto individualmente quanto em pequenos grupos, em relacao a aprendizagem, uso, aprimoramento e fluencia [...]",
+        "excerpt": "Trabalhando com profissionais de inúmeras áreas de negócios e sempre atualizando seus conhecimentos em técnicas e procedimentos de gestão de pessoas e processos, os consultores da EnglishWay estão sempre prontos para oferecer o melhor suporte e orientação, tanto individualmente quanto em pequenos grupos, em relação à aprendizagem, uso, aprimoramento e fluência [...]",
         "path": "/servicos/coaching"
       }
     ],
@@ -88,7 +116,7 @@
       {
         "title": "Cursos de Idiomas Corporativos e Individuais",
         "description": "Programas personalizados para equipes e profissionais com foco em fluência aplicada ao dia a dia de trabalho.",
-        "path": "/servicos/cursos-de-idiomas-in-company"
+        "path": "/servicos/cursos-de-idiomas-corporativos-e-individuais"
       },
       {
         "title": "Coaching",
@@ -130,15 +158,15 @@
       },
       {
         "question": "As soluções são personalizadas ou existem formatos prontos?",
-        "answer": "A partir da análise detalhada de cada caso,  é desenvolvida uma solução customizada de acordo com os objetivos e particularidades de cada cliente visando a otimização de processos e obtenção de resultados significativos e consistentes num curto espaço de tempo."
+        "answer": "A partir da análise detalhada de cada caso, é desenvolvida uma solução customizada de acordo com os objetivos e particularidades de cada cliente, visando à otimização de processos e à obtenção de resultados significativos e consistentes em um curto espaço de tempo."
       },
       {
         "question": "A English Way Express atua apenas com serviços em inglês?",
-        "answer": "Trabalhamos com soluções em 7 idiomas: Inglês. Espanhol, Italiano, Francês, Alemão, Mandarim & Japonês."
+        "answer": "Trabalhamos com soluções em sete idiomas: inglês, espanhol, italiano, francês, alemão, mandarim e japonês."
       },
       {
         "question": "Como iniciar uma conversa sobre um projeto?",
-        "answer": "Basta entrar em contato pelo canal “Fale Conosco”  ou via WhatsApp para agendarmos uma reunião online e/ou presencial para a obtermos detalhes sobre as demandas, analisarmos cada uma delas e propormos as melhores soluções."
+        "answer": "Basta entrar em contato pelo canal “Fale Conosco” ou via WhatsApp para agendarmos uma reunião online ou presencial, entendermos as demandas e propormos as melhores soluções."
       }
     ]
   },

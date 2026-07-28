@@ -1,6 +1,6 @@
 # Clientes
 
-Ao longo de mais de 26 anos de prestação de serviços nas mais diversas áreas e sempre com um alto padrão de qualidade no mercado, a  adquiriu um respeitável portfólio de alunos, em contratos diretos ou corporativos, em empresas de todos os portes, incluindo vários grandes nomes multinacionais no Brasil e no exterior, entre eles:
+Ao longo de mais de 26 anos de prestação de serviços nas mais diversas áreas e sempre com um alto padrão de qualidade no mercado, a EnglishWay adquiriu um respeitável portfólio de alunos, em contratos diretos ou corporativos, em empresas de todos os portes, incluindo vários grandes nomes multinacionais no Brasil e no exterior, entre eles:
 
  - LATAM Airlines
  - IBM
@@ -33,5 +33,3 @@ Ao longo de mais de 26 anos de prestação de serviços nas mais diversas áreas
  - Westcom
  - Accord
  - E muitas mais!
-
-E muitas mais!

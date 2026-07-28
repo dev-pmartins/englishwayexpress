@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { legacyContent } from "./content/legacyContent";
@@ -112,6 +112,10 @@ function HomePage() {
 function App() {
   const location = useLocation();
   const path = normalizePath(location.pathname);
+
+  if (path === "/servicos/cursos-de-idiomas-in-company") {
+    return <Navigate replace to="/servicos/cursos-de-idiomas-corporativos-e-individuais" />;
+  }
 
   const page = legacyContent.pageMap.get(path);
 

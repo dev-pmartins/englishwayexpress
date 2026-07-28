@@ -11,6 +11,15 @@
   "backToHome": "Volver al inicio",
   "servicesHubTitle": "Servicios",
   "servicesHubSubtitle": "Elige una de nuestras soluciones especializadas:",
+  "serviceNames": {
+    "languageCourses": "Cursos de Idiomas Corporativos e Individuales",
+    "consulting": "Consultoría",
+    "coaching": "Coaching",
+    "materialTranslation": "Traducción de Materiales Diversos (Incluidos Técnicos)",
+    "simultaneousInterpretation": "Traducción e Interpretación Simultánea",
+    "exchange": "Intercambio",
+    "examPreparation": "Preparación para exámenes y certificaciones internacionales"
+  },
   "formContactTitle": "Envia tu mensaje",
   "formWorkTitle": "Envia tu CV y perfil",
   "formName": "Nombre",
@@ -28,12 +37,31 @@
   "footerServices": "Servicios",
   "footerCopyright": "Todos los Derechos Reservados",
   "home": {
+    "carousel": {
+      "label": "Servicios destacados",
+      "selectLabel": "Seleccionar diapositiva",
+      "slideLabel": "Diapositiva {{number}}: {{title}}",
+      "slides": {
+        "courses": {
+          "title": "CURSOS DE IDIOMAS CORPORATIVOS E INDIVIDUALES",
+          "content": "Soluciones personalizadas según las metas y objetivos de cada cliente, ya sea una empresa o un alumno individual."
+        },
+        "consulting": {
+          "title": "CONSULTORÍA",
+          "content": "Soluciones prácticas, rápidas y efectivas para apoyar, preparar y ejecutar proyectos y servicios para tu empresa o carrera."
+        },
+        "coaching": {
+          "title": "COACHING",
+          "content": "Soporte, seguimiento y apoyo lingüístico individual y para grupos pequeños."
+        }
+      }
+    },
     "serviceSummariesTitle": "Nuestras soluciones en detalle",
     "serviceBlogCards": [
       {
-        "title": "Cursos de Idiomas Corporativos e Individuais",
+        "title": "Cursos de Idiomas Corporativos e Individuales",
         "excerpt": "EnglishWay trabaja con la metodologia comunicativa, desarrollada por instituciones de renombre mundial (Universidad de Cambridge, Instituto Cervantes, Alliance Francaise, Instituto Goethe), adaptada al estudiante brasileno. Utilizando materiales didacticos desarrollados por estas instituciones, ademas de otros elaborados por nuestro equipo, seguimos los estandares de nivelacion linguistica [...]",
-        "path": "/servicos/cursos-de-idiomas-in-company"
+        "path": "/servicos/cursos-de-idiomas-corporativos-e-individuais"
       },
       {
         "title": "Consultoria",
@@ -86,9 +114,9 @@
     ],
     "highlightedServices": [
       {
-        "title": "Cursos de Idiomas Corporativos e Individuais",
+        "title": "Cursos de Idiomas Corporativos e Individuales",
         "description": "Programas personalizados para equipos y profesionales con enfoque en la fluidez aplicada al trabajo diario.",
-        "path": "/servicos/cursos-de-idiomas-in-company"
+        "path": "/servicos/cursos-de-idiomas-corporativos-e-individuais"
       },
       {
         "title": "Coaching",
@@ -130,19 +158,15 @@
       },
       {
         "question": "Las soluciones son personalizadas o hay paquetes predefinidos?",
-        "answer": "El trabajo comienza con una evaluacion inicial para entender el contexto, el nivel, el objetivo y la urgencia. A partir de ahi se define el formato mas adecuado para cada caso."
+        "answer": "A partir del analisis detallado de cada caso, desarrollamos una solucion personalizada de acuerdo con los objetivos y particularidades de cada cliente."
       },
       {
-        "question": "Que servicios estan disponibles?",
-        "answer": "La empresa trabaja con cursos de idiomas corporativos e individuales, coaching, consultoria, traduccion, interpretacion y preparacion para examenes y certificaciones internacionales."
-      },
-      {
-        "question": "La escuela solo trabaja con ingles?",
-        "answer": "El enfoque actual incluye ingles y espanol, con una estructura en expansion para otros idiomas de interes corporativo y profesional."
+        "question": "English Way Express trabaja solamente con servicios en ingles?",
+        "answer": "Trabajamos con soluciones en siete idiomas: ingles, espanol, italiano, frances, aleman, mandarin y japones."
       },
       {
         "question": "Como inicio una conversacion sobre un proyecto?",
-        "answer": "Solo tenes que ponerte en contacto a traves del formulario o WhatsApp. A partir de ahi, el equipo evalua la necesidad y propone el mejor camino para la implementacion."
+        "answer": "Ponte en contacto mediante el canal “Hable con nosotros” o WhatsApp para programar una reunion online o presencial, entender tus necesidades y proponer las mejores soluciones."
       }
     ]
   },

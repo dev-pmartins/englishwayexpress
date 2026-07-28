@@ -343,11 +343,25 @@ select {
   transition: opacity 520ms ease, transform 4600ms ease;
   background-size: cover;
   background-position: center 36%;
+  pointer-events: none;
 }
 
 .carousel-slide.active {
   opacity: 1;
   transform: scale(1);
+  pointer-events: auto;
+}
+
+.carousel-slide-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.carousel-slide-link:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: -5px;
 }
 
 .carousel-slide.courses {
@@ -372,15 +386,18 @@ select {
 }
 
 .carousel-content-boundary {
+  position: relative;
+  z-index: 2;
   height: 100%;
   display: flex;
   align-items: flex-start;
+  pointer-events: none;
 }
 
 .carousel-overlay {
   width: 100%;
   margin-top: var(--carousel-overlay-start-y);
-  height: var(--carousel-overlay-height);
+  min-height: var(--carousel-overlay-height);
   background: rgba(0, 0, 0, 0.56);
   border: 0;
   padding: 0.8rem clamp(1.6rem, 5.6vw, 8.5rem);
@@ -395,6 +412,7 @@ select {
   justify-content: flex-end;
   gap: 0.45rem;
   margin-bottom: 0.55rem;
+  pointer-events: auto;
 }
 
 .carousel-dots button {
@@ -428,7 +446,6 @@ select {
   font-weight: 600;
   max-width: 62ch;
 }
-
 
 .header-actions {
   display: flex;
@@ -1630,6 +1647,7 @@ h4 {
   .carousel-overlay {
     margin: 0;
     height: auto;
+    min-height: 0;
     width: 100%;
     padding: 0.85rem 1rem;
   }

@@ -11,6 +11,15 @@
   "backToHome": "Back to Home",
   "servicesHubTitle": "Services",
   "servicesHubSubtitle": "Choose one of our specialised solutions:",
+  "serviceNames": {
+    "languageCourses": "Corporate and Individual Language Courses",
+    "consulting": "Consultancy",
+    "coaching": "Coaching",
+    "materialTranslation": "Translation of General and Technical Materials",
+    "simultaneousInterpretation": "Translation and Simultaneous Interpretation",
+    "exchange": "Study Abroad",
+    "examPreparation": "International Exam and Certification Preparation"
+  },
   "formContactTitle": "Send your message",
   "formWorkTitle": "Submit your CV and profile",
   "formName": "Name",
@@ -28,12 +37,31 @@
   "footerServices": "Services",
   "footerCopyright": "All Rights Reserved",
   "home": {
+    "carousel": {
+      "label": "Featured services",
+      "selectLabel": "Select slide",
+      "slideLabel": "Slide {{number}}: {{title}}",
+      "slides": {
+        "courses": {
+          "title": "CORPORATE AND INDIVIDUAL LANGUAGE COURSES",
+          "content": "Tailored solutions based on each client's goals and objectives, whether for a company or an individual student."
+        },
+        "consulting": {
+          "title": "CONSULTANCY",
+          "content": "Practical, fast and effective solutions to support, prepare and deliver projects and services for your company or career."
+        },
+        "coaching": {
+          "title": "COACHING",
+          "content": "Individual and small-group language support, guidance and follow-up."
+        }
+      }
+    },
     "serviceSummariesTitle": "Our solutions in detail",
     "serviceBlogCards": [
       {
-        "title": "In-Company & Residence Language Courses",
+        "title": "Corporate and Individual Language Courses",
         "excerpt": "EnglishWay works with the communicative methodology, developed by world-renowned institutions (University of Cambridge, Instituto Cervantes, Alliance Francaise, Goethe Institute), adapted to the Brazilian student. Using teaching materials developed by these institutions, in addition to other materials developed by our team, we follow linguistic leveling standards [...]",
-        "path": "/servicos/cursos-de-idiomas-in-company"
+        "path": "/servicos/cursos-de-idiomas-corporativos-e-individuais"
       },
       {
         "title": "Consulting",
@@ -86,9 +114,9 @@
     ],
     "highlightedServices": [
       {
-        "title": "In-Company & Residence Language Courses",
+        "title": "Corporate and Individual Language Courses",
         "description": "Tailored programmes for teams and professionals focused on fluency applied to everyday work.",
-        "path": "/servicos/cursos-de-idiomas-in-company"
+        "path": "/servicos/cursos-de-idiomas-corporativos-e-individuais"
       },
       {
         "title": "Coaching",
@@ -130,19 +158,15 @@
       },
       {
         "question": "Are the solutions tailored or are there ready-made packages?",
-        "answer": "The work starts with an initial assessment to understand context, level, objective, and urgency. From there, the most appropriate format is defined for each case."
+        "answer": "After a detailed assessment, we develop a tailored solution based on each client's goals and specific needs."
       },
       {
-        "question": "What services are available?",
-        "answer": "The company works with in-company and residence language courses, coaching, consultancy, translation, interpretation, and preparation for international exams and certifications."
-      },
-      {
-        "question": "Does the school only work with English?",
-        "answer": "The current focus includes English and Spanish, with an expanding structure for other languages of corporate and professional interest."
+        "question": "Does English Way Express only provide services in English?",
+        "answer": "We provide solutions in seven languages: English, Spanish, Italian, French, German, Mandarin and Japanese."
       },
       {
         "question": "How do I start a conversation about a project?",
-        "answer": "Simply get in touch through the form or WhatsApp. From there, the team evaluates the need and proposes the best path for implementation."
+        "answer": "Contact us through the contact form or WhatsApp to schedule an online or in-person meeting, discuss your needs and identify the best solutions."
       }
     ]
   },
