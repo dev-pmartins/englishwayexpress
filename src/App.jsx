@@ -22,12 +22,41 @@ const normalizePath = (path) => {
 };
 
 const servicesPaths = [
-  "/servicos/cursos-de-idiomas-in-company",
-  "/servicos/consultoria",
-  "/servicos/coaching",
-  "/servicos/traducao-interprete",
-  "/servicos/intercambio",
-  "/servicos/preparacao-para-exames-diversos-e-certificacoes-internacionais"
+  {
+    title: "Cursos de Idiomas Online & Presenciais",
+    alt: "Cursos de Idiomas Online & Presenciais",
+    link: "/servicos/cursos-de-idiomas-corporativos-e-individuais"
+  },
+  {
+    title: "Consultoria",
+    alt: "Consultoria",
+    link: "/servicos/consultoria"
+  },
+  {
+    title: "Coaching",
+    alt: "Coaching",
+    link: "/servicos/coaching"
+  },
+  {
+    title: "Tradução de Materiais Diversos (Inclusive Técnicos)",
+    alt: "Tradução de Materiais Diversos (Inclusive Técnicos)",
+    link: "/servicos/traducao-de-materiais"
+  },
+  {
+    title: "Tradução & Interpretação Simultânea",
+    alt: "Tradução & Interpretação Simultânea",
+    link: "/servicos/traducao-interprete"
+  },
+  {
+    title: "Intercâmbio",
+    alt: "Intercâmbio",
+    link: "/servicos/intercambio"
+  },
+  {
+    title: "Preparação para exames diversos e certificações internacionais",
+    alt: "Preparação para exames diversos e certificações internacionais",
+    link: "/servicos/preparacao-para-exames-diversos-e-certificacoes-internacionais"
+  }
 ];
 
 function ServicesHub() {
@@ -38,15 +67,10 @@ function ServicesHub() {
       <h1>{t("servicesHubTitle")}</h1>
       <p>{t("servicesHubSubtitle")}</p>
       <ul>
-        {servicesPaths.map((path) => {
-          const page = legacyContent.pageMap.get(path);
-          if (!page) {
-            return null;
-          }
-
+        {servicesPaths.map((servicePath) => {
           return (
-            <li key={path}>
-              <Link to={path}>{page.title}</Link>
+            <li key={servicePath.link}>
+              <Link to={servicePath.link}>{servicePath.title}</Link>
             </li>
           );
         })}

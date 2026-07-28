@@ -31,7 +31,7 @@
     "serviceSummariesTitle": "Nuestras soluciones en detalle",
     "serviceBlogCards": [
       {
-        "title": "Cursos de Idiomas In Company y Residence",
+        "title": "Cursos de Idiomas Corporativos e Individuais",
         "excerpt": "EnglishWay trabaja con la metodologia comunicativa, desarrollada por instituciones de renombre mundial (Universidad de Cambridge, Instituto Cervantes, Alliance Francaise, Instituto Goethe), adaptada al estudiante brasileno. Utilizando materiales didacticos desarrollados por estas instituciones, ademas de otros elaborados por nuestro equipo, seguimos los estandares de nivelacion linguistica [...]",
         "path": "/servicos/cursos-de-idiomas-in-company"
       },
@@ -86,7 +86,7 @@
     ],
     "highlightedServices": [
       {
-        "title": "Cursos de Idiomas In Company y Residencia",
+        "title": "Cursos de Idiomas Corporativos e Individuais",
         "description": "Programas personalizados para equipos y profesionales con enfoque en la fluidez aplicada al trabajo diario.",
         "path": "/servicos/cursos-de-idiomas-in-company"
       },
@@ -134,7 +134,7 @@
       },
       {
         "question": "Que servicios estan disponibles?",
-        "answer": "La empresa trabaja con cursos de idiomas in company y residencia, coaching, consultoria, traduccion, interpretacion y preparacion para examenes y certificaciones internacionales."
+        "answer": "La empresa trabaja con cursos de idiomas corporativos e individuales, coaching, consultoria, traduccion, interpretacion y preparacion para examenes y certificaciones internacionales."
       },
       {
         "question": "La escuela solo trabaja con ingles?",

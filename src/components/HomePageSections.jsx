@@ -6,7 +6,7 @@ import slideConsultoria from "../../slide_2_consultoria.webp";
 import slideCoaching from "../../slide_3_coaching.webp";
 
 const SERVICE_IMAGES = {
-  "/servicos/cursos-de-idiomas-in-company": { src: slideCursos, alt: "Cursos de Idiomas In Company" },
+  "/servicos/cursos-de-idiomas-in-company": { src: slideCursos, alt: "Cursos de Idiomas Corporativos e Individuais" },
   "/servicos/consultoria":                  { src: slideConsultoria, alt: "Consultoria" },
   "/servicos/coaching":                     { src: slideCoaching, alt: "Coaching" },
 };

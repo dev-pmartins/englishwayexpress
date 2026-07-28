@@ -6,25 +6,28 @@ import slideCoaching from "../../slide_3_coaching.webp";
 
 const slides = [
   {
-    title: "CURSOS DE IDIOMAS IN COMPANY & RESIDENCE",
+    title: "CURSOS DE IDIOMAS CORPORATIVOS & INDIVIDUAIS",
     content:
-      "O mercado de trabalho exige um segundo ou terceiro idioma. Mostre que voce esta preparado!",
+      "Soluções personalizadas de acordo com as metas e objetivos de cada cliente, seja uma empresa ou aluno/a individual!",
     kind: "courses",
-    image: slideCursos
+    image: slideCursos,
+    link: "/servicos/cursos-de-idiomas-corporativos-e-individuais"
   },
   {
     title: "CONSULTORIA",
     content:
-      "Solucoes praticas e rapidas no suporte, preparacao e execucao de diversos projetos e servicos para sua empresa.",
+      "Soluções práticas, rápidas e efetivas no suporte, preparação e execução de diversos projetos e serviços para a sua empresa e/ou carreira.",
     kind: "consulting",
-    image: slideConsultoria
+    image: slideConsultoria,
+    link: "/servicos/consultoria"
   },
   {
     title: "COACHING",
     content:
-      "Suporte, acompanhamento e apoio linguistico individual e para pequenos grupos.",
+      "Suporte, acompanhamento e apoio linguístico individual e para pequenos grupos.",
     kind: "coaching",
-    image: slideCoaching
+    image: slideCoaching,
+    link: "/servicos/coaching"
   }
 ];
 
