@@ -34,7 +34,7 @@ function HomeCarousel() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((current) => (current + 1) % slides.length);
-    }, 4600);
+    }, 7000);
 
     return () => clearInterval(timer);
   }, []);
