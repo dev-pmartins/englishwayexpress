@@ -16,24 +16,14 @@ const LOGO_DEV_PUBLIC_KEY = 'pk_E4z3_AiLTsKx66PE8t6Sng';
 const featuredClients = [
   { name: "LATAM Airlines",        domain: "latam.com" },
   { name: "IBM",                   domain: "ibm.com" },
-  { name: "Microsoft",             domain: "microsoft.com" },
-  { name: "Ford do Brasil",        domain: "ford.com" },
-  { name: "Grupo Vale",            domain: "vale.com" },
-  { name: "Grupo Toyota Tsusho",   domain: "toyota-tsusho.com" },
-  { name: "Michael Page Group",    domain: "michaelpage.com" },
-  { name: "GFK",                   domain: "gfk.com" },
-  { name: "Officer Distribuidora", domain: "officer.com.br" },
-  { name: "Electrolux",            domain: "electrolux.com" },
-  { name: "CESP",                  domain: "cesp.com.br" },
-  { name: "EMAE",                  domain: "emae.com.br" },
-  { name: "Aristek Avionics",      domain: "aristek.com" },
-  { name: "Jeffrey Group",         domain: "jeffreygroup.com" },
-  { name: "Deloitte",              domain: "deloitte.com" },
-  { name: "Nestle",                domain: "nestle.com" },
-  { name: "Coca-Cola",             domain: "coca-cola.com" },
-  { name: "BrasilPrev",            domain: "brasilprev.com.br" },
-  { name: "Citibank",              domain: "citibank.com" },
-  { name: "Accord",                domain: "accord.com" }
+  { name: "Brookfield Properties", domain: "www.bgre.com"},
+  { name: "Totvs",                 domain: "www.totvs.com"},
+  { name: "Grupo Vera Rosas",      domain: "www.verarosas.com.br"},
+  { name: "Bis Aviation",          domain: "bisaviation.com.br"},
+  { name: "Grupo JBS",             domain: "www.jbs.com.br"},
+  { name: "Oracle",                domain: "www.oracle.com"},
+  { name: "Grupo Toyota Tsusho",   domain: "tsusho.com.br"},
+  { name: "Grupo Vale",            domain: "vale.com"},
 ];
 
 const featuredClientsTopRow = featuredClients.filter((_, index) => index % 2 === 0);

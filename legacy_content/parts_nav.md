@@ -12,7 +12,7 @@
 
 ### Coaching /servicos/coaching/
 
-### Serviço de tradutor /servicos/traducao-interprete/
+### Tradução & Interpretação Simultânea /servicos/traducao-interprete/
 
 ### Tradução de materiais diversos /servicos/traducao-de-materiais
 
