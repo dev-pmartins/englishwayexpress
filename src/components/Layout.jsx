@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import StudentLanguageModal from "./student/StudentLanguageModal";
@@ -34,9 +34,12 @@ const normalizePath = (path) => {
   return normalized || "/";
 };
 
+const isMobileNavigation = () => window.matchMedia("(max-width: 900px)").matches;
+
 function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [expandedMenuPath, setExpandedMenuPath] = useState(null);
   const [isLangModalOpen, setIsLangModalOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -44,13 +47,35 @@ function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
 
   const currentPath = normalizePath(location.pathname);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setExpandedMenuPath(null);
+  }, [currentPath]);
+
   return (
     <div className="app-shell">
       <header className="top-header">
         <div className="container header-row">
-          <Link to="/" className="brand-link" aria-label={t("brand")}>
-            <img src="/logo-englishwayexpress.png" alt={t("brand")} />
-          </Link>
+          <div className="brand-row">
+            <Link to="/" className="brand-link" aria-label={t("brand")}>
+              <img src="/logo-englishwayexpress.png" alt={t("brand")} />
+            </Link>
+
+            <div className="mobile-menu-row">
+              <button
+                type="button"
+                className="menu-toggle menu-toggle--header"
+                aria-expanded={isMenuOpen}
+                aria-controls="primary-navigation"
+                aria-label={isMenuOpen ? t("menuClose") : t("menuOpen")}
+                onClick={() => setIsMenuOpen((open) => !open)}
+              >
+                <span className="menu-toggle-icon" aria-hidden="true">
+                  {isMenuOpen ? "×" : "☰"}
+                </span>
+              </button>
+            </div>
+          </div>
 
           <div className="header-actions">
             <Link
@@ -61,18 +86,33 @@ function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
             </Link>
 
             <div className="lang-control" aria-label={t("language")}>
-            {localeOptions.map((locale) => (
-              <button
-                key={locale.code}
-                type="button"
-                className={`lang-button ${i18n.language === locale.code ? "active" : ""}`}
-                onClick={() => i18n.changeLanguage(locale.code)}
-                title={locale.label}
-                aria-label={locale.label}
-              >
-                <span aria-hidden="true">{locale.flag}</span>
-              </button>
-            ))}
+              {localeOptions.map((locale) => (
+                <button
+                  key={locale.code}
+                  type="button"
+                  className={`lang-button ${i18n.language === locale.code ? "active" : ""}`}
+                  onClick={() => i18n.changeLanguage(locale.code)}
+                  title={locale.label}
+                  aria-label={locale.label}
+                >
+                  <span aria-hidden="true">{locale.flag}</span>
+                </button>
+              ))}
+              <label className="lang-select-wrap">
+                <span className="sr-only">{t("language")}</span>
+                <select
+                  className="lang-select"
+                  value={i18n.language}
+                  onChange={(event) => i18n.changeLanguage(event.target.value)}
+                  aria-label={t("language")}
+                >
+                  {localeOptions.map((locale) => (
+                    <option key={locale.code} value={locale.code}>
+                      {locale.flag} {locale.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
             </div>
           </div>
         </div>
@@ -82,23 +122,46 @@ function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
         <div className="container nav-header">
           <button
             type="button"
-            className="menu-toggle"
+            className="menu-toggle menu-toggle--nav"
             aria-expanded={isMenuOpen}
+            aria-controls="primary-navigation"
             aria-label={isMenuOpen ? t("menuClose") : t("menuOpen")}
             onClick={() => setIsMenuOpen((open) => !open)}
           >
-            {isMenuOpen ? "x" : "menu"}
+            <span className="menu-toggle-icon" aria-hidden="true">
+              {isMenuOpen ? "×" : "☰"}
+            </span>
           </button>
         </div>
 
-        <ul className={`nav-list ${isMenuOpen ? "open" : ""}`}>
-          {legacyContent.navItems.map((item) => (
-            <li key={item.path} className={currentPath === normalizePath(item.path) ? "active" : ""}>
+        <ul id="primary-navigation" className={`nav-list ${isMenuOpen ? "open" : ""}`}>
+          {legacyContent.navItems.map((item) => {
+            const itemPath = normalizePath(item.path);
+            const hasChildren = item.children.length > 0;
+            const isExpanded = expandedMenuPath === itemPath;
+            const submenuId = `submenu-${itemPath.replaceAll("/", "-") || "home"}`;
+
+            return (
+            <li
+              key={item.path}
+              className={[
+                currentPath === itemPath ? "active" : "",
+                isExpanded ? "nav-item--expanded" : ""
+              ].filter(Boolean).join(" ")}
+            >
+              <div className="nav-item-row">
               {normalizePath(item.path) === "/area-do-aluno" ? (
                 <button
                   type="button"
                   className="nav-area-trigger"
+                  aria-expanded={hasChildren ? isExpanded : undefined}
+                  aria-controls={hasChildren ? submenuId : undefined}
                   onClick={() => {
+                    if (hasChildren && isMobileNavigation()) {
+                      setExpandedMenuPath(isExpanded ? null : itemPath);
+                      return;
+                    }
+
                     setIsMenuOpen(false);
                     if (hasLanguagePreference()) {
                       navigate("/area-do-aluno");
@@ -110,12 +173,41 @@ function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
                   {item.label}
                 </button>
               ) : (
-                <Link to={normalizePath(item.path)} onClick={() => setIsMenuOpen(false)}>
+                <Link
+                  to={itemPath}
+                  aria-expanded={hasChildren ? isExpanded : undefined}
+                  aria-controls={hasChildren ? submenuId : undefined}
+                  onClick={(event) => {
+                    if (hasChildren && isMobileNavigation()) {
+                      event.preventDefault();
+                      setExpandedMenuPath(isExpanded ? null : itemPath);
+                      return;
+                    }
+
+                    setIsMenuOpen(false);
+                  }}
+                >
                   {item.label}
                 </Link>
               )}
-              {item.children.length > 0 ? (
-                <ul className="sub-nav">
+              {hasChildren ? (
+                <button
+                  type="button"
+                  className="sub-nav-toggle"
+                  aria-expanded={isExpanded}
+                  aria-controls={submenuId}
+                  aria-label={`${isExpanded ? "Recolher" : "Expandir"} ${item.label}`}
+                  onClick={() => setExpandedMenuPath(isExpanded ? null : itemPath)}
+                >
+                  <span aria-hidden="true">⌄</span>
+                </button>
+              ) : null}
+              </div>
+              {hasChildren ? (
+                <ul
+                  id={submenuId}
+                  className="sub-nav"
+                >
                   {item.children.map((child) => (
                     <li
                       key={child.path}
@@ -134,7 +226,8 @@ function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
                 </ul>
               ) : null}
             </li>
-          ))}
+            );
+          })}
         </ul>
       </nav>
 
@@ -142,7 +235,10 @@ function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
 
       <div className={`container ${(hideSidebar && !sidebarContent) ? "content-layout--full" : `content-layout ${preContent ? "content-layout--overlap" : ""}`}`}>
         {(!hideSidebar || sidebarContent) && (
-          <aside className="site-sidebar" aria-label="Links rapidos">
+          <aside
+            className={`site-sidebar ${sidebarContent ? "site-sidebar--contextual" : ""}`}
+            aria-label="Links rapidos"
+          >
             {sidebarContent ? sidebarContent : (
               <>
                 <nav className="sidebar-section" aria-label={t("footerServices")}>

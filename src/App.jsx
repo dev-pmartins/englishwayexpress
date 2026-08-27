@@ -10,6 +10,7 @@ import HomePageSections from "./components/HomePageSections";
 import ServicesBanner from "./components/ServicesBanner";
 import StudentArea from "./components/student/StudentArea";
 import StudentLoginPage from "./components/student/StudentLoginPage";
+import StudentSidebar from "./components/student/StudentSidebar";
 import PostsPage from "./components/posts/PostsPage";
 import PostDetailPage from "./components/posts/PostDetailPage";
 import LanguagesPage from "./components/languages/LanguagesPage";
@@ -179,7 +180,10 @@ function App() {
   );
 
   return (
-    <Layout preContent={renderedPreContent}>
+    <Layout
+      preContent={renderedPreContent}
+      sidebarContent={isStudentArea && !isStudentLogin ? <StudentSidebar /> : undefined}
+    >
       {renderedContent}
     </Layout>
   );
