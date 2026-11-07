@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import StudentLanguageModal from "./student/StudentLanguageModal";
 
 import { legacyContent } from "../content/legacyContent";
 import { useStudentAuth } from "../contexts/StudentAuthContext";
@@ -16,19 +15,6 @@ const localeOptions = [
   { code: "pt-BR", label: "Portugues", flag: "🇧🇷" }
 ];
 
-const LS_KEY = "ewe_student_languages";
-
-const hasLanguagePreference = () => {
-  const val = localStorage.getItem(LS_KEY);
-  if (val === null) return false;
-  try {
-    const parsed = JSON.parse(val);
-    return Array.isArray(parsed);
-  } catch {
-    return false;
-  }
-};
-
 const normalizePath = (path) => {
   const normalized = path.replace(/\/+$/, "");
   return normalized || "/";
@@ -40,9 +26,7 @@ function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedMenuPath, setExpandedMenuPath] = useState(null);
-  const [isLangModalOpen, setIsLangModalOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
   const { isAuthenticated } = useStudentAuth();
 
   const currentPath = normalizePath(location.pathname);
@@ -150,46 +134,22 @@ function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
               ].filter(Boolean).join(" ")}
             >
               <div className="nav-item-row">
-              {normalizePath(item.path) === "/area-do-aluno" ? (
-                <button
-                  type="button"
-                  className="nav-area-trigger"
-                  aria-expanded={hasChildren ? isExpanded : undefined}
-                  aria-controls={hasChildren ? submenuId : undefined}
-                  onClick={() => {
-                    if (hasChildren && isMobileNavigation()) {
-                      setExpandedMenuPath(isExpanded ? null : itemPath);
-                      return;
-                    }
+              <Link
+                to={itemPath}
+                aria-expanded={hasChildren ? isExpanded : undefined}
+                aria-controls={hasChildren ? submenuId : undefined}
+                onClick={(event) => {
+                  if (hasChildren && isMobileNavigation()) {
+                    event.preventDefault();
+                    setExpandedMenuPath(isExpanded ? null : itemPath);
+                    return;
+                  }
 
-                    setIsMenuOpen(false);
-                    if (hasLanguagePreference()) {
-                      navigate("/area-do-aluno");
-                    } else {
-                      setIsLangModalOpen(true);
-                    }
-                  }}
-                >
-                  {item.label}
-                </button>
-              ) : (
-                <Link
-                  to={itemPath}
-                  aria-expanded={hasChildren ? isExpanded : undefined}
-                  aria-controls={hasChildren ? submenuId : undefined}
-                  onClick={(event) => {
-                    if (hasChildren && isMobileNavigation()) {
-                      event.preventDefault();
-                      setExpandedMenuPath(isExpanded ? null : itemPath);
-                      return;
-                    }
-
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  {item.label}
-                </Link>
-              )}
+                  setIsMenuOpen(false);
+                }}
+              >
+                {item.label}
+              </Link>
               {hasChildren ? (
                 <button
                   type="button"
@@ -349,13 +309,6 @@ function Layout({ children, preContent, hideSidebar = false, sidebarContent }) {
         </div>
       </footer>
 
-      {isLangModalOpen && (
-        <StudentLanguageModal
-          onClose={() => setIsLangModalOpen(false)}
-          onConfirm={() => { setIsLangModalOpen(false); navigate("/area-do-aluno"); }}
-          onSkip={() => { setIsLangModalOpen(false); navigate("/area-do-aluno"); }}
-        />
-      )}
     </div>
   );
 }

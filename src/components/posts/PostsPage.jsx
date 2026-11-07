@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import LegacyMarkdown from "../LegacyMarkdown";
+import PostCover from "./PostCover";
+import PostsLangModal from "./PostsLangModal";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "";
+const CATEGORIES = ["news", "opportunities", "tips", "events"];
 
 const CATEGORY_COLORS = {
   news:          { bg: "#e8f0fe", color: "#1a56db" },
@@ -12,14 +14,60 @@ const CATEGORY_COLORS = {
   events:        { bg: "#ede9fe", color: "#5b21b6" },
 };
 
-export default function PostsPage() {
-  const { t } = useTranslation();
+function translationsOf(post) {
+  return (post.translations ?? []).filter((tr) => tr.slug);
+}
 
-  const [posts,    setPosts]    = useState(null);
-  const [loading,  setLoading]  = useState(true);
-  const [error,    setError]    = useState("");
-  const [category, setCategory] = useState("");
-  const [langCode, setLangCode] = useState("");
+function languageRank(code = "") {
+  const normalized = code.toLowerCase();
+  if (normalized === "pt" || normalized.startsWith("pt-")) return 0;
+  if (normalized === "en" || normalized.startsWith("en-")) return 1;
+  return 2;
+}
+
+function sortTranslations(translations) {
+  return [...translations].sort((a, b) => {
+    const rankA = languageRank(a.language?.code);
+    const rankB = languageRank(b.language?.code);
+    if (rankA !== rankB) return rankA - rankB;
+    return (a.language?.name ?? "").localeCompare(b.language?.name ?? "");
+  });
+}
+
+function pickTranslation(translations, preferredCode) {
+  const sorted = sortTranslations(translations);
+  if (!sorted.length) return null;
+
+  if (preferredCode) {
+    const exact = sorted.find((tr) => tr.language?.code === preferredCode);
+    if (exact) return exact;
+
+    const prefix = preferredCode.split("-")[0];
+    const byPrefix = sorted.find((tr) => {
+      const code = tr.language?.code ?? "";
+      return code === prefix || code.startsWith(`${prefix}-`) || preferredCode.startsWith(code);
+    });
+    if (byPrefix) return byPrefix;
+  }
+
+  return sorted[0];
+}
+
+function languageLabel(t, language) {
+  if (!language) return "";
+  return t(`lang.${language.code}`, { defaultValue: language.name });
+}
+
+export default function PostsPage() {
+  const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+
+  const [posts,        setPosts]        = useState(null);
+  const [loading,      setLoading]      = useState(true);
+  const [error,        setError]        = useState("");
+  const [category,     setCategory]     = useState("");
+  const [langCode,     setLangCode]     = useState("");
+  const [pickerPost,   setPickerPost]   = useState(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -31,31 +79,72 @@ export default function PostsPage() {
 
     fetch(`${API_BASE}/api/posts?${params}`)
       .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then((body) => { if (!cancelled) { setPosts(body.data?.data ?? []); setLoading(false); } })
-      .catch(() => { if (!cancelled) { setError(t("postsLoadError")); setLoading(false); } });
+      .then((body) => {
+        if (!cancelled) {
+          setPosts(body.data?.data ?? []);
+          setLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setError(t("postsLoadError"));
+          setLoading(false);
+        }
+      });
 
     return () => { cancelled = true; };
   }, [category, t]);
 
-  // Derive available language codes from the loaded posts
+  useEffect(() => {
+    setPickerPost(null);
+  }, [category, langCode]);
+
   const allLangs = posts
     ? [...new Map(
-        posts.flatMap((p) => p.translations?.map((tr) => [tr.language?.code, tr.language]) ?? [])
-      ).values()].filter(Boolean)
+        posts.flatMap((p) => translationsOf(p).map((tr) => [tr.language?.code, tr.language]))
+      ).values()]
+        .filter(Boolean)
+        .sort((a, b) => {
+          const rankA = languageRank(a.code);
+          const rankB = languageRank(b.code);
+          if (rankA !== rankB) return rankA - rankB;
+          return (a.name ?? "").localeCompare(b.name ?? "");
+        })
     : [];
 
-  // Filter + pick the correct translation per post
   const visiblePosts = posts
-    ? posts.flatMap((post) => {
-        const translations = post.translations ?? [];
-        const candidates = langCode
-          ? translations.filter((tr) => tr.language?.code === langCode)
-          : translations;
-        const tr = candidates[0];
-        if (!tr?.slug) return [];
-        return [{ post, tr }];
+    ? posts.filter((post) => {
+        const translations = translationsOf(post);
+        if (!translations.length) return false;
+        if (!langCode) return true;
+        return translations.some((tr) => tr.language?.code === langCode);
       })
     : [];
+
+  const pickerTranslations = pickerPost
+    ? sortTranslations(
+        langCode
+          ? translationsOf(pickerPost).filter((tr) => tr.language?.code === langCode)
+          : translationsOf(pickerPost)
+      )
+    : [];
+
+  const openPost = (post) => {
+    const translations = sortTranslations(translationsOf(post));
+    const candidates = langCode
+      ? translations.filter((tr) => tr.language?.code === langCode)
+      : translations;
+
+    if (candidates.length === 1) {
+      setPickerPost(null);
+      navigate(`/noticias/${candidates[0].slug}`);
+      return;
+    }
+
+    if (candidates.length > 1) {
+      setPickerPost(post);
+    }
+  };
 
   return (
     <div className="posts-page">
@@ -64,45 +153,44 @@ export default function PostsPage() {
         <p className="posts-page-subtitle">{t("postsPageSubtitle")}</p>
       </header>
 
-      {/* ── Filters ── */}
       <div className="posts-filters">
         <div className="posts-filter-group">
-          <label className="posts-filter-label">{t("postsFilterCategory")}</label>
-          <div className="posts-filter-pills">
-            {["", "news", "opportunities", "tips", "events"].map((c) => (
-              <button
-                key={c || "all"}
-                className={`posts-filter-pill${category === c ? " posts-filter-pill--active" : ""}`}
-                onClick={() => setCategory(c)}
-              >
-                {c ? t(`postsCat.${c}`) : t("postsFilterAll")}
-              </button>
+          <label className="posts-filter-label" htmlFor="posts-filter-category">
+            {t("postsFilterCategory")}
+          </label>
+          <select
+            id="posts-filter-category"
+            className="posts-filter-select"
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+          >
+            <option value="">{t("postsFilterAll")}</option>
+            {CATEGORIES.map((code) => (
+              <option key={code} value={code}>
+                {t(`postsCat.${code}`)}
+              </option>
             ))}
-          </div>
+          </select>
         </div>
 
-        {allLangs.length > 1 && (
-          <div className="posts-filter-group">
-            <label className="posts-filter-label">{t("postsFilterLang")}</label>
-            <div className="posts-filter-pills">
-              <button
-                className={`posts-filter-pill${langCode === "" ? " posts-filter-pill--active" : ""}`}
-                onClick={() => setLangCode("")}
-              >
-                {t("postsFilterAll")}
-              </button>
-              {allLangs.map((l) => (
-                <button
-                  key={l.code}
-                  className={`posts-filter-pill${langCode === l.code ? " posts-filter-pill--active" : ""}`}
-                  onClick={() => setLangCode(l.code)}
-                >
-                  {t(`lang.${l.code}`, { defaultValue: l.name })}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+        <div className="posts-filter-group">
+          <label className="posts-filter-label" htmlFor="posts-filter-lang">
+            {t("postsFilterLang")}
+          </label>
+          <select
+            id="posts-filter-lang"
+            className="posts-filter-select"
+            value={langCode}
+            onChange={(event) => setLangCode(event.target.value)}
+          >
+            <option value="">{t("postsFilterAll")}</option>
+            {allLangs.map((language) => (
+              <option key={language.code} value={language.code}>
+                {languageLabel(t, language)}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {loading && <p className="posts-state-msg">{t("postsLoading")}</p>}
@@ -114,65 +202,68 @@ export default function PostsPage() {
 
       {!loading && !error && visiblePosts.length > 0 && (
         <div className="posts-grid">
-          {visiblePosts.map(({ post, tr }) => {
+          {visiblePosts.map((post) => {
+            const translations = sortTranslations(translationsOf(post));
+            const displayTr = pickTranslation(translations, langCode || i18n.language);
             const cc = CATEGORY_COLORS[post.category] ?? { bg: "#f3f4f6", color: "#374151" };
-            return (
-              <Link
-                key={`${post.id}-${tr.id}`}
-                to={`/noticias/${tr.slug}`}
-                className="posts-card"
-              >
-                <div className="posts-card-cover">
-                  {post.cover_image ? (
-                    <img
-                      src={post.cover_image}
-                      alt={tr.title}
-                      className="posts-card-cover-img"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="posts-card-cover-placeholder" aria-hidden="true">
-                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="48" height="48" rx="8" fill="#e5e7eb"/>
-                        <path d="M12 34l8-10 6 7 4-5 6 8H12z" fill="#d1d5db"/>
-                        <circle cx="30" cy="18" r="4" fill="#d1d5db"/>
-                      </svg>
-                    </div>
-                  )}
-                  <span
-                    className="posts-card-category posts-card-category--overlay"
-                    style={{ background: cc.bg, color: cc.color }}
-                  >
-                    {t(`postsCat.${post.category}`, { defaultValue: post.category })}
-                  </span>
-                </div>
+            const hasMultipleLangs = (langCode ? translations.filter((tr) => tr.language?.code === langCode) : translations).length > 1;
 
-                <div className="posts-card-body">
-                  <div className="posts-card-top">
-                    {tr.language && (
-                      <span className="posts-card-lang">
-                        {t(`lang.${tr.language.code}`, { defaultValue: tr.language.name })}
-                      </span>
-                    )}
-                    {post.published_at && (
-                      <time className="posts-card-date" dateTime={post.published_at}>
-                        {new Date(post.published_at).toLocaleDateString()}
-                      </time>
-                    )}
+            return (
+              <article key={post.id} className="posts-card">
+                <button
+                  type="button"
+                  className="posts-card-hit"
+                  onClick={() => openPost(post)}
+                  aria-haspopup={hasMultipleLangs ? "dialog" : undefined}
+                >
+                  <div className="posts-card-cover">
+                    <PostCover src={post.cover_image} />
+                    <span
+                      className="posts-card-category posts-card-category--overlay"
+                      style={{ background: cc.bg, color: cc.color }}
+                    >
+                      {t(`postsCat.${post.category}`, { defaultValue: post.category })}
+                    </span>
                   </div>
-                  <h2 className="posts-card-title">{tr.title}</h2>
-                  {tr.short_description && (
-                    <p className="posts-card-excerpt">
-                      {tr.short_description.slice(0, 160)}
-                      {tr.short_description.length > 160 ? "…" : ""}
-                    </p>
-                  )}
-                  <span className="posts-card-readmore">{t("postsReadMore")} →</span>
-                </div>
-              </Link>
+
+                  <div className="posts-card-body">
+                    <div className="posts-card-top">
+                      {translations.length > 0 && (
+                        <span className="posts-card-langs" aria-label={t("postsFilterLang")}>
+                          {translations.map((tr) => (
+                            <span key={tr.slug} className="posts-card-lang-chip">
+                              {languageLabel(t, tr.language)}
+                            </span>
+                          ))}
+                        </span>
+                      )}
+                      {post.published_at && (
+                        <time className="posts-card-date" dateTime={post.published_at}>
+                          {new Date(post.published_at).toLocaleDateString()}
+                        </time>
+                      )}
+                    </div>
+                    <h2 className="posts-card-title">{displayTr?.title}</h2>
+                    {displayTr?.short_description && (
+                      <p className="posts-card-excerpt">
+                        {displayTr.short_description.slice(0, 160)}
+                        {displayTr.short_description.length > 160 ? "…" : ""}
+                      </p>
+                    )}
+                    <span className="posts-card-readmore">{t("postsReadMore")} →</span>
+                  </div>
+                </button>
+              </article>
             );
           })}
         </div>
+      )}
+
+      {pickerTranslations.length > 1 && (
+        <PostsLangModal
+          translations={pickerTranslations}
+          onClose={() => setPickerPost(null)}
+        />
       )}
     </div>
   );

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useStudentAuth } from "../../contexts/StudentAuthContext";
+import PostCover from "../posts/PostCover";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
@@ -160,19 +161,22 @@ export default function StudentLanguagePage({ langCode }) {
                 to={`/area-do-aluno/${langCode}/${translation.slug}`}
                 className="student-post-card student-post-card--link"
               >
-                <span className="student-post-category">{post.category}</span>
-                <h3 className="student-post-title">{translation.title}</h3>
-                {post.published_at && (
-                  <time className="student-post-date" dateTime={post.published_at}>
-                    {new Date(post.published_at).toLocaleDateString()}
-                  </time>
-                )}
-                {translation.content && (
-                  <p className="student-post-excerpt">
-                    {translation.content.replace(/[#*`>]/g, "").slice(0, 200)}
-                    {translation.content.length > 200 ? "…" : ""}
-                  </p>
-                )}
+                <PostCover src={post.cover_image} />
+                <div className="student-post-card-body">
+                  <span className="student-post-category">{post.category}</span>
+                  <h3 className="student-post-title">{translation.title}</h3>
+                  {post.published_at && (
+                    <time className="student-post-date" dateTime={post.published_at}>
+                      {new Date(post.published_at).toLocaleDateString()}
+                    </time>
+                  )}
+                  {translation.content && (
+                    <p className="student-post-excerpt">
+                      {translation.content.replace(/[#*`>]/g, "").slice(0, 200)}
+                      {translation.content.length > 200 ? "…" : ""}
+                    </p>
+                  )}
+                </div>
               </Link>
             );
           })}

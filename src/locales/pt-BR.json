@@ -42,6 +42,10 @@
       "selectLabel": "Selecionar slide",
       "slideLabel": "Slide {{number}}: {{title}}",
       "slides": {
+        "blackfriday": {
+          "title": "BLACK FRIDAY ENGLISH WAY",
+          "content": "Aproveite as ofertas especiais da English Way Express."
+        },
         "courses": {
           "title": "CURSOS DE IDIOMAS CORPORATIVOS & INDIVIDUAIS",
           "content": "Soluções personalizadas de acordo com as metas e objetivos de cada cliente, seja uma empresa ou aluno individual."
@@ -81,6 +85,8 @@
     "overviewText2": "O trabalho combina metodologia comunicativa, leitura rápida de contexto e customização por setor para apoiar desde rotinas internas até situações de alta exposição.",
     "servicesTitle": "Serviços principais",
     "serviceLearnMore": "Conhecer serviço",
+    "latestNewsTitle": "Últimas notícias",
+    "latestNewsViewAll": "Ver todas as notícias",
     "workflowTitle": "Como funciona",
     "scenariosTitle": "Solucoes para cenarios reais de negocio",
     "scenariosText": "Em vez de oferecer pacotes padronizados, a English Way Express estrutura o suporte linguistico de acordo com a situacao em que a comunicacao precisa performar.",
@@ -193,14 +199,15 @@
   "portalBtn": "Portal do Aluno",
   "studentHubSubtitle": "Escolha um idioma para explorar publicações e materiais recentes.",
   "studentHubExplore": "Explorar",
-  "studentBackHub": "Voltar aos idiomas",
+  "studentBackHub": "Voltar para Área do Aluno",
   "studentNoPosts": "Nenhuma publicação disponível para este idioma ainda.",
   "lang": {
     "en": "Inglês",
     "es": "Espanhol",
     "de": "Alemão",
     "fr": "Francês",
-    "it": "Italiano"
+    "it": "Italiano",
+    "pt-BR": "Português"
   },
   "studentPostsHeading": "Publicações",
   "studentMaterialsHeading": "Materiais de Estudo",
@@ -210,6 +217,8 @@
   "postsFilterAll": "Todos",
   "postsFilterCategory": "Categoria",
   "postsFilterLang": "Idioma",
+  "postsChooseLang": "Escolha o idioma",
+  "postsChooseLangHint": "Selecione o idioma da publicação.",
   "postsCat": {
     "news": "Notícias",
     "opportunities": "Oportunidades",

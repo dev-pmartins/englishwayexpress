@@ -42,6 +42,10 @@
       "selectLabel": "Seleccionar diapositiva",
       "slideLabel": "Diapositiva {{number}}: {{title}}",
       "slides": {
+        "blackfriday": {
+          "title": "BLACK FRIDAY ENGLISH WAY",
+          "content": "Aprovecha las ofertas especiales de English Way Express."
+        },
         "courses": {
           "title": "CURSOS DE IDIOMAS CORPORATIVOS E INDIVIDUALES",
           "content": "Soluciones personalizadas según las metas y objetivos de cada cliente, ya sea una empresa o un alumno individual."
@@ -81,6 +85,8 @@
     "overviewText2": "Nuestro trabajo combina metodologia comunicativa, lectura rapida del contexto y personalizacion por sector para apoyar desde rutinas internas hasta situaciones de alta exposicion.",
     "servicesTitle": "Servicios principales",
     "serviceLearnMore": "Conocer el servicio",
+    "latestNewsTitle": "Últimas noticias",
+    "latestNewsViewAll": "Ver todas las noticias",
     "workflowTitle": "Como funciona",
     "scenariosTitle": "Soluciones para escenarios reales de negocio",
     "scenariosText": "En lugar de ofrecer paquetes estandarizados, English Way Express estructura el apoyo linguistico segun la situacion en la que la comunicacion necesita rendir.",
@@ -193,14 +199,15 @@
   "portalBtn": "Portal del Alumno",
   "studentHubSubtitle": "Elige un idioma para explorar publicaciones y materiales recientes.",
   "studentHubExplore": "Explorar",
-  "studentBackHub": "Volver a los idiomas",
+  "studentBackHub": "Volver al Área del Alumno",
   "studentNoPosts": "Aún no hay publicaciones para este idioma.",
   "lang": {
     "en": "Inglés",
     "es": "Español",
     "de": "Alemán",
     "fr": "Francés",
-    "it": "Italiano"
+    "it": "Italiano",
+    "pt-BR": "Portugués"
   },
   "studentPostsHeading": "Publicaciones",
   "studentMaterialsHeading": "Materiales de Estudio",
@@ -210,6 +217,8 @@
   "postsFilterAll": "Todos",
   "postsFilterCategory": "Categoría",
   "postsFilterLang": "Idioma",
+  "postsChooseLang": "Elige el idioma",
+  "postsChooseLangHint": "Selecciona el idioma de la publicacion.",
   "postsCat": {
     "news": "Noticias",
     "opportunities": "Oportunidades",

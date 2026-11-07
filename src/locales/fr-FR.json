@@ -42,6 +42,10 @@
       "selectLabel": "Selectionner une diapositive",
       "slideLabel": "Diapositive {{number}} : {{title}}",
       "slides": {
+        "blackfriday": {
+          "title": "BLACK FRIDAY ENGLISH WAY",
+          "content": "Profitez des offres spéciales d'English Way Express."
+        },
         "courses": {
           "title": "COURS DE LANGUES POUR ENTREPRISES ET PARTICULIERS",
           "content": "Des solutions personnalisees selon les objectifs de chaque client, qu'il s'agisse d'une entreprise ou d'un apprenant individuel."
@@ -81,6 +85,8 @@
     "overviewText2": "Notre travail combine la methodologie communicative, la lecture rapide du contexte et la personnalisation sectorielle pour soutenir aussi bien les routines internes que les situations a forte exposition.",
     "servicesTitle": "Services principaux",
     "serviceLearnMore": "Decouvrir le service",
+    "latestNewsTitle": "Dernières actualités",
+    "latestNewsViewAll": "Voir toutes les actualités",
     "workflowTitle": "Comment ca fonctionne",
     "scenariosTitle": "Solutions pour les scenarios reels d entreprise",
     "scenariosText": "Plutot que de proposer des forfaits standardises, English Way Express structure le soutien linguistique en fonction de la situation dans laquelle la communication doit performer.",
@@ -193,14 +199,15 @@
   "portalBtn": "Espace Étudiant",
   "studentHubSubtitle": "Choisissez une langue pour explorer les publications et matériaux récents.",
   "studentHubExplore": "Explorer",
-  "studentBackHub": "Retour aux langues",
+  "studentBackHub": "Retour à l'Espace Étudiant",
   "studentNoPosts": "Aucune publication disponible pour cette langue.",
   "lang": {
     "en": "Anglais",
     "es": "Espagnol",
     "de": "Allemand",
     "fr": "Français",
-    "it": "Italien"
+    "it": "Italien",
+    "pt-BR": "Portugais"
   },
   "studentPostsHeading": "Publications",
   "studentMaterialsHeading": "Supports de cours",
@@ -210,6 +217,8 @@
   "postsFilterAll": "Tous",
   "postsFilterCategory": "Catégorie",
   "postsFilterLang": "Langue",
+  "postsChooseLang": "Choisissez la langue",
+  "postsChooseLangHint": "Selectionnez la langue de la publication.",
   "postsCat": {
     "news": "Actualités",
     "opportunities": "Opportunités",

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LegacyMarkdown from "../LegacyMarkdown";
+import PostCover from "./PostCover";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
@@ -52,6 +53,11 @@ export default function PostDetailPage({ slug }) {
 
       {!loading && !error && post && (
         <article className="post-detail-article">
+          {post.cover_image && (
+            <div className="post-detail-cover">
+              <PostCover src={post.cover_image} alt={translation?.title ?? ""} />
+            </div>
+          )}
           <header className="post-detail-header">
             <span
               className="posts-card-category"

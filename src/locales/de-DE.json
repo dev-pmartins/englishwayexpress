@@ -42,6 +42,10 @@
       "selectLabel": "Folie auswaehlen",
       "slideLabel": "Folie {{number}}: {{title}}",
       "slides": {
+        "blackfriday": {
+          "title": "BLACK FRIDAY ENGLISH WAY",
+          "content": "Nutzen Sie die Sonderangebote von English Way Express."
+        },
         "courses": {
           "title": "SPRACHKURSE FUER UNTERNEHMEN UND EINZELPERSONEN",
           "content": "Massgeschneiderte Loesungen entsprechend den Zielen jedes Kunden, ob Unternehmen oder einzelner Lernender."
@@ -81,6 +85,8 @@
     "overviewText2": "Unsere Arbeit verbindet kommunikative Methodik, schnelle Kontexterfassung und branchenspezifische Anpassung, um sowohl interne Routinen als auch Situationen mit hoher Exposition zu unterstuetzen.",
     "servicesTitle": "Hauptleistungen",
     "serviceLearnMore": "Leistung entdecken",
+    "latestNewsTitle": "Neueste Nachrichten",
+    "latestNewsViewAll": "Alle Nachrichten ansehen",
     "workflowTitle": "So funktioniert es",
     "scenariosTitle": "Loesungen fuer reale Geschaeftsszenarien",
     "scenariosText": "Statt Standardpakete anzubieten, strukturiert English Way Express die Sprachunterstuetzung entsprechend der Situation, in der Kommunikation leisten muss.",
@@ -193,14 +199,15 @@
   "portalBtn": "Studentenportal",
   "studentHubSubtitle": "Wähle eine Sprache, um aktuelle Beiträge und Materialien zu erkunden.",
   "studentHubExplore": "Erkunden",
-  "studentBackHub": "Zurück zu Sprachen",
+  "studentBackHub": "Zurück zum Studentenbereich",
   "studentNoPosts": "Noch keine Beiträge für diese Sprache verfügbar.",
   "lang": {
     "en": "Englisch",
     "es": "Spanisch",
     "de": "Deutsch",
     "fr": "Französisch",
-    "it": "Italienisch"
+    "it": "Italienisch",
+    "pt-BR": "Portugiesisch"
   },
   "studentPostsHeading": "Beiträge",
   "studentMaterialsHeading": "Lernmaterialien",
@@ -210,6 +217,8 @@
   "postsFilterAll": "Alle",
   "postsFilterCategory": "Kategorie",
   "postsFilterLang": "Sprache",
+  "postsChooseLang": "Sprache waehlen",
+  "postsChooseLangHint": "Waehlen Sie die Sprache des Beitrags.",
   "postsCat": {
     "news": "Neuigkeiten",
     "opportunities": "Chancen",

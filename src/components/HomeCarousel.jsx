@@ -5,8 +5,15 @@ import { useTranslation } from "react-i18next";
 import slideCursos from "../../slide_1_cursos_de_idiomas.webp";
 import slideConsultoria from "../../slide_2_consultoria.webp";
 import slideCoaching from "../../slide_3_coaching.webp";
+import slideBlackFriday from "../../slide_4_blackfriday.png";
 
 const slides = [
+  {
+    translationKey: "blackfriday",
+    kind: "blackfriday",
+    image: slideBlackFriday,
+    link: "https://www.englishwayexpress.com.br/area-do-aluno/pt/a-black-friday-da-english-way"
+  },
   {
     translationKey: "courses",
     kind: "courses",
@@ -57,12 +64,21 @@ function HomeCarousel() {
                   backgroundImage: `linear-gradient(102deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.18)), url(${slide.image})`
                 }}
               >
-                <Link
-                  className="carousel-slide-link"
-                  to={slide.link}
-                  tabIndex={index === activeIndex ? 0 : -1}
-                  aria-label={title}
-                />
+                {/^https?:\/\//i.test(slide.link) ? (
+                  <a
+                    className="carousel-slide-link"
+                    href={slide.link}
+                    tabIndex={index === activeIndex ? 0 : -1}
+                    aria-label={title}
+                  />
+                ) : (
+                  <Link
+                    className="carousel-slide-link"
+                    to={slide.link}
+                    tabIndex={index === activeIndex ? 0 : -1}
+                    aria-label={title}
+                  />
+                )}
                 <div className="container carousel-content-boundary">
                   <div className="carousel-overlay">
                     <div className="carousel-dots" role="tablist" aria-label={t("home.carousel.selectLabel")}>

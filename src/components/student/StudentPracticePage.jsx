@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useStudentLanguages } from "../../hooks/useStudentLanguages";
+import PostCover from "../posts/PostCover";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
@@ -72,19 +73,22 @@ export default function StudentPracticePage() {
                 to={`/area-do-aluno/${langCode}/${tr.slug}`}
                 className="student-post-card student-post-card--link"
               >
-                <span className="student-post-category">{tr.language?.name ?? langCode}</span>
-                <h3 className="student-post-title">{tr.title}</h3>
-                {post.published_at && (
-                  <time className="student-post-date" dateTime={post.published_at}>
-                    {new Date(post.published_at).toLocaleDateString()}
-                  </time>
-                )}
-                {tr.content && (
-                  <p className="student-post-excerpt">
-                    {tr.content.replace(/[#*`>]/g, "").slice(0, 160)}
-                    {tr.content.length > 160 ? "…" : ""}
-                  </p>
-                )}
+                <PostCover src={post.cover_image} />
+                <div className="student-post-card-body">
+                  <span className="student-post-category">{tr.language?.name ?? langCode}</span>
+                  <h3 className="student-post-title">{tr.title}</h3>
+                  {post.published_at && (
+                    <time className="student-post-date" dateTime={post.published_at}>
+                      {new Date(post.published_at).toLocaleDateString()}
+                    </time>
+                  )}
+                  {tr.content && (
+                    <p className="student-post-excerpt">
+                      {tr.content.replace(/[#*`>]/g, "").slice(0, 160)}
+                      {tr.content.length > 160 ? "…" : ""}
+                    </p>
+                  )}
+                </div>
               </Link>
             );
           })}

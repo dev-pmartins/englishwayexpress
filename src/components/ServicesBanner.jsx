@@ -18,7 +18,7 @@ function ServicesBanner({ src, alt }) {
         alt={alt}
         width="1024"
         height="535"
-        fetchPriority="high"
+        fetchpriority="high"
         onError={() => {
           if (imageSrc !== fallbackBanner) {
             setUseFallback(true);

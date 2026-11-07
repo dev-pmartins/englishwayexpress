@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import HomeLatestNews from "./posts/HomeLatestNews";
 import slideCursos from "../../slide_1_cursos_de_idiomas.webp";
 import slideConsultoria from "../../slide_2_consultoria.webp";
 import slideCoaching from "../../slide_3_coaching.webp";
@@ -75,6 +76,8 @@ function HomePageSections() {
 
   return (
     <div className="home-sections">
+      <HomeLatestNews />
+
       <section className="home-service-blog" id="solucoes-em-detalhe">
         <h2 className="section-title">{t("home.serviceSummariesTitle")}</h2>
         <div className="service-blog-list">

@@ -42,6 +42,10 @@
       "selectLabel": "Select slide",
       "slideLabel": "Slide {{number}}: {{title}}",
       "slides": {
+        "blackfriday": {
+          "title": "BLACK FRIDAY ENGLISH WAY",
+          "content": "Take advantage of the special offers from English Way Express."
+        },
         "courses": {
           "title": "CORPORATE AND INDIVIDUAL LANGUAGE COURSES",
           "content": "Customized solutions based on each client's goals and objectives, whether for a company or an individual student."
@@ -81,6 +85,8 @@
     "overviewText2": "Our work combines communicative methodology, rapid context reading, and sector-specific customization to support everything from internal routines to high-exposure situations.",
     "servicesTitle": "Main services",
     "serviceLearnMore": "Learn about this service",
+    "latestNewsTitle": "Latest news",
+    "latestNewsViewAll": "View all news",
     "workflowTitle": "How it works",
     "scenariosTitle": "Solutions for real business scenarios",
     "scenariosText": "Rather than offering standardized packages, English Way Express structures language support according to the situation in which communication needs to perform.",
@@ -193,14 +199,15 @@
   "portalBtn": "Student Portal",
   "studentHubSubtitle": "Choose a language to explore recent posts and materials.",
   "studentHubExplore": "Explore",
-  "studentBackHub": "Back to languages",
+  "studentBackHub": "Back to Student Area",
   "studentNoPosts": "No posts available for this language yet.",
   "lang": {
     "en": "English",
     "es": "Spanish",
     "de": "German",
     "fr": "French",
-    "it": "Italian"
+    "it": "Italian",
+    "pt-BR": "Portuguese"
   },
   "studentPostsHeading": "Posts",
   "studentMaterialsHeading": "Study Materials",
@@ -210,6 +217,8 @@
   "postsFilterAll": "All",
   "postsFilterCategory": "Category",
   "postsFilterLang": "Language",
+  "postsChooseLang": "Choose a language",
+  "postsChooseLangHint": "Select the language of this article.",
   "postsCat": {
     "news": "News",
     "opportunities": "Opportunities",

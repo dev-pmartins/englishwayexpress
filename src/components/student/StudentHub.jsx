@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useStudentAuth } from "../../contexts/StudentAuthContext";
 import { useStudentLanguages } from "../../hooks/useStudentLanguages";
+import PostCover from "../posts/PostCover";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
@@ -54,13 +55,16 @@ function HubSection({ sectionKey, icon, langs, t }) {
                 to={`/area-do-aluno/${langCode}/${tr.slug}`}
                 className="hub-post-card"
               >
-                <span className="hub-post-lang">{tr.language?.name ?? langCode}</span>
-                <h4 className="hub-post-title">{tr.title}</h4>
-                {post.published_at && (
-                  <time className="hub-post-date" dateTime={post.published_at}>
-                    {new Date(post.published_at).toLocaleDateString()}
-                  </time>
-                )}
+                <PostCover src={post.cover_image} />
+                <div className="hub-post-card-body">
+                  <span className="hub-post-lang">{tr.language?.name ?? langCode}</span>
+                  <h4 className="hub-post-title">{tr.title}</h4>
+                  {post.published_at && (
+                    <time className="hub-post-date" dateTime={post.published_at}>
+                      {new Date(post.published_at).toLocaleDateString()}
+                    </time>
+                  )}
+                </div>
               </Link>
             );
           })}
