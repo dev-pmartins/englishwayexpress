@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import PostCover from "./PostCover";
-
-const API_BASE = import.meta.env.VITE_API_URL ?? "";
+import { API_BASE } from "../../api/base";
 
 function pickTranslation(post, preferredCode) {
   const translations = (post.translations ?? []).filter((tr) => tr.slug);

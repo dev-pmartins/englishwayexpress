@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useStudentLanguages } from "../../hooks/useStudentLanguages";
 import PostCover from "../posts/PostCover";
-
-const API_BASE = import.meta.env.VITE_API_URL ?? "";
+import { API_BASE } from "../../api/base";
 
 export default function StudentPracticePage() {
   const { t } = useTranslation();

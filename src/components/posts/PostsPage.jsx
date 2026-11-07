@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import PostCover from "./PostCover";
 import PostsLangModal from "./PostsLangModal";
-
-const API_BASE = import.meta.env.VITE_API_URL ?? "";
+import { API_BASE } from "../../api/base";
 const CATEGORIES = ["news", "opportunities", "tips", "events"];
 
 const CATEGORY_COLORS = {

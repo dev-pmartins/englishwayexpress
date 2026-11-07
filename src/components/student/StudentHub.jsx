@@ -4,8 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useStudentAuth } from "../../contexts/StudentAuthContext";
 import { useStudentLanguages } from "../../hooks/useStudentLanguages";
 import PostCover from "../posts/PostCover";
-
-const API_BASE = import.meta.env.VITE_API_URL ?? "";
+import { API_BASE } from "../../api/base";
 
 const SECTIONS = [
   { key: "news",          icon: "📰" },

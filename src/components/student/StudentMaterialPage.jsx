@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useStudentAuth } from "../../contexts/StudentAuthContext";
-
-const API_BASE = import.meta.env.VITE_API_URL ?? "";
+import { API_BASE } from "../../api/base";
 
 function AttachmentViewer({ att }) {
   const { t } = useTranslation();

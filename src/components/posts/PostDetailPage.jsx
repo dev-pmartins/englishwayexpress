@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LegacyMarkdown from "../LegacyMarkdown";
 import PostCover from "./PostCover";
-
-const API_BASE = import.meta.env.VITE_API_URL ?? "";
+import { API_BASE } from "../../api/base";
 
 const CATEGORY_COLORS = {
   news:          { bg: "#e8f0fe", color: "#1a56db" },

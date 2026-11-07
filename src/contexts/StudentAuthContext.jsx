@@ -1,6 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-
-const API_BASE = import.meta.env.VITE_API_URL ?? "";
+import { API_BASE } from "../api/base";
 const TOKEN_KEY = "ewe_student_token";
 const USER_KEY  = "ewe_student_user";
 

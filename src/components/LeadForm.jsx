@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
+import { API_BASE } from "../api/base";
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY ?? "";
 
@@ -15,8 +16,6 @@ const SOURCE_TO_CATEGORY = {
   "fale-conosco":    "fale_conosco",
   "trabalhe-conosco": "trabalhe_conosco"
 };
-
-const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
 function LeadForm({ source }) {
   const { t } = useTranslation();
